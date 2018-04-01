@@ -6,6 +6,6 @@ before_install:
 - chmod a+x ./install.sh
 - chmod a+x ./build.sh
 install:
-- ./Scripts/install.sh
+- ./install.sh
 script:
 - ./build.sh
