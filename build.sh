@@ -1,6 +1,6 @@
 #! /bin/sh
 
-project="FortWorthGameDev/HeartHome"
+project="test-project"
 
 echo "Attempting to build $project for Windows"
 /Applications/Unity/Unity.app/Contents/MacOS/Unity 
