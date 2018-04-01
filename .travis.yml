@@ -5,7 +5,6 @@ rvm:
 before_install:
 - chmod a+x ./install.sh
 - chmod a+x ./build.sh
-- sudo motion update || echo 'up to date'
 install:
 - ./install.sh
 script:
