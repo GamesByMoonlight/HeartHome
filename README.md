@@ -1,7 +1,7 @@
 # Heart Home
 An episodic emotional game about finding a home for your heart
 
-## Prerequisites
+## Dependencies
 * Unity 2018.1
 
 ## Developer workflow 
