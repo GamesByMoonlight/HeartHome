@@ -1,4 +1,4 @@
-# Heart Home
+# Heart Home ![Build Status](https://travis-ci.org/FortWorthGameDev/HeartHome.svg?branch=develop)
 An episodic emotional game about finding a home for your heart
 
 ## Dependencies
