@@ -490,48 +490,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ShowMaskGraphic: 0
---- !u!1001 &1267594421
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4838139118728278, guid: 2d01516cae03a43da842e720bcb5b560, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4838139118728278, guid: 2d01516cae03a43da842e720bcb5b560, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4838139118728278, guid: 2d01516cae03a43da842e720bcb5b560, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4838139118728278, guid: 2d01516cae03a43da842e720bcb5b560, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4838139118728278, guid: 2d01516cae03a43da842e720bcb5b560, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4838139118728278, guid: 2d01516cae03a43da842e720bcb5b560, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4838139118728278, guid: 2d01516cae03a43da842e720bcb5b560, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4838139118728278, guid: 2d01516cae03a43da842e720bcb5b560, type: 2}
-      propertyPath: m_RootOrder
-      value: 4
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 2d01516cae03a43da842e720bcb5b560, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &1450165287
 GameObject:
   m_ObjectHideFlags: 0
@@ -543,6 +501,7 @@ GameObject:
   - component: {fileID: 1450165288}
   - component: {fileID: 1450165290}
   - component: {fileID: 1450165289}
+  - component: {fileID: 1450165291}
   m_Layer: 5
   m_Name: Inventory Bar
   m_TagString: Untagged
@@ -599,6 +558,20 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1450165287}
+--- !u!114 &1450165291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1450165287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48d3403c3d3fe440aa87e16bb13e5ce2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SlotPrefab: {fileID: 1995836149976252, guid: 0d01f0ea194484dd49f7c3b72df9c979, type: 2}
+  ExamplePrefab: {fileID: 1552053692018724, guid: 2d01516cae03a43da842e720bcb5b560,
+    type: 2}
 --- !u!1 &1820187081
 GameObject:
   m_ObjectHideFlags: 0

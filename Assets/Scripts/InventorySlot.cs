@@ -5,8 +5,12 @@ using UnityEngine.UI;
 
 public class InventorySlot : MonoBehaviour {
     public Text NumberTextElement;
+    public Image ImageIconElement;
 
-    //int inventoryNumber = -1;
+    private IItem item;
+    public IItem Item { get { return item; } set { SetItem(value); } }
+
+    int inventoryNumber = -1;
 
 	// Use this for initialization
 	void Awake () {
@@ -36,7 +40,15 @@ public class InventorySlot : MonoBehaviour {
 	
 	void SetInventoryNumber(int i)
     {
-        //inventoryNumber = i;
+        inventoryNumber = i;
         NumberTextElement.text = i.ToString();
+    }
+
+    void SetItem(IItem newItem)
+    {
+        ImageIconElement.sprite = newItem.InventoryIcon;
+        item = newItem;
+        item.gameObject.transform.SetParent(transform, true);
+        item.gameObject.transform.position = new Vector2(5000 + inventoryNumber * 100, 0);  // Just move it far out of the way
     }
 }

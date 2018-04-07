@@ -180,6 +180,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NumberTextElement: {fileID: 114124662985309220}
+  ImageIconElement: {fileID: 114084038232306142}
 --- !u!114 &114867625238931450
 MonoBehaviour:
   m_ObjectHideFlags: 1
