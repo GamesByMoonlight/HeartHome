@@ -5,6 +5,7 @@ using UnityEngine;
 public class Inventory : MonoBehaviour {
     public GameObject SlotPrefab;
     public GameObject ExamplePrefab;
+    public IItem SelectedIventoryItem;  // Set by slots onClick
 
     private void Update()
     {

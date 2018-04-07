@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class InventorySlot : MonoBehaviour {
     public Text NumberTextElement;
@@ -50,5 +51,13 @@ public class InventorySlot : MonoBehaviour {
         item = newItem;
         item.gameObject.transform.SetParent(transform, true);
         item.gameObject.transform.position = new Vector2(5000 + inventoryNumber * 100, 0);  // Just move it far out of the way
+
     }
+
+    public void SlotSelected()
+    {
+        transform.parent.GetComponent<Inventory>().SelectedIventoryItem = item;
+        Debug.Log(item.gameObject + " selected for use");
+    }
+
 }
