@@ -12,15 +12,34 @@ public class InventorySlot : MonoBehaviour {
     public IItem Item { get { return item; } set { SetItem(value); } }
 
     int inventoryNumber = -1;
+    Inventory inventory;
+    Button button;
 
 	// Use this for initialization
 	void Awake () {
         InitializeSlot();
+        inventory = transform.parent.GetComponent<Inventory>();
+        button = GetComponentInChildren<Button>();
+
+        if(inventoryNumber > 9)
+        {
+            Debug.LogError("Can not have more than 9 items in inventory.  Should this ever happen in our game?  Destroying slot and item");
+            Destroy(gameObject);
+        }
 	}
 
     void OnValidate()
     {
         InitializeSlot();
+    }
+
+    private void Update()
+    {
+        if(Input.GetKeyDown(inventoryNumber.ToString()))
+        {
+            button.Select();
+            SlotSelected();
+        }
     }
 
     void InitializeSlot()
@@ -56,7 +75,7 @@ public class InventorySlot : MonoBehaviour {
 
     public void SlotSelected()
     {
-        transform.parent.GetComponent<Inventory>().SelectedIventoryItem = item;
+        inventory.SelectedIventoryItem = item;
         Debug.Log(item.gameObject + " selected for use");
     }
 
