@@ -181,6 +181,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   NumberTextElement: {fileID: 114124662985309220}
   ImageIconElement: {fileID: 114084038232306142}
+  SelectedSprite: {fileID: 21300000, guid: e184948dc75e69544a4dfdaf2371c876, type: 3}
 --- !u!114 &114867625238931450
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -193,7 +194,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}

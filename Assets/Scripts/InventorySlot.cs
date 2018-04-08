@@ -5,21 +5,28 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 public class InventorySlot : MonoBehaviour {
+    private static InventorySlot SelectedSlot;
+
     public Text NumberTextElement;
     public Image ImageIconElement;
+    public Sprite SelectedSprite;
 
     private IItem item;
     public IItem Item { get { return item; } set { SetItem(value); } }
 
+    Sprite NormalSprite;
     int inventoryNumber = -1;
     Inventory inventory;
     Button button;
+    Image buttonImage;
 
 	// Use this for initialization
 	void Awake () {
         InitializeSlot();
         inventory = transform.parent.GetComponent<Inventory>();
         button = GetComponentInChildren<Button>();
+        buttonImage = button.GetComponent<Image>();
+        NormalSprite = buttonImage.sprite;
 
         if(inventoryNumber > 9)
         {
@@ -38,7 +45,6 @@ public class InventorySlot : MonoBehaviour {
     {
         if(Input.GetKeyDown(inventoryNumber.ToString()))
         {
-            button.Select();
             SlotSelected();
         }
     }
@@ -76,8 +82,10 @@ public class InventorySlot : MonoBehaviour {
 
     public void SlotSelected()
     {
+        button.Select();
+        SelectedSlot = this;
         inventory.SelectedIventoryItem = item;
         Debug.Log(item.gameObject + " selected for use");
-    }
 
+    }
 }
