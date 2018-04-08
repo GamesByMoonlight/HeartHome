@@ -87,7 +87,6 @@ public class InventorySlot : MonoBehaviour {
         if (isOn)
         {
             Inventory.Current.SelectedIventoryItem = item;
-            Debug.Log(item.gameObject.name + " selected");
         }
     }
 
