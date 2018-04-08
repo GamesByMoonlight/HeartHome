@@ -1,11 +1,17 @@
-language: objective-c
-osx_image: xcode8.3
-rvm:
-- 2.2
-before_install:
-- chmod a+x ./install.sh
-- chmod a+x ./build.sh
+# do not install anything extra onto the image
+language: generic
+
+# use a Mac OSX image
+os: osx
+
+# only run builds on pushes to the master branch
+branches:
+  only:
+  - tool/56
+  
 install:
-- ./install.sh
+- sudo -E sh ./Scripts/install.sh
+
+# run the script for unit tests and builds
 script:
-- ./build.sh
+- sudo -E sh ./Scripts/build.sh
