@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class InventorySlot : MonoBehaviour, IDeselectHandler {
+public class InventorySlot : MonoBehaviour {
     private static InventorySlot SelectedSlot;
 
     public Image ImageIconElement;
@@ -16,7 +16,6 @@ public class InventorySlot : MonoBehaviour, IDeselectHandler {
 
     int inventoryNumber = -1;
 
-    Button button;
     Image buttonImage;
     Sprite NormalSprite;
 
@@ -24,7 +23,6 @@ public class InventorySlot : MonoBehaviour, IDeselectHandler {
 	// Use this for initialization
 	void Awake () {
         InitializeSlot();
-        button = GetComponent<Button>();
         buttonImage = GetComponent<Image>();
         NormalSprite = buttonImage.sprite;
 
@@ -87,24 +85,22 @@ public class InventorySlot : MonoBehaviour, IDeselectHandler {
     public void SlotSelected()
     {
         SelectedSlot = this;
-        button.Select();
         Inventory.Current.SelectedIventoryItem = item;
 
 
     }
 
-    public void OnDeselect(BaseEventData eventData)
-    {
+    //public void OnDeselect(BaseEventData eventData)
+    //{
         
-        if(SelectedSlot == this)
-        {
-            //buttonImage.sprite = SelectedSprite;
-            Debug.Log("Deselect: " + item.gameObject.name);
-            button.Select();
-        }
-        //else
-        //{
-        //    buttonImage.sprite = NormalSprite;
-        //}
-    }
+    //    if(SelectedSlot == this)
+    //    {
+    //        //buttonImage.sprite = SelectedSprite;
+    //        Debug.Log("Deselect: " + item.gameObject.name);
+    //    }
+    //    //else
+    //    //{
+    //    //    buttonImage.sprite = NormalSprite;
+    //    //}
+    //}
 }

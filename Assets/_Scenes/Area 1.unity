@@ -591,7 +591,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48d3403c3d3fe440aa87e16bb13e5ce2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SlotPrefab: {fileID: 1995836149976252, guid: 0d01f0ea194484dd49f7c3b72df9c979, type: 2}
+  SlotPrefab: {fileID: 1902788720521466, guid: 04e815e79774b472da1d5c0790602960, type: 2}
 --- !u!1001 &1658845518
 Prefab:
   m_ObjectHideFlags: 0
