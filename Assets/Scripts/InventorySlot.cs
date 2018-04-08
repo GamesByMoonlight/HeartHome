@@ -9,12 +9,12 @@ public class InventorySlot : MonoBehaviour, IDeselectHandler {
 
     public Image ImageIconElement;
     public Sprite SelectedSprite;
+    public Text NumberTextElement;
 
     private IItem item;
     public IItem Item { get { return item; } set { SetItem(value); } }
 
     int inventoryNumber = -1;
-    public int InventoryNumber { get { return inventoryNumber; } set { inventoryNumber = value; } }
 
     Button button;
     Image buttonImage;
@@ -23,6 +23,7 @@ public class InventorySlot : MonoBehaviour, IDeselectHandler {
 
 	// Use this for initialization
 	void Awake () {
+        InitializeSlot();
         button = GetComponent<Button>();
         buttonImage = GetComponent<Image>();
         NormalSprite = buttonImage.sprite;
@@ -34,6 +35,34 @@ public class InventorySlot : MonoBehaviour, IDeselectHandler {
         }
 
 	}
+
+    private void OnValidate()
+    {
+        InitializeSlot();
+    }
+
+    void InitializeSlot()
+    {
+        if (transform == null || transform.parent == null || transform.parent.parent == null)
+            return;
+
+        var slots = transform.parent.parent.GetComponentsInChildren<InventorySlot>();
+
+        for (int i = 0; i < slots.Length; ++i)
+        {
+            if (slots[i] == this)
+            {
+                SetInventoryNumber(i + 1);
+            }
+        }
+    }
+
+    void SetInventoryNumber(int i)
+    {
+        inventoryNumber = i;
+        if (NumberTextElement != null)
+            NumberTextElement.text = i.ToString();
+    }
 
     private void Update()
     {
