@@ -26,6 +26,9 @@ obj/
 *.unityproj
 *.booproj
 
+#vscode support
+*.vscode
+
 # https://github.com/github/gitignore/blob/master/Unity.gitignore
 *.csproj
 *.unityproj
