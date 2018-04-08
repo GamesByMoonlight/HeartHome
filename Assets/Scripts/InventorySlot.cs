@@ -26,6 +26,13 @@ public class InventorySlot : MonoBehaviour {
             Debug.LogError("Can not have more than 9 items in inventory.  Should this ever happen in our game?  Destroying slot and item");
             Destroy(gameObject);
         }
+
+        Navigation n = new Navigation();
+        n.selectOnDown = button;
+        n.selectOnUp = button;
+        n.selectOnLeft = button;
+        n.selectOnRight = button;
+        button.navigation = n;
 	}
 
     void OnValidate()
