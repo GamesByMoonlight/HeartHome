@@ -11,13 +11,14 @@ public class Inventory : MonoBehaviour {
     void Start() {
         Current = this;
     }
+
     private void Update()
     {
     }
 
     public void AddInventory(IItem item)
     {
-        var slot = Instantiate(SlotPrefab, transform).GetComponent<InventorySlot>();
+        var slot = Instantiate(SlotPrefab, transform).GetComponentInChildren<InventorySlot>();
         slot.Item = item;
     }
 }

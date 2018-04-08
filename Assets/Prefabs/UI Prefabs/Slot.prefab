@@ -56,6 +56,7 @@ GameObject:
   - component: {fileID: 222211042413875226}
   - component: {fileID: 114912283789568816}
   - component: {fileID: 114867625238931450}
+  - component: {fileID: 114136486956034122}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -73,7 +74,7 @@ GameObject:
   - component: {fileID: 224026752502411792}
   - component: {fileID: 222421315681559226}
   - component: {fileID: 114162172547422654}
-  - component: {fileID: 114674698959456670}
+  - component: {fileID: 114773462571184640}
   m_Layer: 5
   m_Name: Slot
   m_TagString: Untagged
@@ -141,6 +142,19 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 1
+--- !u!114 &114136486956034122
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1933440453574418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 693ccdc9b181f4b6c9673eb9d054eb80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ImageIconElement: {fileID: 114084038232306142}
+  SelectedSprite: {fileID: 21300000, guid: e184948dc75e69544a4dfdaf2371c876, type: 3}
 --- !u!114 &114162172547422654
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -168,7 +182,7 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114674698959456670
+--- !u!114 &114773462571184640
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -176,12 +190,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1995836149976252}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 693ccdc9b181f4b6c9673eb9d054eb80, type: 3}
+  m_Script: {fileID: 11500000, guid: 2a49e2d3f1aca4cff98a3ade3cc3e290, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   NumberTextElement: {fileID: 114124662985309220}
-  ImageIconElement: {fileID: 114084038232306142}
-  SelectedSprite: {fileID: 21300000, guid: e184948dc75e69544a4dfdaf2371c876, type: 3}
 --- !u!114 &114867625238931450
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -222,7 +234,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114674698959456670}
+      - m_Target: {fileID: 0}
         m_MethodName: SlotSelected
         m_Mode: 1
         m_Arguments:
