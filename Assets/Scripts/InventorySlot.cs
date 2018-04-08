@@ -27,12 +27,6 @@ public class InventorySlot : MonoBehaviour {
             Destroy(gameObject);
         }
 
-        Navigation n = new Navigation();
-        n.selectOnDown = button;
-        n.selectOnUp = button;
-        n.selectOnLeft = button;
-        n.selectOnRight = button;
-        button.navigation = n;
 	}
 
     void OnValidate()
