@@ -89,18 +89,20 @@ public class InventorySlot : MonoBehaviour, IDeselectHandler {
         button.Select();
         SelectedSlot = this;
         Inventory.Current.SelectedIventoryItem = item;
-        Debug.Log(item.gameObject + " selected for use");
+
 
     }
 
     public void OnDeselect(BaseEventData eventData)
     {
-        Debug.Log("deselect called");
-        if(SelectedSlot == this)
-        {
-            buttonImage.sprite = SelectedSprite;
-        }else{
-            buttonImage.sprite = NormalSprite;
-        }
+        
+        //if(SelectedSlot == this)
+        //{
+        //    buttonImage.sprite = SelectedSprite;
+        //}
+        //else
+        //{
+        //    buttonImage.sprite = NormalSprite;
+        //}
     }
 }

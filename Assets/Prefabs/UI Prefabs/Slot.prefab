@@ -153,7 +153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ImageIconElement: {fileID: 114084038232306142}
-  SelectedSprite: {fileID: 21300000, guid: e184948dc75e69544a4dfdaf2371c876, type: 3}
+  SelectedSprite: {fileID: 0}
   NumberTextElement: {fileID: 114124662985309220}
 --- !u!114 &114162172547422654
 MonoBehaviour:
@@ -222,7 +222,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 114136486956034122}
         m_MethodName: SlotSelected
         m_Mode: 1
         m_Arguments:
