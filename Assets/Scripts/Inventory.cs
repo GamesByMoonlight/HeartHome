@@ -4,19 +4,18 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour {
     public GameObject SlotPrefab;
-    public GameObject ExamplePrefab;
+    public static  Inventory Current {get; protected set;}
+
     public IItem SelectedIventoryItem;  // Set by slots onClick
 
+    void Start() {
+        Current = this;
+    }
     private void Update()
     {
-        if(Input.GetButtonDown("Jump"))
-        {
-            var go = Instantiate(ExamplePrefab);
-            AddInventory(go.GetComponent<IItem>());
-        }
     }
 
-    void AddInventory(IItem item)
+    public void AddInventory(IItem item)
     {
         var slot = Instantiate(SlotPrefab, transform).GetComponent<InventorySlot>();
         slot.Item = item;
