@@ -5,6 +5,7 @@ using UnityEngine;
 public class CharacterMovement : MonoBehaviour {
     // Speed modifier for character movement
     public float Speed = 4.0f;
+    public FacingDirection Direction;
 
     private Rigidbody2D playerRigidBody;
     private Animator playerAnim;
@@ -35,6 +36,7 @@ public class CharacterMovement : MonoBehaviour {
         {
             playerAnim.SetBool("xMove", false);
             playerSpriteImage.flipX = false;
+            Direction = movePlayerVertical > 0 ? FacingDirection.Up : FacingDirection.Down;
             playerAnim.SetInteger("yMove", movePlayerVertical > 0 ? 1 : -1);
             playerAnim.SetBool("moving", true);
         }
@@ -42,6 +44,7 @@ public class CharacterMovement : MonoBehaviour {
         {
             playerAnim.SetBool("xMove", true);
             playerAnim.SetInteger("yMove", 0);
+            Direction = movePlayerHorizontal > 0 ? FacingDirection.Right : FacingDirection.Left;
             playerSpriteImage.flipX = movePlayerHorizontal > 0 ? false : true;
             playerAnim.SetBool("moving", true);
         }
@@ -55,4 +58,9 @@ public class CharacterMovement : MonoBehaviour {
         // Move Character
         playerRigidBody.velocity = movement * Speed;
     }
+}
+
+public enum FacingDirection
+{
+    Up, Right, Down, Left
 }
