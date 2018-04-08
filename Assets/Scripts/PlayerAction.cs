@@ -17,7 +17,7 @@ public class PlayerAction : MonoBehaviour {
 	}
 
 	void CheckForAction() {
-        if(Input.GetButtonDown("Jump"))
+        if(Input.GetButtonDown("Action"))
         {
 			if (currentItem == null) {
 				return;
