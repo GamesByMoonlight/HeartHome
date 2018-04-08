@@ -12,7 +12,7 @@ echo "Running editor unit tests for ${UNITYCI_PROJECT_NAME}"
 	-nographics \
 	-silent-crashes \
 	-logFile $(pwd)/unity.log \
-	-projectPath "$(pwd)/${UNITYCI_PROJECT_NAME}" \
+	-projectPath "$(pwd)" \
 	-runEditorTests \
 	-editorTestsResultFile $(pwd)/test.xml \
 	-quit
@@ -31,7 +31,7 @@ echo "Attempting build of ${UNITYCI_PROJECT_NAME} for Windows"
 	-nographics \
 	-silent-crashes \
 	-logFile $(pwd)/unity.log \
-	-projectPath "$(pwd)/${UNITYCI_PROJECT_NAME}" \
+	-projectPath "$(pwd)" \
 	-buildWindowsPlayer "$(pwd)/Build/windows/${UNITYCI_PROJECT_NAME}.exe" \
 	-quit
 
@@ -45,7 +45,7 @@ echo "Attempting build of ${UNITYCI_PROJECT_NAME} for OSX"
 	-nographics \
 	-silent-crashes \
 	-logFile $(pwd)/unity.log \
-	-projectPath "$(pwd)/${UNITYCI_PROJECT_NAME}" \
+	-projectPath "$(pwd)" \
 	-buildOSXUniversalPlayer "$(pwd)/Build/osx/${UNITYCI_PROJECT_NAME}.app" \
 	-quit
 
