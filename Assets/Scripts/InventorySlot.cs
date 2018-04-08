@@ -15,24 +15,24 @@ public class InventorySlot : MonoBehaviour {
     public IItem Item { get { return item; } set { SetItem(value); } }
 
     int inventoryNumber = -1;
-
-    Image buttonImage;
-    Sprite NormalSprite;
-
+    Toggle toggle;
 
 	// Use this for initialization
 	void Awake () {
         InitializeSlot();
-        buttonImage = GetComponent<Image>();
-        NormalSprite = buttonImage.sprite;
+        toggle = GetComponent<Toggle>();
 
         if(inventoryNumber > 9)
         {
             Debug.LogError("Can not have more than 9 items in inventory.  Should this ever happen in our game?  Destroying slot and item");
             Destroy(gameObject);
         }
-
 	}
+
+    private void Start()
+    {
+        GetComponent<Toggle>().group = Inventory.Current.GetComponent<ToggleGroup>();
+    }
 
     private void OnValidate()
     {
@@ -66,7 +66,7 @@ public class InventorySlot : MonoBehaviour {
     {
         if(Input.GetKeyDown(inventoryNumber.ToString()))
         {
-            SlotSelected();
+            toggle.isOn = true;
         }
     }
 
@@ -82,25 +82,13 @@ public class InventorySlot : MonoBehaviour {
 
     }
 
-    public void SlotSelected()
+    public void SlotToggled(bool isOn)
     {
-        SelectedSlot = this;
-        Inventory.Current.SelectedIventoryItem = item;
-
-
+        if (isOn)
+        {
+            Inventory.Current.SelectedIventoryItem = item;
+            Debug.Log(item.gameObject.name + " selected");
+        }
     }
 
-    //public void OnDeselect(BaseEventData eventData)
-    //{
-        
-    //    if(SelectedSlot == this)
-    //    {
-    //        //buttonImage.sprite = SelectedSprite;
-    //        Debug.Log("Deselect: " + item.gameObject.name);
-    //    }
-    //    //else
-    //    //{
-    //    //    buttonImage.sprite = NormalSprite;
-    //    //}
-    //}
 }

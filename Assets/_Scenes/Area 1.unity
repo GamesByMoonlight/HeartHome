@@ -525,6 +525,7 @@ GameObject:
   - component: {fileID: 1450165290}
   - component: {fileID: 1450165289}
   - component: {fileID: 1450165291}
+  - component: {fileID: 1450165292}
   m_Layer: 5
   m_Name: Inventory Bar
   m_TagString: Untagged
@@ -592,6 +593,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SlotPrefab: {fileID: 1902788720521466, guid: 04e815e79774b472da1d5c0790602960, type: 2}
+--- !u!114 &1450165292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1450165287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1184210157, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AllowSwitchOff: 0
 --- !u!1001 &1658845518
 Prefab:
   m_ObjectHideFlags: 0

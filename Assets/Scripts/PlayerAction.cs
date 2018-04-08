@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerAction : MonoBehaviour {
-    public GameObject currentItem;
-	public GameObject player;
+    public GameObject DetectedItem;
+    public GameObject Aperature;  // The front of the player
 
 	// Use this for initialization
 	void Start () {
@@ -19,26 +19,28 @@ public class PlayerAction : MonoBehaviour {
 	void CheckForAction() {
         if(Input.GetButtonDown("Action"))
         {
-			if (currentItem == null) {
-				return;
+			if (DetectedItem == null) {
+                if(Inventory.Current.SelectedIventoryItem != null)
+                {
+                    Inventory.Current.SelectedIventoryItem.UseAt(Aperature);
+                }
+                return;
 			}
 
-			var item = currentItem.GetComponent<IItem>();
+			var item = DetectedItem.GetComponent<IItem>();
 			if (item == null) {
 				return;
 			}
 
-            Inventory.Current.AddInventory(currentItem.GetComponent<IItem>());
+            Inventory.Current.AddInventory(DetectedItem.GetComponent<IItem>());
         }		
 	}
 
 	void OnTriggerEnter2D(Collider2D collider) {
-		this.currentItem = collider.gameObject;	
-		// Debug.Log("current item: ");
-		// Debug.Log(currentItem);
+		this.DetectedItem = collider.gameObject;	
 	}
 
 	void OnTriggerExit2D(Collider2D collider) {
-		this.currentItem = null;	
+		this.DetectedItem = null;	
 	}	
 }
