@@ -45,7 +45,7 @@ public class FlowerGrowth : MonoBehaviour {
     }
     
 
-	void Start () {
+	void Awake () {
         animator = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
 
