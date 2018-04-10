@@ -1,9 +1,9 @@
 # do not install anything extra onto the image
 language: generic
 os: osx
-branches:
-  only:
-  - tool/56
+#branches:
+#  only:
+#  - tool/56
 install:
 - sudo -E sh ./Scripts/install.sh
 script:
