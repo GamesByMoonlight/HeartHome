@@ -1,17 +1,10 @@
 # do not install anything extra onto the image
 language: generic
-
-# use a Mac OSX image
 os: osx
-
-# only run builds on pushes to the master branch
 branches:
   only:
-  - tool/56
-  
+  - develop
 install:
 - sudo -E sh ./Scripts/install.sh
-
-# run the script for unit tests and builds
 script:
 - sudo -E sh ./Scripts/build.sh
