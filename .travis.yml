@@ -3,7 +3,7 @@ language: generic
 os: osx
 branches:
   only:
-  - develop
+  - tool/56
 install:
 - sudo -E sh ./Scripts/install.sh
 script:
