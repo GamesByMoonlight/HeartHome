@@ -1,16 +1,13 @@
 #! /bin/sh
 
-project="HeartHome"
-
-
-echo "Attempting to build $project for Windows"
+echo "Attempting to build ${project} for Windows"
 /Applications/Unity/Unity.app/Contents/MacOS/Unity \
   -batchmode \
   -nographics \
   -silent-crashes \
   -logFile $(pwd)/unity.log \
   -projectPath $(pwd)/ \
-  -executeMethod "$(pwd)/Build/windows/$project.exe"  \
+  -executeMethod "$(pwd)/Build/windows/${project}.exe"  \
   -quit
 
   #echo "Attempting to build $project for Windows"
