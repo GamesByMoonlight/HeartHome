@@ -8,16 +8,21 @@ public class Inventory : MonoBehaviour {
 
     public IItem SelectedIventoryItem;  // Set by slots onClick
 
-    void Start() {
+    void Awake() {
+        if(Current != null)
+        {
+            Debug.LogError("There is more than one Inventory bar in the scene. Current is " + Current.gameObject.name + " and new is " + name);
+        }
         Current = this;
     }
+
     private void Update()
     {
     }
 
     public void AddInventory(IItem item)
     {
-        var slot = Instantiate(SlotPrefab, transform).GetComponent<InventorySlot>();
+        var slot = Instantiate(SlotPrefab, transform).GetComponentInChildren<InventorySlot>();
         slot.Item = item;
     }
 }

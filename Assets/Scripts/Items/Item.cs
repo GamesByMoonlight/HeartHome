@@ -17,9 +17,13 @@ public class Item : MonoBehaviour, IItem {
         }
     }
 
-    public void UseAt(GameObject location)
+    public virtual void UseAt(GameObject location)
     {
-        Debug.Log(name + " does nothing when used");
+        Debug.Log(name + " does nothing. Used at " + location.name + " location");
     }
 
+    public virtual void UseAt(Vector2 location)
+    {
+        Debug.Log(name + " does nothing. Used at " + location);
+    }
 }
