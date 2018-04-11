@@ -8,10 +8,12 @@ public class Hoe : Item {
 
     PlayerAction playerAction;
     Animator animator;
+    SpriteRenderer spriteRenderer;
 
 	void Awake() {
 		playerAction = GameObject.Find ("Player").GetComponent<PlayerAction>();
         animator = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
 
 		if (playerAction == null) {
 			Debug.LogError("PlayerAction not found in scene. Hoe needs it");
@@ -29,27 +31,35 @@ public class Hoe : Item {
 
 	void PlayAnimation()
     {
-        string direction = playerAction.DirectionAperature.name;
+        // Record where this Hoe is currently stored (should be off screen somewhere)
         Vector2 start = transform.position;
-        transform.position = playerAction.transform.position;
+        int renderOrder = spriteRenderer.sortingOrder;
 
+        transform.position = playerAction.ItemUseAperature.transform.position;
+        spriteRenderer.sortingOrder = 3; // Move in front of player
+
+        // Determine which animation to play, then play it
+        string direction = playerAction.DirectionAperature.name;
         if(direction.Contains("Left")) // Sloppy, but whatever
         {
             animator.SetTrigger("SlashLeft");
-            StartCoroutine(ReturnToStart(start));
         }
         else if (direction.Contains("Right")) // Sloppy, but whatever
         {
             animator.SetTrigger("SlashRight");
-            StartCoroutine(ReturnToStart(start));
         }
+
+        // Return the Hoe back to the start once the animation is finished
+        StartCoroutine(ReturnToStart(start, renderOrder));
 
     }
 
-    IEnumerator ReturnToStart(Vector2 start)
+    IEnumerator ReturnToStart(Vector2 start, int renderOrder)
     {
-        yield return new WaitForSeconds(.3f);
+        yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length);
+
         transform.position = start;
+        spriteRenderer.sortingOrder = renderOrder;
     }
 
 }

@@ -9,6 +9,7 @@ public class PlayerAction : MonoBehaviour
     [SerializeField] GameObject RightAperature;  // The "front" of the player.  For use in using items at correct location
     [SerializeField] GameObject LeftAperature;  // The "front" of the player.  For use in using items at correct location
     [SerializeField] GameObject UpAperature;  // The "front" of the player.  For use in using items at correct location
+    public GameObject ItemUseAperature;
 
     private List<GameObject> detectedItems;
     public GameObject DetectedItem { get { return GetLastDetectedItem(); }}
