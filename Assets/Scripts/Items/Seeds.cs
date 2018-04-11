@@ -27,7 +27,6 @@ public class Seeds : Item {
         var soil = location.GetComponent<FertileSoil>();
         if (soil != null )
         {
-            Debug.Log("Found soil, planting seeds");
             soil.PlantSeeds();
 
         }

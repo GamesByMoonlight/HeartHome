@@ -18,7 +18,6 @@ public class FertileSoil : MonoBehaviour {
 
     public void PlantSeeds()
     {
-        Debug.Log("Throwing seeds");
         var seeds = Instantiate(ThrownSeedsPrefab, transform.position, Quaternion.Euler(0f, 0f, 0f), transform);
 
     }

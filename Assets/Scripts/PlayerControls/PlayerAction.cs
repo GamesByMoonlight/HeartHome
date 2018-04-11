@@ -92,24 +92,10 @@ public class PlayerAction : MonoBehaviour
     void OnTriggerEnter2D(Collider2D col)
     {
         detectedItems.Add(col.gameObject);
-
-        string s = "More: ";
-        foreach(GameObject go in detectedItems)
-        {
-            s += go.name + " | ";
-        }
-        Debug.Log(s);
     }
 
     void OnTriggerExit2D(Collider2D col)
     {
         detectedItems.Remove(col.gameObject);
-
-        string s = "Less: ";
-        foreach (GameObject go in detectedItems)
-        {
-            s += go.name + " | ";
-        }
-        Debug.Log(s);
     }
 }
