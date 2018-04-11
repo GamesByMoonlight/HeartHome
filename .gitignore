@@ -25,6 +25,7 @@ obj/
 *.user
 *.unityproj
 *.booproj
+.vs/
 
 #vscode support
 *.vscode

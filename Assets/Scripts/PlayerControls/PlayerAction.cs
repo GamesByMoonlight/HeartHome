@@ -32,6 +32,7 @@ public class PlayerAction : MonoBehaviour
         {
             if (DetectedItem == null)
             {
+                
                 UseItem(DirectionAperature);
                 return;
             }
