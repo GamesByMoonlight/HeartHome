@@ -34,24 +34,45 @@ public class Hoe : Item {
         // Record where this Hoe is currently stored (should be off screen somewhere)
         Vector2 start = transform.position;
         int renderOrder = spriteRenderer.sortingOrder;
-
         transform.position = playerAction.ItemUseAperature.transform.position;
         spriteRenderer.sortingOrder = 3; // Move in front of player
 
-        // Determine which animation to play, then play it
-        string direction = playerAction.DirectionAperature.name;
-        if(direction.Contains("Left")) // Sloppy, but whatever
-        {
-            animator.SetTrigger("SlashLeft");
-        }
-        else if (direction.Contains("Right")) // Sloppy, but whatever
-        {
-            animator.SetTrigger("SlashRight");
-        }
+
+        string trigger = GetTrigger(playerAction.DirectionAperature.name);
+        if (trigger.Contains("Up"))
+            spriteRenderer.sortingOrder = renderOrder;
+        animator.SetTrigger(trigger);
+
 
         // Return the Hoe back to the start once the animation is finished
         StartCoroutine(ReturnToStart(start, renderOrder));
 
+    }
+
+    string GetTrigger(string direction)
+    {
+        string trigger = "";
+        if (direction.Contains("Left")) // Sloppy, but whatever.  This logic requires the Aperatures in Player prefab to be named properly
+        {
+            trigger = "SlashLeft";
+        }
+        else if (direction.Contains("Right")) 
+        {
+            trigger = "SlashRight";
+        }
+        else if(direction.Contains("Down"))
+        {
+            trigger = "SlashDown";
+        }
+        else if(direction.Contains("Up"))
+        {
+            trigger = "SlashUp";
+        }
+        else{
+            Debug.LogWarning("Could not determine which way Character is facing.  Animation trigger may not be set properly.");
+        }
+
+        return trigger;
     }
 
     IEnumerator ReturnToStart(Vector2 start, int renderOrder)
