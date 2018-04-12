@@ -81,5 +81,11 @@ public class GhostController : MonoBehaviour {
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        var flower = collision.gameObject.GetComponent<Flower>();
+        if (flower && flower.Alive)
+            flower.Kill();
+    }
 
 }
