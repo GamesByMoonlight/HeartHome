@@ -68,6 +68,7 @@ public class FlowerGrowth : MonoBehaviour {
     public void Kill()
     {
         animator.SetTrigger("Die");
+        GetComponent<Flower>().Kill();
     }
 
     // Method to let the animator play the audio clip based on growth stage
