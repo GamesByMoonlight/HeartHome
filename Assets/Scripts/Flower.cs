@@ -11,7 +11,12 @@ public class Flower : MonoBehaviour {
     private static int FlowersCreated = 0;
     private static bool GhostMade = false;  // Some extra reduntancy 
 
-    Flower Next;
+    Flower next;
+    public Flower Next { get { return next; } }
+    bool alive = true;
+    public bool Alive { get { return alive; } }
+
+    Animator animator;
 
     private void Awake()
     {
@@ -23,9 +28,10 @@ public class Flower : MonoBehaviour {
 
         if (YoungestFlower != null)
         {
-            YoungestFlower.Next = this;
+            YoungestFlower.next = this;
         }
         YoungestFlower = this;
+        animator = GetComponent<Animator>();
     }
 
     private void Start()
@@ -41,5 +47,11 @@ public class Flower : MonoBehaviour {
             GhostMade = true;
             GameEventSystem.Instance.MakeGhost.Invoke();
         }
+    }
+
+    public void Kill()
+    {
+        alive = false;
+        animator.SetTrigger("Die");           
     }
 }
