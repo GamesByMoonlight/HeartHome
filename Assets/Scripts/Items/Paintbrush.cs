@@ -14,7 +14,5 @@ public class Paintbrush : Item {
     {
         var Flower = Instantiate(FlowerPrefab);
         Flower.transform.position = location;
-
-        Debug.Log("Make Flower at " + location);
     }
 }
