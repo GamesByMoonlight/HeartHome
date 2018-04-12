@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class PlayerAction : MonoBehaviour
 {
-    public GameObject DetectedItem;
+    
     [SerializeField] GameObject DownAperature;  // The "front" of the player.  For use in using items at correct location
     [SerializeField] GameObject RightAperature;  // The "front" of the player.  For use in using items at correct location
     [SerializeField] GameObject LeftAperature;  // The "front" of the player.  For use in using items at correct location
     [SerializeField] GameObject UpAperature;  // The "front" of the player.  For use in using items at correct location
+    public GameObject ItemUseAperature;
 
+    private List<GameObject> detectedItems;
+    public GameObject DetectedItem { get { return GetLastDetectedItem(); }}
     public GameObject DirectionAperature { get { return GetDirection(); } }
 
     CharacterMovement Movement;
@@ -17,6 +20,7 @@ public class PlayerAction : MonoBehaviour
     // Use this for initialization
     void Awake()
     {
+        detectedItems = new List<GameObject>();
         Movement = GetComponent<CharacterMovement>();
     }
 
@@ -81,13 +85,18 @@ public class PlayerAction : MonoBehaviour
         return Aperature;
     }
 
-    void OnTriggerEnter2D(Collider2D collider)
+    GameObject GetLastDetectedItem()
     {
-        this.DetectedItem = collider.gameObject;
+        return detectedItems.Count > 0 ? detectedItems[detectedItems.Count - 1] : null;
     }
 
-    void OnTriggerExit2D(Collider2D collider)
+    void OnTriggerEnter2D(Collider2D col)
     {
-        this.DetectedItem = null;
+        detectedItems.Add(col.gameObject);
+    }
+
+    void OnTriggerExit2D(Collider2D col)
+    {
+        detectedItems.Remove(col.gameObject);
     }
 }

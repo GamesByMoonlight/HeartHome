@@ -19,9 +19,6 @@ public class FertileSoil : MonoBehaviour {
     public void PlantSeeds()
     {
         var seeds = Instantiate(ThrownSeedsPrefab, transform.position, Quaternion.Euler(0f, 0f, 0f), transform);
-        //seeds.transform.position = transform.position;
-
-
 
     }
 }
