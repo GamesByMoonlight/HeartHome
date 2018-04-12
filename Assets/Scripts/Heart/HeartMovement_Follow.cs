@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class HeartMovement_Follow : MonoBehaviour {
 
-    public float DistanceFollowed = 0.0f;
+    public float DistanceFollowed = 3.0f;
     // This is the distance to a tool for the heart to start moving towards.
-    public float ToolLatchDistance = 0.0f;
-    public float MoveToPlayerSpeed = 0.0f;
-    public float MoveToToolSpeed = 0.0f;
+    public float ToolLatchDistance = 10.0f;
+    public float MoveToPlayerSpeed = 4.0f;
+    public float MoveToToolSpeed = 6.0f;
     public Transform followTarget;
     public string ToolTag = "Tool";
 
