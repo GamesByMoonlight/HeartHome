@@ -63,13 +63,6 @@ public class FlowerGrowth : MonoBehaviour {
             StartCoroutine("FlowerUpgrade");
         }
     }
-	
-    // Kills the flower
-    public void Kill()
-    {
-        animator.SetTrigger("Die");
-        GetComponent<Flower>().Kill();
-    }
 
     // Method to let the animator play the audio clip based on growth stage
     public void PlayAudioClip()
