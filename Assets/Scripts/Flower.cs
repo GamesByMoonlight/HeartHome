@@ -13,7 +13,7 @@ public class Flower : MonoBehaviour {
 
     Flower next;
     public Flower Next { get { return next; } }
-    bool alive;
+    bool alive = true;
     public bool Alive { get { return alive; } }
 
     Animator animator;

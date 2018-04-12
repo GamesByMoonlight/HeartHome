@@ -20,22 +20,33 @@ public class GhostController : MonoBehaviour {
         target = Flower.OldestFlower;
         if (target == null)
             StartCoroutine(WaitForFlowers());
+        else
+            StartCoroutine(ChaseFlowers());
+    }
+
+    IEnumerator WaitForFlowers()
+    {
+        while (target == null)
+        {
+            yield return new WaitForSeconds(.3f);
+            target = Flower.OldestFlower;
+        }
+
+        StartCoroutine(ChaseFlowers());
     }
 
     // Update is called once per frame
-    void FixedUpdate () {
-        //var horizontal = Input.GetAxis("Horizontal");
-        //var  vertical = Input.GetAxis("Vertical");
-        //var movement = new Vector2(horizontal, vertical);
+    IEnumerator ChaseFlowers() {
+        while (true)
+        {
+            target = UpdateTargetFlower(target);
+            var movement = (target.transform.position - transform.position).normalized;
 
-        //Debug.Log(Vector2.SignedAngle(Vector2.up, movement));
+            SetAnimator(Vector2.SignedAngle(Vector2.up, movement));
+            rb.velocity = movement * Speed;
 
-
-
-        //var angle = Vector2.SignedAngle(Vector2.up, movement);
-        //SetAnimator(angle);
-
-        //rb.velocity = movement * Speed;
+            yield return new WaitForFixedUpdate();
+        }
 	}
 
     Flower UpdateTargetFlower(Flower currentTarget)
@@ -43,7 +54,7 @@ public class GhostController : MonoBehaviour {
         if (currentTarget.Alive)
             return currentTarget;
 
-        return currentTarget.Next;
+        return currentTarget.Next ? currentTarget.Next : currentTarget;
     }
 
     void SetAnimator(float angle)
@@ -70,12 +81,5 @@ public class GhostController : MonoBehaviour {
         }
     }
 
-    IEnumerator WaitForFlowers()
-    {
-        while (target == null)
-        {
-            yield return new WaitForSeconds(.3f);
-            target = Flower.OldestFlower;
-        }
-    }
+
 }
