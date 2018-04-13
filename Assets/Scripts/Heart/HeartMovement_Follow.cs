@@ -5,13 +5,15 @@ using UnityEngine;
 
 public class HeartMovement_Follow : MonoBehaviour {
 
-    [SerializeField] private float DistanceFollowed = 1.0f;
+    [SerializeField] private float distanceFollowed = 1.0f;
     [SerializeField] private float ToolLatchDistance = 5.0f;  // This is the distance to a tool for the heart to start moving towards.
     [SerializeField] private float MoveToPlayerSpeed = 4.0f;
     [SerializeField] private float MoveToToolSpeed = 4.0f;
     [SerializeField] private float LerpToPlayerDrag = 0.05f;
     [SerializeField] private float CircleDistance = 1.0f;
     [SerializeField] private float RotateSpeed = 2f;
+
+    public float DistanceToFollow { get { return distanceFollowed; } set { distanceFollowed = value; } } 
     public Transform followTarget;
     public string ToolTag = "Tool";
 
@@ -76,7 +78,7 @@ public class HeartMovement_Follow : MonoBehaviour {
         {
             dist = Vector3.Distance(followTarget.position, transform.position);
 
-            if (dist > DistanceFollowed)
+            if (dist > distanceFollowed)
             {
                 target = followTarget.position;
                 targetFound = true;

@@ -75,6 +75,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: 0
+  HappyDistanceFollow: 1
+  ColdDistanceFollow: 2
 --- !u!114 &114135397481890308
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -86,7 +88,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65d210264f5bc1042859dcb3ae68c11c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DistanceFollowed: 1
+  distanceFollowed: 1
   ToolLatchDistance: 5
   MoveToPlayerSpeed: 12
   MoveToToolSpeed: 16
