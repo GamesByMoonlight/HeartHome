@@ -30,7 +30,7 @@ public class HeartMovement_Follow : MonoBehaviour {
             ToolLocations[i] = temp[i].GetComponent<Transform>();
         }
 
-        Debug.Log("Num Tools: " + temp.Length);
+        //Debug.Log("Num Tools: " + temp.Length);
     }
 
     // Update is called once per frame
@@ -53,7 +53,7 @@ public class HeartMovement_Follow : MonoBehaviour {
 
             if (dist < ToolLatchDistance && dist > CircleDistance)
             {
-                Debug.Log("Target Distance = " + Vector3.Distance(tool.position, transform.position));
+                //Debug.Log("Target Distance = " + Vector3.Distance(tool.position, transform.position));
                 target = tool.position;
                 targetFound = true;
                 MoveSpeed = MoveToToolSpeed;
