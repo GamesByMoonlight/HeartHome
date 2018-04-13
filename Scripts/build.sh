@@ -13,5 +13,7 @@ echo "Attempting to build"
 echo 'Logs from build'
 cat $(pwd)/unity.log
 
+ls 
+
 echo 'Attempting to zip builds'
 zip -r $(pwd)/Build/windows.zip $(pwd)/Build/windows/
