@@ -9,21 +9,19 @@ public class HeartMovement_Follow : MonoBehaviour {
     [SerializeField] private float ToolLatchDistance = 5.0f;  // This is the distance to a tool for the heart to start moving towards.
     [SerializeField] private float MoveToPlayerSpeed = 4.0f;
     [SerializeField] private float MoveToToolSpeed = 4.0f;
+    [SerializeField] private float LerpToPlayerDrag = 0.05f;
     [SerializeField] private float CircleDistance = 1.0f;
     [SerializeField] private float RotateSpeed = 2f;
     public Transform followTarget;
     public string ToolTag = "Tool";
 
     private Transform[] ToolLocations;
-    private float angle = 0.0f;
 
     Rigidbody2D rb;
-    Rigidbody2D playerRB;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        playerRB = followTarget.GetComponent<Rigidbody2D>();
     }
 
     // Use this for initialization
@@ -104,7 +102,7 @@ public class HeartMovement_Follow : MonoBehaviour {
         }
         else
         {
-            rb.velocity = Vector2.Lerp(rb.velocity, Vector2.zero, .1f); 
+            rb.velocity = Vector2.Lerp(rb.velocity, Vector2.zero, LerpToPlayerDrag); 
         }
 
     }

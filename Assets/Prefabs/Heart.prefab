@@ -88,8 +88,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DistanceFollowed: 1
   ToolLatchDistance: 5
-  MoveToPlayerSpeed: 8
+  MoveToPlayerSpeed: 12
   MoveToToolSpeed: 16
+  LerpToPlayerDrag: 0.1
   CircleDistance: 1
   RotateSpeed: 5
   followTarget: {fileID: 0}
