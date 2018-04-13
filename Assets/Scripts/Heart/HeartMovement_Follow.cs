@@ -1,18 +1,21 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class HeartMovement_Follow : MonoBehaviour {
 
-    public float DistanceFollowed = 3.0f;
+    private float DistanceFollowed = 1.0f;
     // This is the distance to a tool for the heart to start moving towards.
-    public float ToolLatchDistance = 10.0f;
-    public float MoveToPlayerSpeed = 4.0f;
-    public float MoveToToolSpeed = 6.0f;
+    private float ToolLatchDistance = 5.0f;
+    private float MoveToPlayerSpeed = 4.0f;
+    private float MoveToToolSpeed = 4.0f;
+    private float CircleDistance = 1.0f;
     public Transform followTarget;
     public string ToolTag = "Tool";
 
     private Transform[] ToolLocations;
+    private float angle = 0.0f;
 
 	// Use this for initialization
 	void Start ()
@@ -46,15 +49,22 @@ public class HeartMovement_Follow : MonoBehaviour {
 
         foreach (Transform tool in ToolLocations)
         {
-            if (Vector3.Distance(tool.position, followTarget.position) < ToolLatchDistance)
+            dist = Vector3.Distance(tool.position, followTarget.position);
+
+            if (dist < ToolLatchDistance && dist > CircleDistance)
             {
-                Debug.Log(Vector3.Distance(tool.position, followTarget.position));
+                Debug.Log("Target Distance = " + Vector3.Distance(tool.position, transform.position));
                 target = tool.position;
                 targetFound = true;
                 MoveSpeed = MoveToToolSpeed;
             }
+            else if (dist <= CircleDistance)
+            {
+
+            }
         }
 
+        // If no tool is found to latch to, move towards the player.
         if (!targetFound)
         {
             dist = Vector3.Distance(followTarget.position, transform.position);
@@ -69,8 +79,34 @@ public class HeartMovement_Follow : MonoBehaviour {
 
         if (targetFound)
         {
-            float step = MoveSpeed * Time.deltaTime;
-            transform.position = Vector3.MoveTowards(transform.position, target, step);
+            dist = Vector3.Distance(target, transform.position);
+            if (dist <= CircleDistance)
+            {
+                //
+                // Figure out the current angle between the objects.
+                //
+                Vector3 dir = target - transform.position;
+                //angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+                HeartCircle(target);
+            }
+            else
+            {
+                float step = MoveSpeed * Time.deltaTime;
+                transform.position = Vector3.MoveTowards(transform.position, target, step);
+            }
         }
+
+    }
+
+    private void HeartCircle(Vector3 target)
+    {
+        float RotateSpeed = 2f;
+
+        angle += RotateSpeed * Time.deltaTime;
+
+	    var offset = new Vector3(Mathf.Sin(angle), Mathf.Cos(angle)) * CircleDistance;
+	    transform.position = target + offset;
+
+        //Debug.Log("Circling, Offset =" + offset);
     }
 }
