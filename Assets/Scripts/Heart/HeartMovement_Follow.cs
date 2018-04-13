@@ -18,10 +18,12 @@ public class HeartMovement_Follow : MonoBehaviour {
     private float angle = 0.0f;
 
     Rigidbody2D rb;
+    Rigidbody2D playerRB;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        playerRB = followTarget.GetComponent<Rigidbody2D>();
     }
 
     // Use this for initialization
@@ -92,30 +94,26 @@ public class HeartMovement_Follow : MonoBehaviour {
                 //
                 // Figure out the current angle between the objects.
                 //
-                // Vector3 dir = target - transform.position;
-                //angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
                 HeartCircle(target);
             }
             else
             {
-                
-                float step = MoveSpeed;
                 rb.velocity = (target - transform.position).normalized * MoveSpeed;
-                //transform.position = Vector3.MoveTowards(transform.position, target, step);
+            
             }
+        }
+        else
+        {
+            rb.velocity = Vector2.Lerp(rb.velocity, Vector2.zero, .1f); 
         }
 
     }
 
     private void HeartCircle(Vector3 target)
     {
-        //   angle += RotateSpeed;
+        rb.velocity = Vector2.zero;
+        transform.RotateAround(target, new Vector3(0f, 0f, 1f), RotateSpeed);
+        transform.rotation = Quaternion.Euler(0f, 0f, 0f);
 
-        //var offset = new Vector3(Mathf.Sin(angle), Mathf.Cos(angle)) * CircleDistance;
-        //transform.position = target + offset;
-
-        rb.velocity = Vector3.Cross(new Vector3(0f, 0f, 1f), (target - transform.position)).normalized * RotateSpeed;
-
-        //Debug.Log("Circling, Offset =" + offset);
     }
 }
