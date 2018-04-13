@@ -98,7 +98,7 @@ public class HeartMovement_Follow : MonoBehaviour {
             }
             else
             {
-                rb.velocity = (target - transform.position).normalized * MoveSpeed;
+                rb.velocity = Vector2.Lerp(rb.velocity, (target - transform.position).normalized * MoveSpeed, .1f);
             
             }
         }
