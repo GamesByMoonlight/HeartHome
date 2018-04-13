@@ -17,8 +17,15 @@ public class HeartMovement_Follow : MonoBehaviour {
     private Transform[] ToolLocations;
     private float angle = 0.0f;
 
-	// Use this for initialization
-	void Start ()
+    Rigidbody2D rb;
+
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
+
+    // Use this for initialization
+    void Start ()
     {
         var temp = GameObject.FindGameObjectsWithTag(ToolTag);
         ToolLocations = new Transform[temp.Length];
@@ -91,8 +98,10 @@ public class HeartMovement_Follow : MonoBehaviour {
             }
             else
             {
+                
                 float step = MoveSpeed;
-                transform.position = Vector3.MoveTowards(transform.position, target, step);
+                rb.velocity = (target - transform.position).normalized * MoveSpeed;
+                //transform.position = Vector3.MoveTowards(transform.position, target, step);
             }
         }
 
@@ -100,10 +109,12 @@ public class HeartMovement_Follow : MonoBehaviour {
 
     private void HeartCircle(Vector3 target)
     {
-        angle += RotateSpeed;
+        //   angle += RotateSpeed;
 
-	    var offset = new Vector3(Mathf.Sin(angle), Mathf.Cos(angle)) * CircleDistance;
-	    transform.position = target + offset;
+        //var offset = new Vector3(Mathf.Sin(angle), Mathf.Cos(angle)) * CircleDistance;
+        //transform.position = target + offset;
+
+        rb.velocity = Vector3.Cross(new Vector3(0f, 0f, 1f), (target - transform.position)).normalized * RotateSpeed;
 
         //Debug.Log("Circling, Offset =" + offset);
     }
