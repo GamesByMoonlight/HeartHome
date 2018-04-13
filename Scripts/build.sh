@@ -18,3 +18,5 @@ ls
 
 echo 'Attempting to zip builds'
 zip -r $(pwd)/Build/Source/windows.zip $(pwd)/Build/windows/
+cd $(pwd)/Build/Source/
+ls
