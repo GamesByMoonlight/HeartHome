@@ -1,5 +1,6 @@
 language: generic
 os: osx
+osx_image: xcode6.4
 install:
 - sudo -E sh ./Scripts/install.sh
 script:
