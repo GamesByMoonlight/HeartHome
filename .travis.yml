@@ -1,5 +1,5 @@
 language: generic
-os: linux
+os: osx
 install:
 - sudo -E sh ./Scripts/install.sh
 script:
