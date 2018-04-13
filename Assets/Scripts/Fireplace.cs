@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BurnItem : MonoBehaviour {
+public class FirePlace : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
@@ -13,4 +13,11 @@ public class BurnItem : MonoBehaviour {
 	void Update () {
 		
 	}
+
+    public void Burn()
+    {
+        Debug.Log("Scott help ");
+        throw new System.NotImplementedException();
+
+    }
 }
