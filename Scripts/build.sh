@@ -1,12 +1,13 @@
 #! /bin/sh
 
-echo "Attempting to build ${project} for Windows"
+echo "Attempting to build"
 /Applications/Unity/Unity.app/Contents/MacOS/Unity \
+  -silent-crashes \
   -batchmode \
   -nographics \
   -logFile $(pwd)/unity.log \
   -projectPath $(pwd)/ \
-  -executeMethod "$(pwd)/Build/windows/${project}.exe"  \
+  -executeMethod MyEditorScript.PerformBuild  \
   -quit
 
 echo 'Logs from build'
