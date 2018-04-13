@@ -17,4 +17,4 @@ echo 'End Build Log'
 ls 
 
 echo 'Attempting to zip builds'
-zip -r $(pwd)/Build/windows.zip $(pwd)/Build/windows/
+zip -r $(pwd)/Build/Source/windows.zip $(pwd)/Build/windows/
