@@ -12,3 +12,6 @@ echo "Attempting to build ${project} for Windows"
 
 echo 'Logs from build'
 cat $(pwd)/unity.log
+
+echo 'Attempting to zip builds'
+zip -r $(pwd)/Build/windows.zip $(pwd)/Build/windows/
