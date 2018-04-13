@@ -27,6 +27,7 @@ obj/
 *.booproj
 .vs/
 *.vs/
+*.ide*
 
 
 #vscode support
