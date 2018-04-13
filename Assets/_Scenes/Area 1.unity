@@ -845,8 +845,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DistanceFollowed: 3
   ToolLatchDistance: 10
-  MoveToPlayerSpeed: 4
-  MoveToToolSpeed: 6
+  MoveToPlayerSpeed: 2
+  MoveToToolSpeed: 2
+  CircleDistance: 2
   followTarget: {fileID: 1912429125}
   ToolTag: Tool
 --- !u!212 &1469493728
