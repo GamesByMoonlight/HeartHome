@@ -21,8 +21,8 @@ GameObject:
   - component: {fileID: 4650826024774084}
   - component: {fileID: 212995623058042608}
   - component: {fileID: 114135397481890308}
-  - component: {fileID: 50912276129262452}
   - component: {fileID: 114124031517467912}
+  - component: {fileID: 50912276129262452}
   m_Layer: 0
   m_Name: Heart
   m_TagString: Untagged
@@ -86,6 +86,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65d210264f5bc1042859dcb3ae68c11c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DistanceFollowed: 1
+  ToolLatchDistance: 5
+  MoveToPlayerSpeed: 0.2
+  MoveToToolSpeed: 0.4
+  CircleDistance: 1
+  RotateSpeed: 0.1
   followTarget: {fileID: 0}
   ToolTag: Tool
 --- !u!212 &212995623058042608

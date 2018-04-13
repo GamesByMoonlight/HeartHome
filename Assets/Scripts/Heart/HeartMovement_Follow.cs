@@ -5,12 +5,12 @@ using UnityEngine;
 
 public class HeartMovement_Follow : MonoBehaviour {
 
-    private float DistanceFollowed = 1.0f;
-    // This is the distance to a tool for the heart to start moving towards.
-    private float ToolLatchDistance = 5.0f;
-    private float MoveToPlayerSpeed = 4.0f;
-    private float MoveToToolSpeed = 4.0f;
-    private float CircleDistance = 1.0f;
+    [SerializeField] private float DistanceFollowed = 1.0f;
+    [SerializeField] private float ToolLatchDistance = 5.0f;  // This is the distance to a tool for the heart to start moving towards.
+    [SerializeField] private float MoveToPlayerSpeed = 4.0f;
+    [SerializeField] private float MoveToToolSpeed = 4.0f;
+    [SerializeField] private float CircleDistance = 1.0f;
+    [SerializeField] private float RotateSpeed = 2f;
     public Transform followTarget;
     public string ToolTag = "Tool";
 
@@ -85,13 +85,13 @@ public class HeartMovement_Follow : MonoBehaviour {
                 //
                 // Figure out the current angle between the objects.
                 //
-                Vector3 dir = target - transform.position;
+                // Vector3 dir = target - transform.position;
                 //angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
                 HeartCircle(target);
             }
             else
             {
-                float step = MoveSpeed * Time.deltaTime;
+                float step = MoveSpeed;
                 transform.position = Vector3.MoveTowards(transform.position, target, step);
             }
         }
@@ -100,9 +100,7 @@ public class HeartMovement_Follow : MonoBehaviour {
 
     private void HeartCircle(Vector3 target)
     {
-        float RotateSpeed = 2f;
-
-        angle += RotateSpeed * Time.deltaTime;
+        angle += RotateSpeed;
 
 	    var offset = new Vector3(Mathf.Sin(angle), Mathf.Cos(angle)) * CircleDistance;
 	    transform.position = target + offset;

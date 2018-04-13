@@ -743,6 +743,21 @@ Prefab:
       propertyPath: followTarget
       value: 
       objectReference: {fileID: 32698660}
+    - target: {fileID: 114135397481890308, guid: 5fa7f7ded5e0cd442b594335e8fc2fa1,
+        type: 2}
+      propertyPath: RotateSpeed
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114135397481890308, guid: 5fa7f7ded5e0cd442b594335e8fc2fa1,
+        type: 2}
+      propertyPath: MoveToPlayerSpeed
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114135397481890308, guid: 5fa7f7ded5e0cd442b594335e8fc2fa1,
+        type: 2}
+      propertyPath: MoveToToolSpeed
+      value: 0.4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5fa7f7ded5e0cd442b594335e8fc2fa1, type: 2}
   m_IsPrefabParent: 0
