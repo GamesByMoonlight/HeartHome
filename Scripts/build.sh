@@ -10,8 +10,9 @@ echo "Attempting to build"
   -executeMethod MyEditorScript.PerformBuild  \
   -quit
 
-echo 'Logs from build'
+echo 'Build Log'
 cat $(pwd)/unity.log
+echo 'End Build Log'
 
 ls 
 
