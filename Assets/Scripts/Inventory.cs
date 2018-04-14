@@ -25,4 +25,16 @@ public class Inventory : MonoBehaviour {
         var slot = Instantiate(SlotPrefab, transform).GetComponentInChildren<InventorySlot>();
         slot.Item = item;
     }
+
+    public void RemoveInventory(IItem item)
+    {
+
+        //DestroyObject(item);
+        Debug.Log("Scott pretty please remove burned objects");
+
+        throw new System.NotImplementedException();
+
+    }
+
+
 }
