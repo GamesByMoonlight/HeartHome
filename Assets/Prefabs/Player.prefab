@@ -437,13 +437,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65d210264f5bc1042859dcb3ae68c11c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distanceFollowed: 1
+  DistanceFollowed: 1
   ToolLatchDistance: 5
   MoveToPlayerSpeed: 12
   MoveToToolSpeed: 16
   LerpToPlayerDrag: 0.1
   CircleDistance: 1
-  RotateSpeed: 5
+  RotateSpeed: 4
   followTarget: {fileID: 4170467523426464}
   ToolTag: Tool
 --- !u!114 &114562244080588526
@@ -459,7 +459,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentState: 0
   HappyDistanceFollow: 1
-  ColdDistanceFollow: 2
+  DamagedDistanceFollow: 2
+  HappyToPlayerSpeed: 12
+  HappyToToolSpeed: 16
+  DamagedToPlayerSpeed: 6
+  DamagedToToolSpeed: 8
+  HappyRotateSpeed: 4
+  ColdRotateSpeed: 2
+  spriteAnimator: {fileID: 95180042481834156}
+  floatAnimator: {fileID: 95720418899033880}
 --- !u!114 &114750428386277696
 MonoBehaviour:
   m_ObjectHideFlags: 1
