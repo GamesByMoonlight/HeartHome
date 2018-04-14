@@ -18,6 +18,7 @@ public class HeartState : MonoBehaviour {
     public float ColdRotateSpeed = 2f;
     public Animator spriteAnimator;
     public Animator floatAnimator;
+    public Shiver ShiveringController;
 
     private void Awake()
     {
@@ -45,20 +46,25 @@ public class HeartState : MonoBehaviour {
                 follow.MoveToPlayerSpeed = HappyToPlayerSpeed;
                 follow.MoveToToolSpeed = HappyToToolSpeed;
                 follow.RotateSpeed = HappyRotateSpeed;
+                ShiveringController.Shivering = false;
                 if (Application.isPlaying)
                 {
                     spriteAnimator.SetTrigger("Happy");
+                    floatAnimator.applyRootMotion = false;
                     floatAnimator.SetBool("Float", true);
                 }
                 break;
             case HeartStateValues.Cold:
-                follow.DistanceFollowed = DamagedDistanceFollow;
+                follow.DistanceFollowed = HappyDistanceFollow;
                 follow.MoveToPlayerSpeed = DamagedToPlayerSpeed;
                 follow.MoveToToolSpeed = DamagedToToolSpeed;
                 follow.RotateSpeed = ColdRotateSpeed;
+                ShiveringController.Shivering = true;
                 if (Application.isPlaying)
                 {
                     floatAnimator.SetBool("Float", true);
+                    floatAnimator.applyRootMotion = true;
+                    floatAnimator.SetBool("Float", false);
                 }
                 break;
             case HeartStateValues.Frozen:
@@ -66,9 +72,11 @@ public class HeartState : MonoBehaviour {
                 follow.MoveToPlayerSpeed = DamagedToPlayerSpeed;
                 follow.MoveToToolSpeed = DamagedToToolSpeed;
                 follow.RotateSpeed = ColdRotateSpeed;
+                ShiveringController.Shivering = false;
                 if (Application.isPlaying)
                 {
                     spriteAnimator.SetTrigger("Frozen");
+                    floatAnimator.applyRootMotion = true;
                     floatAnimator.SetBool("Float", false);
                 }
                 break;
@@ -77,9 +85,11 @@ public class HeartState : MonoBehaviour {
                 follow.MoveToPlayerSpeed = DamagedToPlayerSpeed;
                 follow.MoveToToolSpeed = HappyToToolSpeed;
                 follow.RotateSpeed = ColdRotateSpeed;
+                ShiveringController.Shivering = false;
                 if (Application.isPlaying)
                 {
                     spriteAnimator.SetTrigger("Broken");
+                    floatAnimator.applyRootMotion = false;
                     floatAnimator.SetBool("Float", true);
                 }
                 break;
@@ -88,16 +98,20 @@ public class HeartState : MonoBehaviour {
                 follow.MoveToPlayerSpeed = DamagedToPlayerSpeed;
                 follow.MoveToToolSpeed = HappyToToolSpeed;
                 follow.RotateSpeed = ColdRotateSpeed;
+                ShiveringController.Shivering = false;
                 if (Application.isPlaying)
                 {
                     spriteAnimator.SetTrigger("Cursed");
+                    floatAnimator.applyRootMotion = false;
                     floatAnimator.SetBool("Float", true);
                 }
                 break;
             default:
                 follow.DistanceFollowed = HappyDistanceFollow;
                 spriteAnimator.SetTrigger("Happy");
+                floatAnimator.applyRootMotion = false;
                 floatAnimator.SetBool("Float", true);
+                ShiveringController.Shivering = false;
                 break;
         }
     }

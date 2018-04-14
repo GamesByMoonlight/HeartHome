@@ -35,6 +35,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4167482229514046}
   - component: {fileID: 95720418899033880}
+  - component: {fileID: 114252302603523416}
   m_Layer: 0
   m_Name: FloatingController
   m_TagString: Untagged
@@ -180,7 +181,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1130643942875538}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.007543664, y: -0.007025995, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4240604198284874}
@@ -426,6 +427,19 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114252302603523416
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1130643942875538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae3272e7b5aaa4624a9dd06e59b51440, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  magnitude: 0.01
+  shivering: 1
 --- !u!114 &114255826567206744
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -439,11 +453,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DistanceFollowed: 1
   ToolLatchDistance: 5
-  MoveToPlayerSpeed: 12
-  MoveToToolSpeed: 16
+  MoveToPlayerSpeed: 6
+  MoveToToolSpeed: 8
   LerpToPlayerDrag: 0.1
   CircleDistance: 1
-  RotateSpeed: 4
+  RotateSpeed: 2
   followTarget: {fileID: 4170467523426464}
   ToolTag: Tool
 --- !u!114 &114562244080588526
@@ -457,7 +471,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 998a586f1a7e46b47832e96af8ae7280, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentState: 0
+  currentState: 1
   HappyDistanceFollow: 1
   DamagedDistanceFollow: 2
   HappyToPlayerSpeed: 12
@@ -468,6 +482,7 @@ MonoBehaviour:
   ColdRotateSpeed: 2
   spriteAnimator: {fileID: 95180042481834156}
   floatAnimator: {fileID: 95720418899033880}
+  ShiveringController: {fileID: 114252302603523416}
 --- !u!114 &114750428386277696
 MonoBehaviour:
   m_ObjectHideFlags: 1
