@@ -56,8 +56,8 @@ public class HeartState : MonoBehaviour {
                 break;
             case HeartStateValues.Cold:
                 follow.DistanceFollowed = HappyDistanceFollow;
-                follow.MoveToPlayerSpeed = DamagedToPlayerSpeed;
-                follow.MoveToToolSpeed = DamagedToToolSpeed;
+                follow.MoveToPlayerSpeed = HappyToPlayerSpeed;
+                follow.MoveToToolSpeed = HappyToToolSpeed;
                 follow.RotateSpeed = ColdRotateSpeed;
                 ShiveringController.Shivering = true;
                 if (Application.isPlaying)

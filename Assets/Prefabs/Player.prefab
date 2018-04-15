@@ -181,7 +181,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1130643942875538}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.007543664, y: -0.007025995, z: 0}
+  m_LocalPosition: {x: -0.004607073, y: 0.0066856667, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4240604198284874}
@@ -438,8 +438,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae3272e7b5aaa4624a9dd06e59b51440, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  magnitude: 0.01
-  shivering: 1
+  magnitude: 0.015
+  shivering: 0
 --- !u!114 &114255826567206744
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -453,11 +453,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DistanceFollowed: 1
   ToolLatchDistance: 5
-  MoveToPlayerSpeed: 6
-  MoveToToolSpeed: 8
+  MoveToPlayerSpeed: 12
+  MoveToToolSpeed: 16
   LerpToPlayerDrag: 0.1
   CircleDistance: 1
-  RotateSpeed: 2
+  RotateSpeed: 4
   followTarget: {fileID: 4170467523426464}
   ToolTag: Tool
 --- !u!114 &114562244080588526
@@ -471,7 +471,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 998a586f1a7e46b47832e96af8ae7280, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentState: 1
+  currentState: 0
   HappyDistanceFollow: 1
   DamagedDistanceFollow: 2
   HappyToPlayerSpeed: 12
