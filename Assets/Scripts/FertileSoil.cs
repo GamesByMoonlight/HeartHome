@@ -40,7 +40,7 @@ public class FertileSoil : MonoBehaviour {
     IEnumerator WaitForShrink(Animator animator)
     {
         yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length);
-        Instantiate(FlowerPrefab, transform.position, Quaternion.Euler(0f, 0f, 0f), transform);
+        Instantiate(FlowerPrefab, transform.position, Quaternion.Euler(0f, 0f, 0f));
         Destroy(seeds);
         Destroy(splash);
     }

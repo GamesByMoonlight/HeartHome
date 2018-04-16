@@ -4,16 +4,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class HeartMovement_Follow : MonoBehaviour {
+    [Header("Use fields in HeartState to edit these values")]
+    public float DistanceFollowed = 1.0f;
+    public float ToolLatchDistance = 5.0f;  // This is the distance to a tool for the heart to start moving towards.
+    public float MoveToPlayerSpeed = 4.0f;
+    public float MoveToToolSpeed = 4.0f;
+    public float LerpToPlayerDrag = 0.05f;
+    public float CircleDistance = 1.0f;
+    public float RotateSpeed = 2f;
 
-    [SerializeField] private float distanceFollowed = 1.0f;
-    [SerializeField] private float ToolLatchDistance = 5.0f;  // This is the distance to a tool for the heart to start moving towards.
-    [SerializeField] private float MoveToPlayerSpeed = 4.0f;
-    [SerializeField] private float MoveToToolSpeed = 4.0f;
-    [SerializeField] private float LerpToPlayerDrag = 0.05f;
-    [SerializeField] private float CircleDistance = 1.0f;
-    [SerializeField] private float RotateSpeed = 2f;
-
-    public float DistanceToFollow { get { return distanceFollowed; } set { distanceFollowed = value; } } 
     public Transform followTarget;
     public string ToolTag = "Tool";
 
@@ -29,6 +28,11 @@ public class HeartMovement_Follow : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
+        UpdateTools();
+    }
+
+    void UpdateTools()
+    {
         var temp = GameObject.FindGameObjectsWithTag(ToolTag);
         ToolLocations = new Transform[temp.Length];
 
@@ -38,15 +42,8 @@ public class HeartMovement_Follow : MonoBehaviour {
         {
             ToolLocations[i] = temp[i].GetComponent<Transform>();
         }
-
-        //Debug.Log("Num Tools: " + temp.Length);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        //Debug.Log()
-    }
 
     // FixedUpdate is called as often as possible
     void FixedUpdate()
@@ -56,29 +53,36 @@ public class HeartMovement_Follow : MonoBehaviour {
         bool targetFound = false;
         float dist = 0.0f;
 
+        bool needToUpdate = false;
         foreach (Transform tool in ToolLocations)
         {
-            dist = Vector3.Distance(tool.position, followTarget.position);
-
-            if (dist < ToolLatchDistance && dist > CircleDistance)
+            if(tool != null)
             {
-                //Debug.Log("Target Distance = " + Vector3.Distance(tool.position, transform.position));
-                target = tool.position;
-                targetFound = true;
-                MoveSpeed = MoveToToolSpeed;
-            }
-            else if (dist <= CircleDistance)
-            {
+                dist = Vector3.Distance(tool.position, followTarget.position);
 
+                if (dist < ToolLatchDistance && dist > CircleDistance)
+                {
+                    //Debug.Log("Target Distance = " + Vector3.Distance(tool.position, transform.position));
+                    target = tool.position;
+                    targetFound = true;
+                    MoveSpeed = MoveToToolSpeed;
+                }
             }
+            else
+            {
+                needToUpdate = true;
+            }
+
         }
+        if (needToUpdate)
+            UpdateTools();
 
         // If no tool is found to latch to, move towards the player.
         if (!targetFound)
         {
             dist = Vector3.Distance(followTarget.position, transform.position);
 
-            if (dist > distanceFollowed)
+            if (dist > DistanceFollowed)
             {
                 target = followTarget.position;
                 targetFound = true;
