@@ -8,33 +8,28 @@ public class Inventory : MonoBehaviour {
 
     public IItem SelectedIventoryItem;  // Set by slots onClick
 
+    List<InventorySlot> inventory;
+
     void Awake() {
         if(Current != null)
         {
             Debug.LogError("There is more than one Inventory bar in the scene. Current is " + Current.gameObject.name + " and new is " + name);
         }
         Current = this;
+        inventory = new List<InventorySlot>();
     }
 
-    private void Update()
-    {
-    }
 
     public void AddInventory(IItem item)
     {
         var slot = Instantiate(SlotPrefab, transform).GetComponentInChildren<InventorySlot>();
         slot.Item = item;
+        inventory.Add(slot);
     }
 
     public void RemoveInventory(IItem item)
     {
-
-        //DestroyObject(item);
-        Debug.Log("Scott pretty please remove burned objects");
-
-        throw new System.NotImplementedException();
-
+        inventory.RemoveAll(x => x.Item == item);
     }
-
 
 }

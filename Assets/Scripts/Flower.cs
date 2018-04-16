@@ -36,11 +36,11 @@ public class Flower : MonoBehaviour {
 
     private void Start()
     {
-        if(FlowersCreated == 4)
+        FlowersCreated++;
+        if (FlowersCreated == 4)
         {
             GameEventSystem.Instance.MakePaintbrush.Invoke();
         }
-        FlowersCreated++;
 
         if(FlowersCreated >= 40 && !GhostMade)
         {
