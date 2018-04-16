@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Script to identify flower objects, track youngest/oldest flower, and create the ghost
+// Script to identify flower objects, if needed, and to add behaviors later
 
 public class Flower : MonoBehaviour {
     public static Flower OldestFlower;
@@ -36,8 +36,11 @@ public class Flower : MonoBehaviour {
 
     private void Start()
     {
-        GetComponent<FlowerGrowth>().PlayAudioClip();
         FlowersCreated++;
+        if (FlowersCreated == 4)
+        {
+            GameEventSystem.Instance.MakePaintbrush.Invoke();
+        }
 
         if(FlowersCreated >= 40 && !GhostMade)
         {
