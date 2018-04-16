@@ -10,4 +10,5 @@ public class GameEventSystem : Singleton<GameEventSystem> {
     public class GameObjectEvent : UnityEvent<GameObject> { }   // Takes GameObject argument
 
     public GameEvent MakeGhost;
+    public GameEvent MakePaintbrush;
 }

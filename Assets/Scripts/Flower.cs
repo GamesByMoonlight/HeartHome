@@ -36,9 +36,9 @@ public class Flower : MonoBehaviour {
 
     private void Start()
     {
-        if(FlowersCreated == 0)
+        if(FlowersCreated == 4)
         {
-            GetComponent<FlowerGrowth>().PlayAudioClip();
+            GameEventSystem.Instance.MakePaintbrush.Invoke();
         }
         FlowersCreated++;
 
