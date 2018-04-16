@@ -29,7 +29,33 @@ public class Inventory : MonoBehaviour {
 
     public void RemoveInventory(IItem item)
     {
+        // Destroy gameobject in scene
+        foreach(InventorySlot s in inventory)
+        {
+            if(s.Item == item)
+            {
+                DestroyImmediate(s.gameObject.transform.parent.gameObject);  // poorly organized, but whatever.  That's how the prefab was set up
+            }
+        }
+
+        // Remove reference from list
         inventory.RemoveAll(x => x.Item == item);
+        inventory.ForEach(x => x.UpdateSlotNumber());
+    }
+
+    public void CleanFarmingInventory()
+    {
+        RemoveInventory(inventory.Find(x => x.Item.gameObject.GetComponent<Hoe>() != null));
+        RemoveInventory(inventory.Find(x => x.Item.gameObject.GetComponent<Seeds>() != null));
+        RemoveInventory(inventory.Find(x => x.Item.gameObject.GetComponent<WateringCan>() != null));
+    }
+
+    void RemoveInventory(InventorySlot slot)
+    {
+        if(slot != null)
+        {
+            RemoveInventory(slot.Item);
+        }
     }
 
 }

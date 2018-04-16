@@ -11,4 +11,5 @@ public class GameEventSystem : Singleton<GameEventSystem> {
 
     public GameEvent MakeGhost;
     public GameEvent MakePaintbrush;
+    public GameEvent InventorySlotRemoved;
 }

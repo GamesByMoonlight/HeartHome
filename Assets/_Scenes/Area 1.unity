@@ -359,11 +359,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 114630905871202748, guid: 262ebd23730d4481c889c61ca3a04333,
-        type: 2}
-      propertyPath: MakeGhost.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 224410667467174678, guid: 262ebd23730d4481c889c61ca3a04333,
         type: 2}
       propertyPath: m_LocalPosition.x
@@ -456,29 +451,9 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 114630905871202748, guid: 262ebd23730d4481c889c61ca3a04333,
         type: 2}
-      propertyPath: MakeGhost.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114630905871202748, guid: 262ebd23730d4481c889c61ca3a04333,
-        type: 2}
-      propertyPath: MakeGhost.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114630905871202748, guid: 262ebd23730d4481c889c61ca3a04333,
-        type: 2}
       propertyPath: MakeGhost.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 653558559}
-    - target: {fileID: 114630905871202748, guid: 262ebd23730d4481c889c61ca3a04333,
-        type: 2}
-      propertyPath: MakeGhost.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: GhostEvent
-      objectReference: {fileID: 0}
-    - target: {fileID: 114630905871202748, guid: 262ebd23730d4481c889c61ca3a04333,
-        type: 2}
-      propertyPath: MakeGhost.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 262ebd23730d4481c889c61ca3a04333, type: 2}
   m_IsPrefabParent: 0
