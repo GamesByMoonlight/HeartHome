@@ -14,7 +14,5 @@ echo 'Build Log'
 cat $(pwd)/unity.log
 echo 'End Build Log'
 
-ls 
-
 echo 'Attempting to zip builds'
-zip -r $(pwd)/Build/windows.zip $(pwd)/Build/windows/
+tar -zcf $(pwd)/Build/windows.tar.gz $(pwd)/Build/windows/
