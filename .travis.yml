@@ -7,7 +7,7 @@ script:
 - sudo -E sh ./Scripts/build.sh
 branches:
   only:
-  - develop
+  - tool/73
 deploy:
   provider: s3
   access_key_id: AKIAJVUITNXKW2CWG2OQ
