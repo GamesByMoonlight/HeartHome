@@ -5,9 +5,6 @@ install:
 - sudo -E sh ./Scripts/install.sh
 script:
 - sudo -E sh ./Scripts/build.sh
-branches:
-  only:
-  - develop
 deploy:
   provider: s3
   access_key_id: AKIAJVUITNXKW2CWG2OQ
