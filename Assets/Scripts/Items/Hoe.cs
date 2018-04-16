@@ -9,11 +9,13 @@ public class Hoe : Item {
     PlayerAction playerAction;
     Animator animator;
     SpriteRenderer spriteRenderer;
+    AudioSource audioSource;
 
 	void Awake() {
 		playerAction = GameObject.Find ("Player").GetComponent<PlayerAction>();
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        audioSource = GetComponent<AudioSource>();
 
 		if (playerAction == null) {
 			Debug.LogError("PlayerAction not found in scene. Hoe needs it");
@@ -26,7 +28,9 @@ public class Hoe : Item {
 	{
 		var soil = Instantiate (FertileSoilPrefab);
 		soil.transform.position = playerAction.DirectionAperature.transform.position;
+        audioSource.Play();
         PlayAnimation();
+        
 	}
 
 	void PlayAnimation()
