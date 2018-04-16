@@ -36,7 +36,9 @@ public class Flower : MonoBehaviour {
 
     private void Start()
     {
+        GetComponent<FlowerGrowth>().PlayAudioClip();
         FlowersCreated++;
+
         if (FlowersCreated == 4)
         {
             GameEventSystem.Instance.MakePaintbrush.Invoke();
