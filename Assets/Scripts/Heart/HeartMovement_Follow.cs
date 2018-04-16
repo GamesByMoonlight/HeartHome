@@ -28,6 +28,11 @@ public class HeartMovement_Follow : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
+        UpdateTools();
+    }
+
+    void UpdateTools()
+    {
         var temp = GameObject.FindGameObjectsWithTag(ToolTag);
         ToolLocations = new Transform[temp.Length];
 
@@ -37,15 +42,8 @@ public class HeartMovement_Follow : MonoBehaviour {
         {
             ToolLocations[i] = temp[i].GetComponent<Transform>();
         }
-
-        //Debug.Log("Num Tools: " + temp.Length);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        //Debug.Log()
-    }
 
     // FixedUpdate is called as often as possible
     void FixedUpdate()
@@ -55,22 +53,29 @@ public class HeartMovement_Follow : MonoBehaviour {
         bool targetFound = false;
         float dist = 0.0f;
 
+        bool needToUpdate = false;
         foreach (Transform tool in ToolLocations)
         {
-            dist = Vector3.Distance(tool.position, followTarget.position);
-
-            if (dist < ToolLatchDistance && dist > CircleDistance)
+            if(tool != null)
             {
-                //Debug.Log("Target Distance = " + Vector3.Distance(tool.position, transform.position));
-                target = tool.position;
-                targetFound = true;
-                MoveSpeed = MoveToToolSpeed;
-            }
-            else if (dist <= CircleDistance)
-            {
+                dist = Vector3.Distance(tool.position, followTarget.position);
 
+                if (dist < ToolLatchDistance && dist > CircleDistance)
+                {
+                    //Debug.Log("Target Distance = " + Vector3.Distance(tool.position, transform.position));
+                    target = tool.position;
+                    targetFound = true;
+                    MoveSpeed = MoveToToolSpeed;
+                }
             }
+            else
+            {
+                needToUpdate = true;
+            }
+
         }
+        if (needToUpdate)
+            UpdateTools();
 
         // If no tool is found to latch to, move towards the player.
         if (!targetFound)
