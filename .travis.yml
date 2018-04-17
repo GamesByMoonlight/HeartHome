@@ -5,7 +5,6 @@ install:
 - sudo -E sh ./Scripts/install.sh
 script:
 - sudo -E sh ./Scripts/build.sh
-after_success:
 - sudo -E sh ./Scripts/after_success_build.sh
 deploy:
   provider: s3
