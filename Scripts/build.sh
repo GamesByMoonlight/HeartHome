@@ -10,10 +10,8 @@ echo "Attempting to build"
   -executeMethod MyEditorScript.PerformBuild  \
   -quit
 
-echo 'Build Log'
-cat $(pwd)/unity.log
-echo 'End Build Log'
+# echo 'Build Log'
+# cat $(pwd)/unity.log
+# echo 'End Build Log'
 
-echo 'Attempting to zip builds'
-zip -r $(pwd)/Build/windows.zip $(pwd)/Build/windows/
 
