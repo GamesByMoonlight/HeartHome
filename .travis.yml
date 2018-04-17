@@ -1,9 +1,9 @@
 language: generic
 os: osx
 osx_image: xcode6.4
-branches:
-  only:
-  - bug/84
+# branches:
+#   only:
+#   - bug/84
 install:
 - sudo -E sh ./Scripts/install.sh
 script:
@@ -19,4 +19,4 @@ deploy:
   local_dir: Build
   skip_cleanup: true
   on:
-    branch: bug/84
+    branch: develop
