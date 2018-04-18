@@ -2,7 +2,10 @@
 An episodic emotional game about finding a home for your heart
 
 ## Dependencies
-* Unity 2018.1
+* Unity 2017.3.1f1
+
+## Nightly Build
+(windows) - http://heart-home.s3.amazonaws.com/windows.zip
 
 ## Developer Workflow 
 https://docs.google.com/document/d/1fDoE3_Lk-G9TvQ4ai1c0ZbfuHVWA3Ak_L-AfmMijkK4/edit?usp=sharing
