@@ -233,9 +233,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 161
-        y: 404
-        width: 46
-        height: 107
+        y: 409
+        width: 40
+        height: 102
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -358,10 +358,10 @@ TextureImporter:
       name: LPC thatched-roof_12
       rect:
         serializedVersion: 2
-        x: 407
-        y: 276
-        width: 9
-        height: 96
+        x: 408
+        y: 293
+        width: 8
+        height: 73
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -624,10 +624,10 @@ TextureImporter:
       name: LPC thatched-roof_31
       rect:
         serializedVersion: 2
-        x: 287
-        y: 320
-        width: 65
-        height: 64
+        x: 298
+        y: 372
+        width: 46
+        height: 12
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -820,10 +820,10 @@ TextureImporter:
       name: LPC thatched-roof_45
       rect:
         serializedVersion: 2
-        x: 56
-        y: 235.45454
-        width: 56.88889
-        height: 46.545456
+        x: 129
+        y: 418
+        width: 32
+        height: 26
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1380,10 +1380,10 @@ TextureImporter:
       name: LPC thatched-roof_85
       rect:
         serializedVersion: 2
-        x: 336
-        y: 51
-        width: 57
-        height: 47
+        x: 159
+        y: 407
+        width: 48
+        height: 25
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
