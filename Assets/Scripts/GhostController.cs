@@ -102,7 +102,7 @@ public class GhostController : MonoBehaviour {
                     activateOnceFlag = false;
                     shiver.Shivering = true;
                 }
-                shiver.magnitude = startMagnitude + startMagnitude * 2 *  Mathf.Abs(1f - (((Time.time - time) / seconds) / 0.5f)); // A confusing way to slowly scale up with the time that is left
+                shiver.magnitude = startMagnitude + startMagnitude * FadeInCurve.Evaluate(Mathf.Abs(1f - (((Time.time - time) / seconds) / 0.5f))); // A confusing way to slowly scale up with the time that is left
             }
             yield return null;
         }
@@ -115,7 +115,6 @@ public class GhostController : MonoBehaviour {
 
     // Update is called once per frame
     IEnumerator ChaseFlowers() {
-        Debug.Log("Chasing Flowers");
         while (target)
         {
             var movement = (target.transform.position - transform.position).normalized;
