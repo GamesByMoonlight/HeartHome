@@ -117,6 +117,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e27a0f466086246a6b4bc6612ae0d143, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  FadeInCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0.044824217
+      outSlope: 0.044824217
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 1
+      inSlope: 3.0238183
+      outSlope: 3.0238183
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  FadeInTime: 5
   Speed: 3
 --- !u!212 &212466260629898312
 SpriteRenderer:
