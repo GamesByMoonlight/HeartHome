@@ -40,7 +40,6 @@ public class GhostController : MonoBehaviour {
         else
             inspectFirst = StartCoroutine(InspectFirstFlower());
 
-        Debug.Log("Lance - Need some Ghost music bro.  (Love, Scott)");
     }
 
     IEnumerator FadeIn()
