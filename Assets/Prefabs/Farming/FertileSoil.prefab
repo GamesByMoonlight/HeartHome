@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212357555025868960}
   - component: {fileID: 114653453020411840}
   - component: {fileID: 61387667473172550}
+  - component: {fileID: 114472441835971678}
   m_Layer: 0
   m_Name: FertileSoil
   m_TagString: Untagged
@@ -67,6 +68,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.8, y: 1.5}
   m_EdgeRadius: 0
+--- !u!114 &114472441835971678
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1414794910426106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b3e083e39b5f4401863ea8e9676b470, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FlowerPrefabs:
+  - {fileID: 1757352910517412, guid: b74a346adb605448198f3652b6b9a603, type: 2}
+  - {fileID: 1757352910517412, guid: 1c12d328d8e365a46aaf8b607b7576b3, type: 2}
+  - {fileID: 1757352910517412, guid: f9130a928c7de4549a214e9e6c1a6ea2, type: 2}
+  - {fileID: 1757352910517412, guid: ff4fd7f0303b3464dbb66430ffe484cd, type: 2}
 --- !u!114 &114653453020411840
 MonoBehaviour:
   m_ObjectHideFlags: 1

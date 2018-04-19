@@ -1,21 +1,21 @@
 fileFormatVersion: 2
-guid: 78c91d940b3fd504fa0fdb2d1bce1c60
-timeCreated: 1523148223
+guid: 7f763fd6a73a2495fb6c787e111e04c0
+timeCreated: 1524173762
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Flower_0
-    21300002: Flower_1
-    21300004: Flower_2
-    21300006: Flower_3
-    21300008: Flower_4
-    21300010: Flower_5
-    21300012: Flower_6
-    21300014: Flower_7
-    21300016: Flower_8
-    21300018: Flower_9
-    21300020: Flower_10
-    21300022: Flower_11
+    21300000: Flower Blue_0
+    21300002: Flower Blue_1
+    21300004: Flower Blue_2
+    21300006: Flower Blue_3
+    21300008: Flower Blue_4
+    21300010: Flower Blue_5
+    21300012: Flower Blue_6
+    21300014: Flower Blue_7
+    21300016: Flower Blue_8
+    21300018: Flower Blue_9
+    21300020: Flower Blue_10
+    21300022: Flower Blue_11
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -88,7 +88,7 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-  - buildTarget: Android
+  - buildTarget: iPhone
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -98,7 +98,7 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-  - buildTarget: iPhone
+  - buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -112,7 +112,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Flower_0
+      name: Flower Blue_0
       rect:
         serializedVersion: 2
         x: 28
@@ -126,7 +126,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Flower_1
+      name: Flower Blue_1
       rect:
         serializedVersion: 2
         x: 107
@@ -140,7 +140,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Flower_2
+      name: Flower Blue_2
       rect:
         serializedVersion: 2
         x: 186
@@ -154,7 +154,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Flower_3
+      name: Flower Blue_3
       rect:
         serializedVersion: 2
         x: 266
@@ -168,7 +168,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Flower_4
+      name: Flower Blue_4
       rect:
         serializedVersion: 2
         x: 27
@@ -182,7 +182,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Flower_5
+      name: Flower Blue_5
       rect:
         serializedVersion: 2
         x: 107
@@ -196,7 +196,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Flower_6
+      name: Flower Blue_6
       rect:
         serializedVersion: 2
         x: 186
@@ -210,7 +210,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Flower_7
+      name: Flower Blue_7
       rect:
         serializedVersion: 2
         x: 267
@@ -224,7 +224,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Flower_8
+      name: Flower Blue_8
       rect:
         serializedVersion: 2
         x: 21
@@ -238,7 +238,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Flower_9
+      name: Flower Blue_9
       rect:
         serializedVersion: 2
         x: 93
@@ -246,13 +246,13 @@ TextureImporter:
         width: 44
         height: 60
       alignment: 9
-      pivot: {x: 0.6192757, y: -0.0033643225}
+      pivot: {x: 0.6019717, y: 0.002821694}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Flower_10
+      name: Flower Blue_10
       rect:
         serializedVersion: 2
         x: 172
@@ -260,13 +260,13 @@ TextureImporter:
         width: 43
         height: 37
       alignment: 9
-      pivot: {x: 0.6924627, y: 0.005455668}
+      pivot: {x: 0.68794215, y: -0.00053356146}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Flower_11
+      name: Flower Blue_11
       rect:
         serializedVersion: 2
         x: 262
@@ -274,7 +274,7 @@ TextureImporter:
         width: 27
         height: 35
       alignment: 9
-      pivot: {x: 0.806514, y: -0.00000022990363}
+      pivot: {x: 0.79168814, y: 0.0026317562}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
