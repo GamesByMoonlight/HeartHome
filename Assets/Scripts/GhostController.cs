@@ -3,27 +3,56 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GhostController : MonoBehaviour {
-    public float Speed = 5f;
+    public AnimationCurve FadeInCurve;
+    public float FadeInTime = 3f;
+    public float Speed = 3f;
+    public float KillFirstTime = 3f;
 
     Rigidbody2D rb;
     Animator animator;
     Flower target;
+    SpriteRenderer spriteRenderer;
+    Coroutine inspectFirst;
+    Coroutine chaseFlowers;
+    Shiver shiver;
+    bool inspecting = true;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        shiver = GetComponent<Shiver>();
+        chaseFlowers = null;
     }
 
     private void Start()
+    {
+        spriteRenderer.color = new Color(1f, 1f, 1f, 0f);
+        StartCoroutine(FadeIn());
+    }
+
+    void Begin()
     {
         target = Flower.OldestFlower;
         if (target == null)
             StartCoroutine(WaitForFlowers());
         else
-            StartCoroutine(ChaseFlowers());
+            inspectFirst = StartCoroutine(InspectFirstFlower());
 
         Debug.Log("Lance - Need some Ghost music bro.  (Love, Scott)");
+    }
+
+    IEnumerator FadeIn()
+    {
+        float time = Time.time;
+        while(Time.time - time < FadeInTime)
+        {
+            yield return null;
+            spriteRenderer.color = new Color(1f, 1f, 1f, FadeInCurve.Evaluate((Time.time - time) / FadeInTime));
+        }
+        spriteRenderer.color = Color.white;
+        Begin();
     }
 
     IEnumerator WaitForFlowers()
@@ -43,7 +72,45 @@ public class GhostController : MonoBehaviour {
             yield return new WaitForEndOfFrame();
         }
 
-        StartCoroutine(ChaseFlowers());
+        inspectFirst = StartCoroutine(InspectFirstFlower());
+    }
+
+    IEnumerator InspectFirstFlower()
+    {
+        var movement = (target.transform.position - transform.position).normalized;
+        SetAnimator(Vector2.SignedAngle(Vector2.up, movement));
+        while(inspecting)
+        {
+            movement = (target.transform.position - transform.position).normalized;
+            rb.velocity = movement * (Speed / 2f);
+            yield return new WaitForFixedUpdate();
+        }
+        //StartCoroutine(ChaseFlowers());
+    }
+
+    IEnumerator KillFlowerInSeconds(Flower flower, float seconds)
+    {
+        float time = Time.time;
+        bool activateOnceFlag = true;
+        float startMagnitude = shiver.magnitude;
+        while (inspecting && Time.time - time < seconds)  // This coroutine could be called simultaneously.  The first one to finish should kill all
+        {
+            if((Time.time - time) / seconds > 0.5f)
+            {
+                if (activateOnceFlag)
+                {
+                    activateOnceFlag = false;
+                    shiver.Shivering = true;
+                }
+                shiver.magnitude = startMagnitude + startMagnitude * FadeInCurve.Evaluate(Mathf.Abs(1f - (((Time.time - time) / seconds) / 0.5f))); // A confusing way to slowly scale up with the time that is left
+            }
+            yield return null;
+        }
+        shiver.Shivering = false;
+        inspecting = false;
+        flower.Kill();
+        if(chaseFlowers == null)
+            chaseFlowers = StartCoroutine(ChaseFlowers());
     }
 
     // Update is called once per frame
@@ -99,7 +166,19 @@ public class GhostController : MonoBehaviour {
     {
         var flower = collision.gameObject.GetComponent<Flower>();
         if (flower && flower.Alive)
-            flower.Kill();
+        {
+            if (inspecting)
+            {
+                rb.velocity = Vector2.zero;
+                SetAnimator(180);
+                StopCoroutine(inspectFirst);
+                StartCoroutine(KillFlowerInSeconds(flower, KillFirstTime));
+            }
+            else
+            {
+                flower.Kill();
+            }
+        }
     }
 
 }

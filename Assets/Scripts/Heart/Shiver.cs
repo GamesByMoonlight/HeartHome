@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Shiver : MonoBehaviour {
-    [SerializeField]
-    float magnitude = 0.1f;
+    public float magnitude = 0.1f;
     [SerializeField]
     bool shivering = false;
     public bool Shivering { get { return shivering; } set { SetShivering(value);} }
@@ -25,11 +24,24 @@ public class Shiver : MonoBehaviour {
 
     IEnumerator Shake()
     {
-        while(shivering)
+        if (GetComponent<GhostController>() == null)  // This is a total hack. Shame on you, Scott
         {
-            transform.localPosition = (new Vector2(0f, 0f) + new Vector2(Random.Range(-magnitude, magnitude), Random.Range(-magnitude, magnitude)));
-            yield return new WaitForSeconds(.05f);
+            while (shivering)
+            {
+                transform.localPosition = (new Vector2(0f, 0f) + new Vector2(Random.Range(-magnitude, magnitude), Random.Range(-magnitude, magnitude)));
+                yield return new WaitForSeconds(.05f);
+            }
+            transform.localPosition = new Vector2(0f, 0f);
         }
-        transform.position = new Vector2(0f, 0f);
+        else
+        {
+            Vector2 start = transform.position;
+            while (shivering)
+            {
+                transform.position = (start + new Vector2(Random.Range(-magnitude, magnitude), Random.Range(-magnitude, magnitude)));
+                yield return new WaitForSeconds(.05f);
+            }
+            transform.position = start;
+        }
     }
 }
