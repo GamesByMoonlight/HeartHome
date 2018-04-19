@@ -13,6 +13,7 @@ public class GhostController : MonoBehaviour {
     Flower target;
     SpriteRenderer spriteRenderer;
     Coroutine inspectFirst;
+    Shiver shiver;
     bool inspecting = true;
 
     private void Awake()
@@ -20,6 +21,7 @@ public class GhostController : MonoBehaviour {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        shiver = GetComponent<Shiver>();
     }
 
     private void Start()
@@ -87,10 +89,23 @@ public class GhostController : MonoBehaviour {
     IEnumerator KillFlowerInSeconds(Flower flower, float seconds)
     {
         float time = Time.time;
+        bool activateOnceFlag = true;
+        float startMagnitude = shiver.magnitude;
         while (inspecting && Time.time - time < seconds)  // This coroutine could be called simultaneously.  The first one to finish should kill all
         {
+            if((Time.time - time) / seconds > 0.5f)
+            {
+                if (activateOnceFlag)
+                {
+                    activateOnceFlag = false;
+                    shiver.Shivering = true;
+                }
+                float timeLeft = seconds / 2;
+                shiver.magnitude = startMagnitude + startMagnitude * 2 *  Mathf.Abs(1f - (((Time.time - time) / seconds) / 0.5f)); // A confusing way to slowly scale up with the time that is left
+            }
             yield return null;
         }
+        shiver.Shivering = false;
         inspecting = false;
         flower.Kill();
         StartCoroutine(ChaseFlowers());
