@@ -19,6 +19,6 @@ public class Paintbrush : Item {
     {
         //var Flower = Instantiate(FlowerPrefab);
         //Flower.transform.position = location;
-        flowerMaker.MakeFlowerAt(location);
+        flowerMaker.MakeFlowerAndGrowAt(location);
     }
 }
