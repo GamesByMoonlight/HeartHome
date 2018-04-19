@@ -24,12 +24,24 @@ public class Shiver : MonoBehaviour {
 
     IEnumerator Shake()
     {
-        //Vector2 start = transform.position;
-        while(shivering)
+        if (GetComponent<GhostController>() == null)  // This is a total hack. Shame on you, Scott
         {
-            transform.localPosition = (new Vector2(0f, 0f) + new Vector2(Random.Range(-magnitude, magnitude), Random.Range(-magnitude, magnitude)));
-            yield return new WaitForSeconds(.05f);
+            while (shivering)
+            {
+                transform.localPosition = (new Vector2(0f, 0f) + new Vector2(Random.Range(-magnitude, magnitude), Random.Range(-magnitude, magnitude)));
+                yield return new WaitForSeconds(.05f);
+            }
+            transform.localPosition = new Vector2(0f, 0f);
         }
-        transform.position = new Vector2(0f, 0f);
+        else
+        {
+            Vector2 start = transform.position;
+            while (shivering)
+            {
+                transform.position = (start + new Vector2(Random.Range(-magnitude, magnitude), Random.Range(-magnitude, magnitude)));
+                yield return new WaitForSeconds(.05f);
+            }
+            transform.position = start;
+        }
     }
 }

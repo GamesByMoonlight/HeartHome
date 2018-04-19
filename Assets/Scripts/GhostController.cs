@@ -13,6 +13,7 @@ public class GhostController : MonoBehaviour {
     Flower target;
     SpriteRenderer spriteRenderer;
     Coroutine inspectFirst;
+    Coroutine chaseFlowers;
     Shiver shiver;
     bool inspecting = true;
 
@@ -22,6 +23,7 @@ public class GhostController : MonoBehaviour {
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         shiver = GetComponent<Shiver>();
+        chaseFlowers = null;
     }
 
     private void Start()
@@ -100,7 +102,6 @@ public class GhostController : MonoBehaviour {
                     activateOnceFlag = false;
                     shiver.Shivering = true;
                 }
-                float timeLeft = seconds / 2;
                 shiver.magnitude = startMagnitude + startMagnitude * 2 *  Mathf.Abs(1f - (((Time.time - time) / seconds) / 0.5f)); // A confusing way to slowly scale up with the time that is left
             }
             yield return null;
@@ -108,11 +109,13 @@ public class GhostController : MonoBehaviour {
         shiver.Shivering = false;
         inspecting = false;
         flower.Kill();
-        StartCoroutine(ChaseFlowers());
+        if(chaseFlowers == null)
+            chaseFlowers = StartCoroutine(ChaseFlowers());
     }
 
     // Update is called once per frame
     IEnumerator ChaseFlowers() {
+        Debug.Log("Chasing Flowers");
         while (target)
         {
             var movement = (target.transform.position - transform.position).normalized;
