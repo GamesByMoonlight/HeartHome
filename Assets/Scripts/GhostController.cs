@@ -12,6 +12,7 @@ public class GhostController : MonoBehaviour {
     Animator animator;
     Flower target;
     SpriteRenderer spriteRenderer;
+    Coroutine inspectFirst;
     bool inspecting = true;
 
     private void Awake()
@@ -33,7 +34,7 @@ public class GhostController : MonoBehaviour {
         if (target == null)
             StartCoroutine(WaitForFlowers());
         else
-            StartCoroutine(InspectFirstFlower());
+            inspectFirst = StartCoroutine(InspectFirstFlower());
 
         Debug.Log("Lance - Need some Ghost music bro.  (Love, Scott)");
     }
@@ -67,7 +68,7 @@ public class GhostController : MonoBehaviour {
             yield return new WaitForEndOfFrame();
         }
 
-        StartCoroutine(InspectFirstFlower());
+        inspectFirst = StartCoroutine(InspectFirstFlower());
     }
 
     IEnumerator InspectFirstFlower()
@@ -80,6 +81,18 @@ public class GhostController : MonoBehaviour {
             rb.velocity = movement * (Speed / 2f);
             yield return new WaitForFixedUpdate();
         }
+        //StartCoroutine(ChaseFlowers());
+    }
+
+    IEnumerator KillFlowerInSeconds(Flower flower, float seconds)
+    {
+        float time = Time.time;
+        while (inspecting && Time.time - time < seconds)  // This coroutine could be called simultaneously.  The first one to finish should kill all
+        {
+            yield return null;
+        }
+        inspecting = false;
+        flower.Kill();
         StartCoroutine(ChaseFlowers());
     }
 
@@ -99,17 +112,6 @@ public class GhostController : MonoBehaviour {
         rb.velocity = new Vector2(0f, 0f);
         StartCoroutine(WaitForFlowers());
 	}
-
-    IEnumerator KillFlowerInSeconds(Flower flower, float seconds)
-    {
-        float time = Time.time;
-        while(inspecting && Time.time - time < seconds)  // This coroutine could be called simultaneously.  The first one to finish should kill all
-        {
-            yield return null;
-        }
-        inspecting = false;
-        flower.Kill();
-    }
 
     Flower UpdateTargetFlower(Flower currentTarget)
     {
@@ -150,6 +152,9 @@ public class GhostController : MonoBehaviour {
         {
             if (inspecting)
             {
+                rb.velocity = Vector2.zero;
+                SetAnimator(180);
+                StopCoroutine(inspectFirst);
                 StartCoroutine(KillFlowerInSeconds(flower, KillFirstTime));
             }
             else
