@@ -33,7 +33,7 @@ public class GhostController : MonoBehaviour {
         if (target == null)
             StartCoroutine(WaitForFlowers());
         else
-            StartCoroutine(ChaseFlowers());
+            StartCoroutine(InspectFirstFlower());
 
         Debug.Log("Lance - Need some Ghost music bro.  (Love, Scott)");
     }
@@ -67,7 +67,7 @@ public class GhostController : MonoBehaviour {
             yield return new WaitForEndOfFrame();
         }
 
-        StartCoroutine(ChaseFlowers());
+        StartCoroutine(InspectFirstFlower());
     }
 
     IEnumerator InspectFirstFlower()
@@ -80,6 +80,7 @@ public class GhostController : MonoBehaviour {
             rb.velocity = movement * (Speed / 2f);
             yield return new WaitForFixedUpdate();
         }
+        StartCoroutine(ChaseFlowers());
     }
 
     // Update is called once per frame
