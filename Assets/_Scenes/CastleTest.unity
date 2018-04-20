@@ -113,6 +113,23 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &507161459 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1552053692018724, guid: 2d01516cae03a43da842e720bcb5b560,
+    type: 2}
+  m_PrefabInternal: {fileID: 1862858011}
+--- !u!114 &507161460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 507161459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ef04a9ce2a27224f8d946496d7b1bd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Icon: {fileID: 0}
 --- !u!1001 &607188972
 Prefab:
   m_ObjectHideFlags: 0
@@ -376,7 +393,6 @@ GameObject:
   - component: {fileID: 1804285458}
   - component: {fileID: 1804285457}
   - component: {fileID: 1804285460}
-  - component: {fileID: 1804285459}
   m_Layer: 0
   m_Name: Fireplace
   m_TagString: Untagged
@@ -442,17 +458,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1804285459
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1804285456}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a76e8c585b58429e866c09801e44a60, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!61 &1804285460
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -565,7 +570,8 @@ Prefab:
       propertyPath: m_Size.y
       value: 0.19942465
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114273543919569068, guid: 2d01516cae03a43da842e720bcb5b560, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 2d01516cae03a43da842e720bcb5b560, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &2053345178

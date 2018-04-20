@@ -28,12 +28,7 @@ public class Inventory : MonoBehaviour {
 
     public void RemoveInventory(IItem item)
     {
-
-        //DestroyObject(item);
-        Debug.Log("Scott pretty please remove burned objects");
-
-        throw new System.NotImplementedException();
-
+        //remove items from inventory
     }
 
 

@@ -16,8 +16,6 @@ public class FirePlace : MonoBehaviour {
 
     public void Burn()
     {
-        Debug.Log("Scott help ");
-        throw new System.NotImplementedException();
-
+        Debug.Log("the fire is so delightful");
     }
 }
