@@ -286,6 +286,11 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: GameEventSystem+GameEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
+  InventorySlotRemoved:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: GameEventSystem+GameEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!114 &114703903431788436
 MonoBehaviour:
   m_ObjectHideFlags: 1
