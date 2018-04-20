@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 61651223912656878}
   - component: {fileID: 114273543919569068}
   m_Layer: 0
-  m_Name: ExampleItem_Candy
+  m_Name: Firewood
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
