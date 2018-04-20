@@ -1,0 +1,1412 @@
+fileFormatVersion: 2
+guid: 4ea3fcb28f46e450e8e148f9570fa99c
+timeCreated: 1523914262
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: LPC thatched-roof_0
+    21300002: LPC thatched-roof_1
+    21300004: LPC thatched-roof_2
+    21300006: LPC thatched-roof_3
+    21300008: LPC thatched-roof_4
+    21300010: LPC thatched-roof_5
+    21300012: LPC thatched-roof_6
+    21300014: LPC thatched-roof_7
+    21300016: LPC thatched-roof_8
+    21300018: LPC thatched-roof_9
+    21300020: LPC thatched-roof_10
+    21300022: LPC thatched-roof_11
+    21300024: LPC thatched-roof_12
+    21300026: LPC thatched-roof_13
+    21300028: LPC thatched-roof_14
+    21300030: LPC thatched-roof_15
+    21300032: LPC thatched-roof_16
+    21300034: LPC thatched-roof_17
+    21300036: LPC thatched-roof_18
+    21300038: LPC thatched-roof_19
+    21300040: LPC thatched-roof_20
+    21300042: LPC thatched-roof_21
+    21300044: LPC thatched-roof_22
+    21300046: LPC thatched-roof_23
+    21300048: LPC thatched-roof_24
+    21300050: LPC thatched-roof_25
+    21300052: LPC thatched-roof_26
+    21300054: LPC thatched-roof_27
+    21300056: LPC thatched-roof_28
+    21300058: LPC thatched-roof_29
+    21300060: LPC thatched-roof_30
+    21300062: LPC thatched-roof_31
+    21300064: LPC thatched-roof_32
+    21300066: LPC thatched-roof_33
+    21300068: LPC thatched-roof_34
+    21300070: LPC thatched-roof_35
+    21300072: LPC thatched-roof_36
+    21300074: LPC thatched-roof_37
+    21300076: LPC thatched-roof_38
+    21300078: LPC thatched-roof_39
+    21300080: LPC thatched-roof_40
+    21300082: LPC thatched-roof_41
+    21300084: LPC thatched-roof_42
+    21300086: LPC thatched-roof_43
+    21300088: LPC thatched-roof_44
+    21300090: LPC thatched-roof_45
+    21300092: LPC thatched-roof_46
+    21300094: LPC thatched-roof_47
+    21300096: LPC thatched-roof_48
+    21300098: LPC thatched-roof_49
+    21300100: LPC thatched-roof_50
+    21300102: LPC thatched-roof_51
+    21300104: LPC thatched-roof_52
+    21300106: LPC thatched-roof_53
+    21300108: LPC thatched-roof_54
+    21300110: LPC thatched-roof_55
+    21300112: LPC thatched-roof_56
+    21300114: LPC thatched-roof_57
+    21300116: LPC thatched-roof_58
+    21300118: LPC thatched-roof_59
+    21300120: LPC thatched-roof_60
+    21300122: LPC thatched-roof_61
+    21300124: LPC thatched-roof_62
+    21300126: LPC thatched-roof_63
+    21300128: LPC thatched-roof_64
+    21300130: LPC thatched-roof_65
+    21300132: LPC thatched-roof_66
+    21300134: LPC thatched-roof_67
+    21300136: LPC thatched-roof_68
+    21300138: LPC thatched-roof_69
+    21300140: LPC thatched-roof_70
+    21300142: LPC thatched-roof_71
+    21300144: LPC thatched-roof_72
+    21300146: LPC thatched-roof_73
+    21300148: LPC thatched-roof_74
+    21300150: LPC thatched-roof_75
+    21300152: LPC thatched-roof_76
+    21300154: LPC thatched-roof_77
+    21300156: LPC thatched-roof_78
+    21300158: LPC thatched-roof_79
+    21300160: LPC thatched-roof_80
+    21300162: LPC thatched-roof_81
+    21300164: LPC thatched-roof_82
+    21300166: LPC thatched-roof_83
+    21300168: LPC thatched-roof_84
+    21300170: LPC thatched-roof_85
+    21300172: LPC thatched-roof_86
+  externalObjects: {}
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: LPC thatched-roof_0
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 448
+        width: 41
+        height: 52
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: LPC thatched-roof_1
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 404
+        width: 41
+        height: 108
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: LPC thatched-roof_2
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 466
+        width: 31
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: LPC thatched-roof_3
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 409
+        width: 40
+        height: 102
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: LPC thatched-roof_4
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 448
+        width: 46
+        height: 52
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: LPC thatched-roof_5
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 416
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: LPC thatched-roof_6
+      rect:
+        serializedVersion: 2
+        x: 447
+        y: 416
+        width: 33
+        height: 32
+      alignment: 9
+      pivot: {x: 0.49191147, y: 0.50958014}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: LPC thatched-roof_7
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 448
+        width: 32
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: LPC thatched-roof_8
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 453
+        width: 118
+        height: 59
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: LPC thatched-roof_9
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 470
+        width: 37
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: LPC thatched-roof_10
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 404
+        width: 120
+        height: 62
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: LPC thatched-roof_11
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 469
+        width: 38
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: LPC thatched-roof_12
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 293
+        width: 8
+        height: 73
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: LPC thatched-roof_13
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 277
+        width: 15
+        height: 95
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: LPC thatched-roof_14
+      rect:
+        serializedVersion: 2
+        x: 313
+        y: 386
+        width: 55
+        height: 108
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: LPC thatched-roof_15
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 384
+        width: 61
+        height: 110
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: LPC thatched-roof_16
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 448
+        width: 32
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: LPC thatched-roof_17
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 384
+        width: 40
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: LPC thatched-roof_18
+      rect:
+        serializedVersion: 2
+        x: 472
+        y: 321
+        width: 8
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: LPC thatched-roof_19
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 320
+        width: 13
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: LPC thatched-roof_20
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 387
+        width: 36
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: LPC thatched-roof_21
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 384
+        width: 45
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: LPC thatched-roof_22
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 389
+        width: 23
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: LPC thatched-roof_23
+      rect:
+        serializedVersion: 2
+        x: 353
+        y: 373
+        width: 40
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: LPC thatched-roof_24
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 384
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: LPC thatched-roof_25
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 384
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: LPC thatched-roof_26
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 352
+        width: 64
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: LPC thatched-roof_27
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 288
+        width: 32
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: LPC thatched-roof_28
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 352
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: LPC thatched-roof_29
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 352
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: LPC thatched-roof_30
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 288
+        width: 95
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: LPC thatched-roof_31
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 372
+        width: 46
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: LPC thatched-roof_32
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 327.45453
+        width: 56.88889
+        height: 46.545456
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: LPC thatched-roof_33
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 352
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: LPC thatched-roof_34
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 352
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: LPC thatched-roof_35
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 288
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: LPC thatched-roof_36
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 320
+        width: 30
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: LPC thatched-roof_37
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 288
+        width: 96
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: LPC thatched-roof_38
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 320
+        width: 32
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: LPC thatched-roof_39
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 320
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: LPC thatched-roof_40
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 287
+        width: 16
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: LPC thatched-roof_41
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 281.45453
+        width: 56.88889
+        height: 46.545456
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: LPC thatched-roof_42
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 288
+        width: 13
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: LPC thatched-roof_43
+      rect:
+        serializedVersion: 2
+        x: 472
+        y: 289
+        width: 8
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: LPC thatched-roof_44
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 235.45454
+        width: 56.88889
+        height: 46.545456
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: LPC thatched-roof_45
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 418
+        width: 32
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: LPC thatched-roof_46
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 235.45454
+        width: 56.88889
+        height: 46.545456
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: LPC thatched-roof_47
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 235.45454
+        width: 56.88889
+        height: 46.545456
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: LPC thatched-roof_48
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 235.45454
+        width: 56.88889
+        height: 46.545456
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: LPC thatched-roof_49
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 235.45454
+        width: 56.88889
+        height: 46.545456
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: LPC thatched-roof_50
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 235.45454
+        width: 56.88889
+        height: 46.545456
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: LPC thatched-roof_51
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 235.45454
+        width: 56.88889
+        height: 46.545456
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: LPC thatched-roof_52
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 235.45454
+        width: 56.88889
+        height: 46.545456
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: LPC thatched-roof_53
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 189.45454
+        width: 56.88889
+        height: 46.545456
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: LPC thatched-roof_54
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 189.45454
+        width: 56.88889
+        height: 46.545456
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: LPC thatched-roof_55
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 189.45454
+        width: 56.88889
+        height: 46.545456
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: LPC thatched-roof_56
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 189.45454
+        width: 56.88889
+        height: 46.545456
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: LPC thatched-roof_57
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 189.45454
+        width: 56.88889
+        height: 46.545456
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: LPC thatched-roof_58
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 189.45454
+        width: 56.88889
+        height: 46.545456
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: LPC thatched-roof_59
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 189.45454
+        width: 56.88889
+        height: 46.545456
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: LPC thatched-roof_60
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 189.45454
+        width: 56.88889
+        height: 46.545456
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: LPC thatched-roof_61
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 189.45454
+        width: 56.88889
+        height: 46.545456
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: LPC thatched-roof_62
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 143.45454
+        width: 56.88889
+        height: 46.545456
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: LPC thatched-roof_63
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 143.45454
+        width: 56.88889
+        height: 46.545456
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: LPC thatched-roof_64
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 143.45454
+        width: 56.88889
+        height: 46.545456
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: LPC thatched-roof_65
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 143.45454
+        width: 56.88889
+        height: 46.545456
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: LPC thatched-roof_66
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 143.45454
+        width: 56.88889
+        height: 46.545456
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: LPC thatched-roof_67
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 143.45454
+        width: 56.88889
+        height: 46.545456
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: LPC thatched-roof_68
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 143.45454
+        width: 56.88889
+        height: 46.545456
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: LPC thatched-roof_69
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 143.45454
+        width: 56.88889
+        height: 46.545456
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: LPC thatched-roof_70
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 143.45454
+        width: 56.88889
+        height: 46.545456
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: LPC thatched-roof_71
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 97.454544
+        width: 56.88889
+        height: 46.545456
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: LPC thatched-roof_72
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 97.454544
+        width: 56.88889
+        height: 46.545456
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: LPC thatched-roof_73
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 97.454544
+        width: 56.88889
+        height: 46.545456
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: LPC thatched-roof_74
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 97.454544
+        width: 56.88889
+        height: 46.545456
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: LPC thatched-roof_75
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 97.454544
+        width: 56.88889
+        height: 46.545456
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: LPC thatched-roof_76
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 97.454544
+        width: 56.88889
+        height: 46.545456
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: LPC thatched-roof_77
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 97.454544
+        width: 56.88889
+        height: 46.545456
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: LPC thatched-roof_78
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 97.454544
+        width: 56.88889
+        height: 46.545456
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: LPC thatched-roof_79
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 51.454544
+        width: 56.88889
+        height: 46.545456
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: LPC thatched-roof_80
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 51.454544
+        width: 56.88889
+        height: 46.545456
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: LPC thatched-roof_81
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 51.454544
+        width: 56.88889
+        height: 46.545456
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: LPC thatched-roof_82
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 51.454544
+        width: 56.88889
+        height: 46.545456
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: LPC thatched-roof_83
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 51.454544
+        width: 56.88889
+        height: 46.545456
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: LPC thatched-roof_84
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 51.454544
+        width: 56.88889
+        height: 46.545456
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: LPC thatched-roof_85
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 407
+        width: 48
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: LPC thatched-roof_86
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 51.454544
+        width: 56.88889
+        height: 46.545456
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    outline: []
+    physicsShape: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

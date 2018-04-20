@@ -90,4 +90,9 @@ public class InventorySlot : MonoBehaviour {
         }
     }
 
+    public void UpdateSlotNumber()
+    {
+        InitializeSlot();
+    }
+
 }
