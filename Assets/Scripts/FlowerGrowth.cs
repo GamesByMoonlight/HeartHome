@@ -48,10 +48,13 @@ public class FlowerGrowth : MonoBehaviour {
 	void Awake () {
         animator = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
-
-        StartCoroutine("FlowerUpgrade");
 	}
-	
+
+    private void Start()
+    {
+        StartCoroutine("FlowerUpgrade");
+    }
+
     // Method to make the flower grow every few seconds, set by "Seconds Per Stage".  Stops on growth stage 2.  Stage 3 is a dead flower, set by a ghost attacking the flower.
     private IEnumerator FlowerUpgrade()
     {

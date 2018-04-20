@@ -36,11 +36,13 @@ public class Flower : MonoBehaviour {
 
     private void Start()
     {
-        if(FlowersCreated == 0)
-        {
-            GetComponent<FlowerGrowth>().PlayAudioClip();
-        }
+        GetComponent<FlowerGrowth>().PlayAudioClip();
         FlowersCreated++;
+
+        if (FlowersCreated == 4)
+        {
+            GameEventSystem.Instance.MakePaintbrush.Invoke();
+        }
 
         if(FlowersCreated >= 40 && !GhostMade)
         {

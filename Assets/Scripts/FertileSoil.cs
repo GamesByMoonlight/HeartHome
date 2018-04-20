@@ -6,12 +6,17 @@ using UnityEngine;
 public class FertileSoil : MonoBehaviour {
 
     public GameObject ThrownSeedsPrefab;
-    public GameObject FlowerPrefab;
     public GameObject SplashPrefab;
 
     bool seedsPlanted = false;
     GameObject seeds;
     GameObject splash;
+    FlowerMaker flowerMaker;
+
+    private void Awake()
+    {
+        flowerMaker = GetComponent<FlowerMaker>();
+    }
 
     public void PlantSeeds()
     {
@@ -40,7 +45,8 @@ public class FertileSoil : MonoBehaviour {
     IEnumerator WaitForShrink(Animator animator)
     {
         yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length);
-        Instantiate(FlowerPrefab, transform.position, Quaternion.Euler(0f, 0f, 0f), transform);
+        //Instantiate(FlowerPrefab, transform.position, Quaternion.Euler(0f, 0f, 0f));
+        flowerMaker.MakeFlowerAt(transform.position);
         Destroy(seeds);
         Destroy(splash);
     }
