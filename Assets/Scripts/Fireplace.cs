@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class FirePlace : MonoBehaviour {
+public class Fireplace : MonoBehaviour {
 
 	public GameObject burningLog;
 	public int burnForSeconds = 5;
+
+	public bool stuffBurning {get; private set;}
 
 	// Use this for initialization
 	void Start () {
@@ -18,8 +20,15 @@ public class FirePlace : MonoBehaviour {
 		
 	}
 
-    public void Burn()
+    public void Burn(IItem itemToBurn)
     {
+		if (this.stuffBurning) {
+			return;
+		}
+
+		this.stuffBurning = true;
+
+		Inventory.Current.RemoveInventory(itemToBurn);
 		burningLog.SetActive(true);
 	 	StartCoroutine(StopBurning());
         Debug.Log("the fire is so delightful");
@@ -31,6 +40,7 @@ public class FirePlace : MonoBehaviour {
 
 		 //the item is all done burning
          burningLog.SetActive(false);
+		 this.stuffBurning = false;
      }	 
 
 }

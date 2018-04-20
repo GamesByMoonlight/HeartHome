@@ -11,11 +11,10 @@ public class BurnableItem : Item {
 
         Debug.Log("using burnable");
 
-        var firePlace = location.GetComponent<FirePlace>();
+        var firePlace = location.GetComponent<Fireplace>();
         if (firePlace != null)
         {
-            firePlace.Burn();
-            Inventory.Current.RemoveInventory(this);
+            firePlace.Burn(this);
         }
     }
 
