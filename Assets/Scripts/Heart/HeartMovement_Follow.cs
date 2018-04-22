@@ -13,18 +13,19 @@ public class HeartMovement_Follow : MonoBehaviour {
     public float CircleDistance = 1.0f;
     public float RotateSpeed = 2f;
 
-    public Transform followTarget;
+    public GameObject followTarget;
     public string ToolTag = "Tool";
 
     private Transform[] ToolLocations;
 
     Rigidbody2D rb;
-    //GameObject TargetGameObject;
+    GameObject TargetGameObject;
+    float MoveSpeed;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        //argetGameObject = null;
+        TargetGameObject = null;
     }
 
     // Use this for initialization
@@ -46,36 +47,21 @@ public class HeartMovement_Follow : MonoBehaviour {
         }
     }
 
-    //void RefreshTargetGameObject()
-    //{
-        
-    //}
-
-
-    // FixedUpdate is called as often as possible
-    void FixedUpdate()
+    void RefreshTargetGameObject()
     {
-        float MoveSpeed = 0.0f;
-        Vector3 target = new Vector3(0, 0, 0);
-        bool targetFound = false;
         float dist = 0.0f;
-
-        //if(TargetGameObject == null)
-        //{
-        //    RefreshTargetGameObject();
-        //}
-
         bool needToUpdate = false;
+        TargetGameObject = null;
+
         foreach (Transform tool in ToolLocations)
         {
-            if(tool != null)
+            if (tool != null)
             {
-                dist = Vector3.Distance(tool.position, followTarget.position);
-
+                dist = Vector3.Distance(tool.position, followTarget.transform.position);
+                Debug.Log(dist);
                 if (dist < ToolLatchDistance)// && dist > CircleDistance)
                 {
-                    target = tool.position;
-                    targetFound = true;
+                    TargetGameObject = tool.gameObject;
                     MoveSpeed = MoveToToolSpeed;
                     break;
                 }
@@ -88,23 +74,33 @@ public class HeartMovement_Follow : MonoBehaviour {
         }
         if (needToUpdate)
             UpdateTools();
+    }
+
+
+    // FixedUpdate is called as often as possible
+    void FixedUpdate()
+    {
+        MoveSpeed = 0.0f;
+
+        RefreshTargetGameObject();
+
 
         // If no tool is found to latch to, move towards the player.
-        if (!targetFound)
+        if (TargetGameObject == null)
         {
-            dist = Vector3.Distance(followTarget.position, transform.position);
+            var dist = Vector3.Distance(followTarget.transform.position, transform.position);
 
             if (dist > DistanceFollowed)
             {
-                target = followTarget.position;
-                targetFound = true;
+                TargetGameObject = followTarget;
                 MoveSpeed = MoveToPlayerSpeed;
             }
         }
 
-        if (targetFound)
+        if (TargetGameObject != null)
         {
-            dist = Vector3.Distance(target, transform.position);
+            var dist = Vector3.Distance(TargetGameObject.transform.position, transform.position);
+            var target = TargetGameObject.transform.position;
             if (dist <= CircleDistance)
             {
                 //
