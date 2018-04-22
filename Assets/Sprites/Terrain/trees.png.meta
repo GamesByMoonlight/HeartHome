@@ -4,12 +4,18 @@ timeCreated: 1523583659
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: trees_0
-    21300002: trees_1
-    21300004: trees_2
-    21300006: trees_3
-    21300008: trees_4
-    21300010: trees_5
+    21300000: treetop_0
+    21300002: treetop_1
+    21300004: treetop_2
+    21300006: treetop_3
+    21300008: treetop_4
+    21300010: treetop_5
+    21300012: trees_6
+    21300014: trees_7
+    21300016: trees_8
+    21300018: trees_9
+    21300020: trees_10
+    21300022: trees_11
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -116,85 +122,169 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: trees_0
+      name: treetop_0
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 47
+        width: 107
+        height: 81
+      alignment: 9
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: treetop_1
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 47
+        width: 89
+        height: 81
+      alignment: 9
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: treetop_2
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 44
+        width: 107
+        height: 84
+      alignment: 9
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: treetop_3
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 45
+        width: 89
+        height: 83
+      alignment: 9
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: treetop_4
+      rect:
+        serializedVersion: 2
+        x: 455
+        y: 44
+        width: 107
+        height: 84
+      alignment: 9
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: treetop_5
+      rect:
+        serializedVersion: 2
+        x: 580
+        y: 47
+        width: 89
+        height: 81
+      alignment: 9
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: trees_6
       rect:
         serializedVersion: 2
         x: 3
         y: 0
         width: 107
         height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: trees_1
+      name: trees_7
       rect:
         serializedVersion: 2
         x: 128
         y: 0
         width: 89
         height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: trees_2
+      name: trees_8
       rect:
         serializedVersion: 2
         x: 225
         y: 0
         width: 107
         height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: trees_3
+      name: trees_9
       rect:
         serializedVersion: 2
         x: 350
         y: 0
         width: 89
         height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: trees_4
+      name: trees_10
       rect:
         serializedVersion: 2
         x: 455
         y: 0
         width: 107
         height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: trees_5
+      name: trees_11
       rect:
         serializedVersion: 2
         x: 580
         y: 0
         width: 89
         height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
