@@ -150,6 +150,7 @@ MonoBehaviour:
     m_RotationOrder: 0
   FadeInTime: 15
   Speed: 3
+  InspectionSpeedFactor: 0.25
   KillFirstTime: 5
 --- !u!114 &114701261669703136
 MonoBehaviour:
@@ -197,7 +198,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: ecde66a82bbdf4016afa985ed2c5fc30, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
