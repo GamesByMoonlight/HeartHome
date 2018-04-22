@@ -21,6 +21,7 @@ public class HeartMovement_Follow : MonoBehaviour {
     Rigidbody2D rb;
     GameObject TargetGameObject;
     float MoveSpeed;
+    bool circlingTargetFlag = false;
 
     private void Awake()
     {
@@ -125,6 +126,12 @@ public class HeartMovement_Follow : MonoBehaviour {
         }
         else
         {
+            if(rb.velocity == Vector2.zero && circlingTargetFlag)
+            {
+                // Just to give it a little kick when it's done circling so the heart doesn't look like such a goob after you pick up an item
+                circlingTargetFlag = false;
+                rb.velocity = Vector3.Cross(new Vector3(0f, 0f, -1f), (followTarget.transform.position - transform.position).normalized).normalized * RotateSpeed;
+            }
             rb.velocity = Vector2.Lerp(rb.velocity, Vector2.zero, LerpToPlayerDrag); 
         }
 
@@ -135,6 +142,6 @@ public class HeartMovement_Follow : MonoBehaviour {
         rb.velocity = Vector2.zero;
         transform.RotateAround(target, new Vector3(0f, 0f, 1f), RotateSpeed * boost);
         transform.rotation = Quaternion.Euler(0f, 0f, 0f);
-
+        circlingTargetFlag = true;
     }
 }
