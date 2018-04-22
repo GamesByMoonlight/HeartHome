@@ -112,11 +112,14 @@ public class HeartMovement_Follow : MonoBehaviour {
                 //
                 // Figure out the current angle between the objects.
                 //
-                HeartCircle(target);
+                var playerDist = Vector3.Distance(TargetGameObject.transform.position, followTarget.transform.position);
+                if(playerDist <= CircleDistance)
+                    HeartCircle(target, 2f);
+                else
+                    HeartCircle(target, 1f);
             }
             else
             {
-                Debug.Log("MoveSpeed: " + MoveSpeed);
                 rb.velocity = Vector2.Lerp(rb.velocity, (target - transform.position).normalized * MoveSpeed, .1f);
             }
         }
@@ -127,10 +130,10 @@ public class HeartMovement_Follow : MonoBehaviour {
 
     }
 
-    private void HeartCircle(Vector3 target)
+    private void HeartCircle(Vector3 target, float boost)
     {
         rb.velocity = Vector2.zero;
-        transform.RotateAround(target, new Vector3(0f, 0f, 1f), RotateSpeed);
+        transform.RotateAround(target, new Vector3(0f, 0f, 1f), RotateSpeed * boost);
         transform.rotation = Quaternion.Euler(0f, 0f, 0f);
 
     }
