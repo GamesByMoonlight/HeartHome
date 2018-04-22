@@ -6,6 +6,7 @@ public class GhostController : MonoBehaviour {
     public AnimationCurve FadeInCurve;
     public float FadeInTime = 3f;
     public float Speed = 3f;
+    public float InspectionSpeedFactor = .25f;  // How much slower the Ghost should travel to first flower
     public float KillFirstTime = 3f;
 
     Rigidbody2D rb;
@@ -15,6 +16,7 @@ public class GhostController : MonoBehaviour {
     Coroutine inspectFirst;
     Coroutine chaseFlowers;
     Shiver shiver;
+    BGMSwapper bgmSwapper;
     bool inspecting = true;
 
     private void Awake()
@@ -24,6 +26,7 @@ public class GhostController : MonoBehaviour {
         spriteRenderer = GetComponent<SpriteRenderer>();
         shiver = GetComponent<Shiver>();
         chaseFlowers = null;
+        bgmSwapper = GetComponent<BGMSwapper>();
     }
 
     private void Start()
@@ -49,6 +52,7 @@ public class GhostController : MonoBehaviour {
         {
             yield return null;
             spriteRenderer.color = new Color(1f, 1f, 1f, FadeInCurve.Evaluate((Time.time - time) / FadeInTime));
+            bgmSwapper.SetTrackVolume(0, FadeInCurve.Evaluate(1 - (Time.time - time) / FadeInTime)); //((Time.time - time) / FadeInTime));
         }
         spriteRenderer.color = Color.white;
         Begin();
@@ -78,10 +82,11 @@ public class GhostController : MonoBehaviour {
     {
         var movement = (target.transform.position - transform.position).normalized;
         SetAnimator(Vector2.SignedAngle(Vector2.up, movement));
+        bgmSwapper.SwapToTrack(1);
         while(inspecting)
         {
             movement = (target.transform.position - transform.position).normalized;
-            rb.velocity = movement * (Speed / 2f);
+            rb.velocity = movement * (Speed * InspectionSpeedFactor);
             yield return new WaitForFixedUpdate();
         }
         //StartCoroutine(ChaseFlowers());

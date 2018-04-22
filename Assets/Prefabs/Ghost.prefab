@@ -148,7 +148,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
-  FadeInTime: 7
+  FadeInTime: 15
   Speed: 3
   KillFirstTime: 5
 --- !u!114 &114701261669703136
