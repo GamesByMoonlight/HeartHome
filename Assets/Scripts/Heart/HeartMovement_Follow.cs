@@ -51,15 +51,22 @@ public class HeartMovement_Follow : MonoBehaviour {
     {
         float dist = 0.0f;
         bool needToUpdate = false;
-        TargetGameObject = null;
 
+        if(TargetGameObject != null && TargetGameObject != followTarget)
+        {
+            dist = Vector3.Distance(TargetGameObject.transform.position, followTarget.transform.position);
+            if (dist < ToolLatchDistance)
+                return;
+        }
+
+        TargetGameObject = null;
+        MoveSpeed = 0.0f;
         foreach (Transform tool in ToolLocations)
         {
             if (tool != null)
             {
                 dist = Vector3.Distance(tool.position, followTarget.transform.position);
-                Debug.Log(dist);
-                if (dist < ToolLatchDistance)// && dist > CircleDistance)
+                if (dist < ToolLatchDistance)
                 {
                     TargetGameObject = tool.gameObject;
                     MoveSpeed = MoveToToolSpeed;
@@ -74,14 +81,13 @@ public class HeartMovement_Follow : MonoBehaviour {
         }
         if (needToUpdate)
             UpdateTools();
+        
     }
 
 
     // FixedUpdate is called as often as possible
     void FixedUpdate()
     {
-        MoveSpeed = 0.0f;
-
         RefreshTargetGameObject();
 
 
@@ -110,6 +116,7 @@ public class HeartMovement_Follow : MonoBehaviour {
             }
             else
             {
+                Debug.Log("MoveSpeed: " + MoveSpeed);
                 rb.velocity = Vector2.Lerp(rb.velocity, (target - transform.position).normalized * MoveSpeed, .1f);
             }
         }
