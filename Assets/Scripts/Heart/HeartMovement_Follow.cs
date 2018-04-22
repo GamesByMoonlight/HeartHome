@@ -13,16 +13,20 @@ public class HeartMovement_Follow : MonoBehaviour {
     public float CircleDistance = 1.0f;
     public float RotateSpeed = 2f;
 
-    public Transform followTarget;
+    public GameObject followTarget;
     public string ToolTag = "Tool";
 
     private Transform[] ToolLocations;
 
     Rigidbody2D rb;
+    GameObject TargetGameObject;
+    float MoveSpeed;
+    bool circlingTargetFlag = false;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        TargetGameObject = null;
     }
 
     // Use this for initialization
@@ -44,28 +48,30 @@ public class HeartMovement_Follow : MonoBehaviour {
         }
     }
 
-
-    // FixedUpdate is called as often as possible
-    void FixedUpdate()
+    void RefreshTargetGameObject()
     {
-        float MoveSpeed = 0.0f;
-        Vector3 target = new Vector3(0, 0, 0);
-        bool targetFound = false;
         float dist = 0.0f;
-
         bool needToUpdate = false;
+
+        if(TargetGameObject != null && TargetGameObject != followTarget)
+        {
+            dist = Vector3.Distance(TargetGameObject.transform.position, followTarget.transform.position);
+            if (dist < ToolLatchDistance)
+                return;
+        }
+
+        TargetGameObject = null;
+        MoveSpeed = 0.0f;
         foreach (Transform tool in ToolLocations)
         {
-            if(tool != null)
+            if (tool != null)
             {
-                dist = Vector3.Distance(tool.position, followTarget.position);
-
-                if (dist < ToolLatchDistance && dist > CircleDistance)
+                dist = Vector3.Distance(tool.position, followTarget.transform.position);
+                if (dist < ToolLatchDistance)
                 {
-                    //Debug.Log("Target Distance = " + Vector3.Distance(tool.position, transform.position));
-                    target = tool.position;
-                    targetFound = true;
+                    TargetGameObject = tool.gameObject;
                     MoveSpeed = MoveToToolSpeed;
+                    break;
                 }
             }
             else
@@ -76,48 +82,66 @@ public class HeartMovement_Follow : MonoBehaviour {
         }
         if (needToUpdate)
             UpdateTools();
+        
+    }
+
+
+    // FixedUpdate is called as often as possible
+    void FixedUpdate()
+    {
+        RefreshTargetGameObject();
+
 
         // If no tool is found to latch to, move towards the player.
-        if (!targetFound)
+        if (TargetGameObject == null)
         {
-            dist = Vector3.Distance(followTarget.position, transform.position);
+            var dist = Vector3.Distance(followTarget.transform.position, transform.position);
 
             if (dist > DistanceFollowed)
             {
-                target = followTarget.position;
-                targetFound = true;
+                TargetGameObject = followTarget;
                 MoveSpeed = MoveToPlayerSpeed;
             }
         }
 
-        if (targetFound)
+        if (TargetGameObject != null)
         {
-            dist = Vector3.Distance(target, transform.position);
+            var dist = Vector3.Distance(TargetGameObject.transform.position, transform.position);
+            var target = TargetGameObject.transform.position;
             if (dist <= CircleDistance)
             {
                 //
                 // Figure out the current angle between the objects.
                 //
-                HeartCircle(target);
+                var playerDist = Vector3.Distance(TargetGameObject.transform.position, followTarget.transform.position);
+                if(playerDist <= CircleDistance)
+                    HeartCircle(target, 2f);
+                else
+                    HeartCircle(target, 1f);
             }
             else
             {
                 rb.velocity = Vector2.Lerp(rb.velocity, (target - transform.position).normalized * MoveSpeed, .1f);
-            
             }
         }
         else
         {
+            if(rb.velocity == Vector2.zero && circlingTargetFlag)
+            {
+                // Just to give it a little kick when it's done circling so the heart doesn't look like such a goob after you pick up an item
+                circlingTargetFlag = false;
+                rb.velocity = Vector3.Cross(new Vector3(0f, 0f, -1f), (followTarget.transform.position - transform.position).normalized).normalized * RotateSpeed;
+            }
             rb.velocity = Vector2.Lerp(rb.velocity, Vector2.zero, LerpToPlayerDrag); 
         }
 
     }
 
-    private void HeartCircle(Vector3 target)
+    private void HeartCircle(Vector3 target, float boost)
     {
         rb.velocity = Vector2.zero;
-        transform.RotateAround(target, new Vector3(0f, 0f, 1f), RotateSpeed);
+        transform.RotateAround(target, new Vector3(0f, 0f, 1f), RotateSpeed * boost);
         transform.rotation = Quaternion.Euler(0f, 0f, 0f);
-
+        circlingTargetFlag = true;
     }
 }
