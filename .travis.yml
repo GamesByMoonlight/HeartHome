@@ -3,7 +3,7 @@ os: osx
 osx_image: xcode6.4
 branches:
   only:
-  - develop
+  - tool/105
 notifications:
   slack: fortworthgamedev:lYi1l5Hfrm816dOgnIHhkbHa
 install:
