@@ -19,10 +19,12 @@ public class HeartMovement_Follow : MonoBehaviour {
     private Transform[] ToolLocations;
 
     Rigidbody2D rb;
+    //GameObject TargetGameObject;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        //argetGameObject = null;
     }
 
     // Use this for initialization
@@ -44,6 +46,11 @@ public class HeartMovement_Follow : MonoBehaviour {
         }
     }
 
+    //void RefreshTargetGameObject()
+    //{
+        
+    //}
+
 
     // FixedUpdate is called as often as possible
     void FixedUpdate()
@@ -53,6 +60,11 @@ public class HeartMovement_Follow : MonoBehaviour {
         bool targetFound = false;
         float dist = 0.0f;
 
+        //if(TargetGameObject == null)
+        //{
+        //    RefreshTargetGameObject();
+        //}
+
         bool needToUpdate = false;
         foreach (Transform tool in ToolLocations)
         {
@@ -60,12 +72,12 @@ public class HeartMovement_Follow : MonoBehaviour {
             {
                 dist = Vector3.Distance(tool.position, followTarget.position);
 
-                if (dist < ToolLatchDistance && dist > CircleDistance)
+                if (dist < ToolLatchDistance)// && dist > CircleDistance)
                 {
-                    //Debug.Log("Target Distance = " + Vector3.Distance(tool.position, transform.position));
                     target = tool.position;
                     targetFound = true;
                     MoveSpeed = MoveToToolSpeed;
+                    break;
                 }
             }
             else
@@ -103,7 +115,6 @@ public class HeartMovement_Follow : MonoBehaviour {
             else
             {
                 rb.velocity = Vector2.Lerp(rb.velocity, (target - transform.position).normalized * MoveSpeed, .1f);
-            
             }
         }
         else
