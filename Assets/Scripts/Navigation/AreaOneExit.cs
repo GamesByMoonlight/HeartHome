@@ -9,14 +9,12 @@ public class AreaOneExit : MonoBehaviour {
     public float FadeTime = 2f;
     public FadeInOut Shade;
 
-    private void Awake()
-    {
-        if(Shade == null)
-            Debug.LogError("Shade is null.  Create a Panel with an Image UI and a FadeInOut script and reference it here for fading effect");
-    }
-
     private void Start()
     {
+        if (Shade == null)
+            Debug.LogError("Shade is null.  Create a Panel with an Image UI and a FadeInOut script and reference it here for fading effect");
+
+        GameEventSystem.Instance.AllFlowersDead.AddListener(LeaveByForce);
         StartCoroutine(Shade.FadeIn(FadeTime));
     }
 
@@ -24,6 +22,13 @@ public class AreaOneExit : MonoBehaviour {
     void LeaveByChoice(HeartState heart)
     {
         heart.CurrentState = HeartState.HeartStateValues.Cursed;
+        StartCoroutine(WaitForFade());
+    }
+
+    // Broken Heart
+    void LeaveByForce()
+    {
+        FindObjectOfType<HeartState>().CurrentState = HeartState.HeartStateValues.Broken;
         StartCoroutine(WaitForFade());
     }
 
@@ -41,5 +46,12 @@ public class AreaOneExit : MonoBehaviour {
         {
             LeaveByChoice(heartState);
         }
+    }
+
+    private void OnDestroy()
+    {
+        // A good habit to get into.  When you add a listener.. always remove it in OnDestroy()
+        if (GameEventSystem.Instance != null)
+            GameEventSystem.Instance.AllFlowersDead.RemoveListener(LeaveByForce);
     }
 }
