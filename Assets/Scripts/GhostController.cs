@@ -56,7 +56,7 @@ public class GhostController : MonoBehaviour {
         {
             yield return null;
             spriteRenderer.color = new Color(1f, 1f, 1f, FadeInCurve.Evaluate((Time.time - time) / FadeInTime));
-            bgmSwapper.SetTrackVolume(0, 1f - (Time.time - time) / FadeInTime); // A linear decline in volume.  You could also use the animation curve.  This sounds better to me
+            bgmSwapper.SetTrackVolume(1f - (Time.time - time) / FadeInTime); // A linear decline in volume.  You could also use the animation curve.  This sounds better to me
         }
         spriteRenderer.color = Color.white;
         Begin();
@@ -135,6 +135,7 @@ public class GhostController : MonoBehaviour {
         }
 
         rb.velocity = new Vector2(0f, 0f);
+        GameEventSystem.Instance.AllFlowersDead.Invoke();
         StartCoroutine(WaitForFlowers());
 	}
 
