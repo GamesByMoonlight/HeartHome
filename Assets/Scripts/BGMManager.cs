@@ -12,6 +12,12 @@ public class BGMManager : MonoBehaviour {
             _musicTracks.Add(child.GetComponent<AudioSource>());
 	}
 
+    public void SetVolume(int trackNumber, float volume)
+    {
+        if(trackNumber < _musicTracks.Count)
+            _musicTracks[trackNumber].volume = volume;
+    }
+
     public void ChangeTrack(int trackNumber)
     {
         foreach (AudioSource track in _musicTracks)

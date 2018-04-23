@@ -6,6 +6,7 @@ public class GhostController : MonoBehaviour {
     public AnimationCurve FadeInCurve;
     public float FadeInTime = 3f;
     public float Speed = 3f;
+    public float InspectionSpeedFactor = .25f;  // How much slower the Ghost should travel to first flower
     public float KillFirstTime = 3f;
 
     Rigidbody2D rb;
@@ -15,7 +16,9 @@ public class GhostController : MonoBehaviour {
     Coroutine inspectFirst;
     Coroutine chaseFlowers;
     Shiver shiver;
+    BGMSwapper bgmSwapper;
     bool inspecting = true;
+    bool firstFlowerFound = false;
 
     private void Awake()
     {
@@ -24,6 +27,9 @@ public class GhostController : MonoBehaviour {
         spriteRenderer = GetComponent<SpriteRenderer>();
         shiver = GetComponent<Shiver>();
         chaseFlowers = null;
+        bgmSwapper = GetComponent<BGMSwapper>();
+
+        GetComponent<BoxCollider2D>().enabled = false;
     }
 
     private void Start()
@@ -35,6 +41,7 @@ public class GhostController : MonoBehaviour {
     void Begin()
     {
         target = Flower.OldestFlower;
+        GetComponent<BoxCollider2D>().enabled = true;
         if (target == null)
             StartCoroutine(WaitForFlowers());
         else
@@ -49,6 +56,7 @@ public class GhostController : MonoBehaviour {
         {
             yield return null;
             spriteRenderer.color = new Color(1f, 1f, 1f, FadeInCurve.Evaluate((Time.time - time) / FadeInTime));
+            bgmSwapper.SetTrackVolume(0, 1f - (Time.time - time) / FadeInTime); // A linear decline in volume.  You could also use the animation curve.  This sounds better to me
         }
         spriteRenderer.color = Color.white;
         Begin();
@@ -78,10 +86,11 @@ public class GhostController : MonoBehaviour {
     {
         var movement = (target.transform.position - transform.position).normalized;
         SetAnimator(Vector2.SignedAngle(Vector2.up, movement));
+        bgmSwapper.SwapToTrack(1);
         while(inspecting)
         {
             movement = (target.transform.position - transform.position).normalized;
-            rb.velocity = movement * (Speed / 2f);
+            rb.velocity = movement * (Speed * InspectionSpeedFactor);
             yield return new WaitForFixedUpdate();
         }
         //StartCoroutine(ChaseFlowers());
@@ -164,6 +173,17 @@ public class GhostController : MonoBehaviour {
     private void OnTriggerEnter2D(Collider2D collision)
     {
         var flower = collision.gameObject.GetComponent<Flower>();
+
+        // This check helps preserve the inspect behaviour should a flower be within range of the ghost spawn
+        if(!firstFlowerFound)
+        {
+            if (flower && flower.gameObject == target.gameObject)
+                firstFlowerFound = true;
+            else
+                return;
+        }
+
+        // Normal logic
         if (flower && flower.Alive)
         {
             if (inspecting)
