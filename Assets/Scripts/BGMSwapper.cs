@@ -13,6 +13,9 @@ public class BGMSwapper : MonoBehaviour {
 
     // Use this for initialization
     public void SwapToTrack (int track) {
+        if (bgmManager == null)
+            return;
+
         try
         {
             bgmManager.ChangeTrack(track);
@@ -24,8 +27,11 @@ public class BGMSwapper : MonoBehaviour {
 
 	}
 	
-	public void SetTrackVolume(int track, float volume)
+	public void SetTrackVolume(float volume)
     {
-        bgmManager.SetVolume(track, volume);
+        if (bgmManager == null)
+            return;
+        
+        bgmManager.SetVolume(volume);
     }
 }

@@ -5,17 +5,18 @@ using UnityEngine;
 public class BGMManager : MonoBehaviour {
 
     private List<AudioSource> _musicTracks = new List<AudioSource>();
+    int currentTrack;
 
 	// Use this for initialization
 	void Start () {
+        currentTrack = 0;
         foreach (Transform child in transform)
             _musicTracks.Add(child.GetComponent<AudioSource>());
 	}
 
-    public void SetVolume(int trackNumber, float volume)
+    public void SetVolume(float volume)
     {
-        if(trackNumber < _musicTracks.Count)
-            _musicTracks[trackNumber].volume = volume;
+        _musicTracks[currentTrack].volume = volume;
     }
 
     public void ChangeTrack(int trackNumber)
@@ -24,7 +25,7 @@ public class BGMManager : MonoBehaviour {
         {
             track.Stop();
         }
-
+        currentTrack = trackNumber;
         _musicTracks[trackNumber].Play();
     }
 }

@@ -5,9 +5,11 @@ using UnityEngine.UI;
 
 public class FadeInOut : MonoBehaviour {
     Image shade;
+    BGMSwapper bgm;
 
 	void Awake() {
         shade = GetComponent<Image>();
+        bgm = GetComponent<BGMSwapper>();
 	}
 	
     public IEnumerator FadeIn(float seconds)
@@ -29,6 +31,7 @@ public class FadeInOut : MonoBehaviour {
         while ((Time.time - start) / seconds < 1f)
         {
             shade.color = new Color(0f, 0f, 0f, (Time.time - start) / seconds);
+            bgm.SetTrackVolume(1 - (Time.time - start) / seconds);
             yield return null;
         }
         shade.color = new Color(0f, 0f, 0f, 1f); // just in case
