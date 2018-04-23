@@ -70,6 +70,9 @@ public class FlowerGrowth : MonoBehaviour {
     // Method to let the animator play the audio clip based on growth stage
     public void PlayAudioClip()
     {
+        if (growthStage >= flowerStage.Length || flowerStage[growthStage] == null)
+            return;
+
         audioSource.clip = flowerStage[growthStage];
         audioSource.Play();
     }
