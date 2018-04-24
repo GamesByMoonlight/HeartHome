@@ -21320,6 +21320,11 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+  m_TileRefreshArray:
+  - serializedVersion: 1
+    m_DirtyIndex: 0
+  - serializedVersion: 1
+    m_DirtyIndex: 0
 --- !u!1 &106357972
 GameObject:
   m_ObjectHideFlags: 0
@@ -25091,6 +25096,11 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+  m_TileRefreshArray:
+  - serializedVersion: 1
+    m_DirtyIndex: 0
+  - serializedVersion: 1
+    m_DirtyIndex: 0
 --- !u!4 &1618559395 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4556593423439412, guid: 83b5ecb1aea2d4be397d3c9d40460caf,
@@ -78720,6 +78730,11 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+  m_TileRefreshArray:
+  - serializedVersion: 1
+    m_DirtyIndex: 0
+  - serializedVersion: 1
+    m_DirtyIndex: 0
 --- !u!4 &1714565623 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4593942555259792, guid: f60386c9eaaeb4b8d98550f6670d1e95,
