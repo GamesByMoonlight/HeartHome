@@ -5,14 +5,20 @@ using UnityEngine;
 public class BGMSwapper : MonoBehaviour {
 
     private BGMManager bgmManager;
-    
-	// Use this for initialization
-	void Start () {
+
+    private void Awake()
+    {
         bgmManager = FindObjectOfType<BGMManager>();
+    }
+
+    // Use this for initialization
+    public void SwapToTrack (int track) {
+        if (bgmManager == null)
+            return;
 
         try
         {
-            bgmManager.ChangeTrack(1);
+            bgmManager.ChangeTrack(track);
         }
         catch (System.Exception)
         {
@@ -21,8 +27,11 @@ public class BGMSwapper : MonoBehaviour {
 
 	}
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+	public void SetTrackVolume(float volume)
+    {
+        if (bgmManager == null)
+            return;
+        
+        bgmManager.SetVolume(volume);
+    }
 }
