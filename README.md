@@ -7,6 +7,8 @@ An episodic emotional game about finding a home for your heart
 ## Nightly Build
 (windows) - http://heart-home.s3.amazonaws.com/windows.zip
 
+(OSX) - http://heart-home.s3.amazonaws.com/osx.zip
+
 ## Developer Workflow 
 https://docs.google.com/document/d/1fDoE3_Lk-G9TvQ4ai1c0ZbfuHVWA3Ak_L-AfmMijkK4/edit?usp=sharing
 

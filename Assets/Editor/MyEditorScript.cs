@@ -14,4 +14,15 @@ public class MyEditorScript
 		buildPlayerOptions.options = BuildOptions.None;
 		BuildPipeline.BuildPlayer(buildPlayerOptions);
 	}
+
+	public static void PerformOSXBuild ()
+	{
+		string[] scenes = { "Assets/_Scenes/Area 1.unity" };
+		BuildPlayerOptions buildPlayerOptions = new BuildPlayerOptions();
+		buildPlayerOptions.scenes = scenes;
+		buildPlayerOptions.locationPathName = "Build/osx/HeartHome.app";
+		buildPlayerOptions.target = BuildTarget.StandaloneOSX;
+		buildPlayerOptions.options = BuildOptions.None;
+		BuildPipeline.BuildPlayer(buildPlayerOptions);
+	}
 }

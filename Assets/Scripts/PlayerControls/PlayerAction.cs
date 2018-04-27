@@ -48,6 +48,8 @@ public class PlayerAction : MonoBehaviour
                 return;
             }
 
+            // Debug.Log(DetectedItem.GetComponent<IItem>());
+
             Inventory.Current.AddInventory(DetectedItem.GetComponent<IItem>());
         }
     }

@@ -1,13 +1,11 @@
 language: generic
 os: osx
 osx_image: xcode6.4
-# branches:
-#   only:
-#   - bug/84
+branches:
+  only:
+  - develop
 notifications:
-  email:
-    on_success: never
-    on_failure: change
+  slack: fortworthgamedev:lYi1l5Hfrm816dOgnIHhkbHa
 install:
 - sudo -E sh ./Scripts/install.sh
 script:
