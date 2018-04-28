@@ -12,18 +12,27 @@ public class PaintingAction : MonoBehaviour
     private bool collided = false;
     private bool fireplaceUsed = false;
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        ActionCheck();
+        StartCoroutine(Running());
     }
 
-    void OnCollisionEnter2D(Collision2D coll)
+    // Update is called once per frame
+    IEnumerator Running()
+    {
+        while (!fireplaceUsed)
+        {
+            ActionCheck();
+            yield return null;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         collided = true;
     }
 
-    private void OnCollisionExit(Collision collision)
+    private void OnTriggerExit2D(Collider2D collision)
     {
         collided = false;
     }
