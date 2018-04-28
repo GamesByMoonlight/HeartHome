@@ -9,33 +9,28 @@ public class PaintingAction : MonoBehaviour
     public Item addableObject2;
     public Item addableObject3;
 
+    private bool collided = false;
     private bool fireplaceUsed = false;
-
-    // Use this for initialization
-    void Start()
-    {
-    }
 
     // Update is called once per frame
     void Update()
     {
+        ActionCheck();
     }
 
-    void OnCollisionStay2D(Collision2D coll)
-    {
-        ActionCheck();
-        Debug.Log("Col - Stay");
-    }
     void OnCollisionEnter2D(Collision2D coll)
     {
-        ActionCheck();
+        collided = true;
+    }
 
-        Debug.Log("Col - Enter");
+    private void OnCollisionExit(Collision collision)
+    {
+        collided = false;
     }
 
     void ActionCheck()
     {
-        if (Input.GetButtonDown("Action") && !fireplaceUsed)
+        if (Input.GetButtonDown("Action") && collided && !fireplaceUsed)
         {
             Inventory.Current.AddInventory(addableObject1);
             Inventory.Current.AddInventory(addableObject2);
