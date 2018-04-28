@@ -14,7 +14,13 @@ AudioMixerController:
   m_SuspendThreshold: -80
   m_EnableSuspend: 1
   m_UpdateMode: 0
-  m_ExposedParameters: []
+  m_ExposedParameters:
+  - guid: 68cc99344bcb872498451274bf9d04c7
+    name: Harp
+  - guid: ac929cb06d830854eb2f88aa21c60da6
+    name: Percussion
+  - guid: efc826d3f207043409fc9b3b03a804d6
+    name: Violin
   m_AudioMixerGroupViews:
   - guids:
     - 9d9f98849fced3b4e93ddde4573ddedb
@@ -22,6 +28,9 @@ AudioMixerController:
     - 31506c608349ea940872aabccfd5c1d5
     - 4e0e3ea806da02543acd47bbd1773622
     - 5649211a26618f54f94e8b93878cecdc
+    - 335d52f5c4961e64ea29e3eb931fa1b2
+    - 0d33980efd0b19f4bbfaf50d26333922
+    - 9c9c89206f9ae1246834442e0ae0ae65
     name: View
   m_CurrentViewIndex: 0
   m_TargetSnapshot: {fileID: 24500006}
@@ -67,21 +76,40 @@ AudioMixerSnapshotController:
   m_AudioMixer: {fileID: 24100000}
   m_SnapshotID: dc6add645241dee4488063b21318ae53
   m_FloatValues:
-    f80af5b0bf304eb4bb388cfc63ae4ba0: 293
-    c2d25fc0650eb58488288c962d6a0f72: 51.1
+    f80af5b0bf304eb4bb388cfc63ae4ba0: 539
+    ac929cb06d830854eb2f88aa21c60da6: -2.5738313
+    c2d25fc0650eb58488288c962d6a0f72: 70
     cee340d204ddff141967c710ed999332: 0
     2e471534b74aa6c42b4f64b062efaefa: 3.3
+    68cc99344bcb872498451274bf9d04c7: -5.7224774
     2495fbe78cddeb749be7e66750b93b47: 0.026
-    3f849a28a579f564c81faa1770eedd3c: -34.3
+    3f849a28a579f564c81faa1770eedd3c: -36
     7c5438885f29f64429e796cff3d28929: 10
     68129eb80cec3ce40bf56187b240e840: -2.8
     24c874c982e051a48b6a92348e907a6e: -56.6
     f104141aba31c8647a09349485381ef6: 0
     2e8c907a0a5ea24478813d1e449645ff: 0.327
-    258fc43de6f6a924fa8c39507dbeaf41: 0
+    258fc43de6f6a924fa8c39507dbeaf41: -1.2918884
     4ae1f11e60cca7f468b52c0af92846e8: 1
     2526c04f54633584ab42c77bef055251: 0
   m_TransitionOverrides: {}
+--- !u!243 &243046638938658482
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Castle Percussion
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: 9c9c89206f9ae1246834442e0ae0ae65
+  m_Children: []
+  m_Volume: ac929cb06d830854eb2f88aa21c60da6
+  m_Pitch: f9176d4fea6a7144a90b2a41143e8901
+  m_Effects:
+  - {fileID: 244219617463968724}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
 --- !u!243 &243053926912295178
 AudioMixerGroupController:
   m_ObjectHideFlags: 0
@@ -118,6 +146,23 @@ AudioMixerGroupController:
   m_Mute: 0
   m_Solo: 0
   m_BypassEffects: 0
+--- !u!243 &243817652441778700
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Castle Harp
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: 335d52f5c4961e64ea29e3eb931fa1b2
+  m_Children: []
+  m_Volume: 68cc99344bcb872498451274bf9d04c7
+  m_Pitch: 4569e3ef542efec4191ce2837c01a423
+  m_Effects:
+  - {fileID: 244540341331589194}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
 --- !u!243 &243900643013808630
 AudioMixerGroupController:
   m_ObjectHideFlags: 0
@@ -144,7 +189,10 @@ AudioMixerGroupController:
   m_Name: BGM
   m_AudioMixer: {fileID: 24100000}
   m_GroupID: 4e4b8e735391cc949929b2ed48493256
-  m_Children: []
+  m_Children:
+  - {fileID: 243817652441778700}
+  - {fileID: 243948805869220184}
+  - {fileID: 243046638938658482}
   m_Volume: 258fc43de6f6a924fa8c39507dbeaf41
   m_Pitch: c77a3fca0d0df0b4abcbe0a64b397d6b
   m_Effects:
@@ -154,6 +202,36 @@ AudioMixerGroupController:
   m_Mute: 0
   m_Solo: 0
   m_BypassEffects: 0
+--- !u!243 &243948805869220184
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Castle Violin
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: 0d33980efd0b19f4bbfaf50d26333922
+  m_Children: []
+  m_Volume: efc826d3f207043409fc9b3b03a804d6
+  m_Pitch: 7ec16601a450f61468cae061148a7c5c
+  m_Effects:
+  - {fileID: 244707639104183752}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
+--- !u!244 &244219617463968724
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_EffectID: ed2f7b2b9696bb94ea5d659a815b7c46
+  m_EffectName: Attenuation
+  m_MixLevel: 92c563636bdfd0449b208c892eae5c84
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
 --- !u!244 &244270370708497194
 AudioMixerEffectController:
   m_ObjectHideFlags: 3
@@ -180,6 +258,19 @@ AudioMixerEffectController:
   m_SendTarget: {fileID: 244827897697618554}
   m_EnableWetMix: 0
   m_Bypass: 0
+--- !u!244 &244540341331589194
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_EffectID: 6d24731697db5cf43a383b6fac2125ef
+  m_EffectName: Attenuation
+  m_MixLevel: f5333da03debf764b94de9055b96ea4a
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
 --- !u!244 &244560453706429714
 AudioMixerEffectController:
   m_ObjectHideFlags: 3
@@ -189,6 +280,19 @@ AudioMixerEffectController:
   m_EffectID: 6368e0c2f8dc70744aebe0f81f33cbe3
   m_EffectName: Attenuation
   m_MixLevel: 4ec357b56e3ba4049b9d3e7bb75c6e32
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
+--- !u!244 &244707639104183752
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_EffectID: c5b1db84068f84241bb6be32fdb516fc
+  m_EffectName: Attenuation
+  m_MixLevel: b40c91c3afac1e0409136917600a37d5
   m_Parameters: []
   m_SendTarget: {fileID: 0}
   m_EnableWetMix: 0
