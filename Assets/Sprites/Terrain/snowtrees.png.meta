@@ -6,6 +6,8 @@ TextureImporter:
   fileIDToRecycleName:
     21300000: snowtrees_0
     21300002: snowtrees_1
+    21300004: snowtrees_2
+    21300006: snowtrees_3
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -105,12 +107,12 @@ TextureImporter:
       name: snowtrees_0
       rect:
         serializedVersion: 2
-        x: 1
-        y: 76
-        width: 94
-        height: 148
+        x: 0
+        y: 75
+        width: 96
+        height: 149
       alignment: 9
-      pivot: {x: 0.5, y: 0.0952799}
+      pivot: {x: 0.50717175, y: 0.097996145}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -121,10 +123,38 @@ TextureImporter:
         serializedVersion: 2
         x: 103
         y: 78
-        width: 85
-        height: 144
+        width: 89
+        height: 146
       alignment: 9
-      pivot: {x: 0.5161998, y: 0.07208475}
+      pivot: {x: 0.49613217, y: 0.08266229}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: snowtrees_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 144
+        width: 95
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: snowtrees_3
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 131
+        width: 89
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
