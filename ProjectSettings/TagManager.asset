@@ -15,7 +15,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - background
   - 
   - 
   - 
@@ -48,4 +48,7 @@ TagManager:
     locked: 0
   - name: Top Foliage
     uniqueID: 3043280737
+    locked: 0
+  - name: background
+    uniqueID: 4034761685
     locked: 0
