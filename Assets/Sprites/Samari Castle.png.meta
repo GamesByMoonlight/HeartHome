@@ -6,6 +6,8 @@ TextureImporter:
   fileIDToRecycleName:
     21300000: Samari Castle_0
     21300002: Samari Castle_1
+    21300004: Samari Castle_2
+    21300006: Samari Castle_3
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -105,12 +107,12 @@ TextureImporter:
       name: Samari Castle_0
       rect:
         serializedVersion: 2
-        x: 163
+        x: 164
         y: 181
-        width: 380
+        width: 379
         height: 206
       alignment: 9
-      pivot: {x: 0.2880131, y: 0.0003521373}
+      pivot: {x: 0.28626052, y: 0.00022806705}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -121,10 +123,38 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 543
-        height: 297
+        width: 542
+        height: 308
       alignment: 9
-      pivot: {x: 0.5021539, y: 0.60910463}
+      pivot: {x: 0.5028057, y: 0.5877968}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Samari Castle_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 138
+        width: 52
+        height: 123
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Samari Castle_3
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 185
+        width: 93
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
