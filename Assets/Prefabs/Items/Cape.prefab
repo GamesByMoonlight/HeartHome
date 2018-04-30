@@ -78,7 +78,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ef04a9ce2a27224f8d946496d7b1bd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Icon: {fileID: 21300000, guid: f70eccf8ecbda4e99ac97362a3b06ec2, type: 3}
+  Icon: {fileID: 21300002, guid: f70eccf8ecbda4e99ac97362a3b06ec2, type: 3}
+  instrument: violin
 --- !u!212 &212735236898744348
 SpriteRenderer:
   m_ObjectHideFlags: 1
