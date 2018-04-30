@@ -21,6 +21,8 @@ public class Parallax : MonoBehaviour {
 
     void Reposition()
     {
+        // In the editor, position the camera and background in the "final" y side-scrolling position you'd like to use.
+        // This method will then position the images accordingly, at the start of the scene, regardless of where the player/camera actually begin.
         var delta = (transform.position - mc.transform.position) * speed;
         transform.position = transform.position + new Vector3(0f, delta.y);
     }
