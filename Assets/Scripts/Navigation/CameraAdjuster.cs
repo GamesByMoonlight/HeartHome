@@ -23,7 +23,7 @@ public class CameraAdjuster : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-        float diff = (old.y - mc.transform.position.y);
+        float diff = (old.y - mc.transform.position.y) * speed;
 
 
         if(mc.transform.localPosition.y < MaxAdjust && diff < 0f)
