@@ -111,7 +111,6 @@ public class CastleMusic : MonoBehaviour {
         audioSources[2].Play();
         audioSources[3].Play();
 
-        StartCoroutine(StartPartB(0));
     }
 
     IEnumerator StartPartB(float samplesPlayed)

@@ -9,11 +9,14 @@ public class PaintingAction : MonoBehaviour
     public Item addableObject2;
     public Item addableObject3;
 
+    public CastleMusic castleMusic;
+
     private bool collided = false;
     private bool fireplaceUsed = false;
 
     private void Start()
     {
+        castleMusic = FindObjectOfType<CastleMusic>();
         StartCoroutine(Running());
     }
 
@@ -42,8 +45,11 @@ public class PaintingAction : MonoBehaviour
         if (Input.GetButtonDown("Action") && collided && !fireplaceUsed)
         {
             Inventory.Current.AddInventory(addableObject1);
+            castleMusic.StartTrack("violin");
             Inventory.Current.AddInventory(addableObject2);
+            castleMusic.StartTrack("harp");
             Inventory.Current.AddInventory(addableObject3);
+            castleMusic.StartTrack("percussion");
             fireplaceUsed = true;
         }
 
