@@ -16,6 +16,13 @@ public class Parallax : MonoBehaviour {
     private void Start()
     {
         old = mc.transform.position;
+        Reposition();
+    }
+
+    void Reposition()
+    {
+        var delta = (transform.position - mc.transform.position) * speed;
+        transform.position = transform.position + new Vector3(0f, delta.y);
     }
 
     private void FixedUpdate()
