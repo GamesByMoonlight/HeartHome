@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Inventory : MonoBehaviour {
     public GameObject SlotPrefab;
     public static  Inventory Current {get; protected set;}

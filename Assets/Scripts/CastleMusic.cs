@@ -8,7 +8,8 @@ public class CastleMusic : MonoBehaviour {
 
     public AudioClip[] audioClips;
 
-    private List<AudioSource> audioSources;
+    private List<AudioSource> audioSources = new List<AudioSource>();
+
 
 	// Use this for initialization
 	void Start () {
@@ -20,14 +21,43 @@ public class CastleMusic : MonoBehaviour {
         StartCoroutine(StartPartA());
 	}
 	
-    public void StartTrack(Track track)
+    public void StartTrack(string trackString)
     {
-        StartCoroutine(FadeIn(track));
+        switch (trackString)
+        {
+            case "harp":
+                StartCoroutine(FadeIn(Track.harp));
+                return;
+            case "violin":
+                StartCoroutine(FadeIn(Track.violin));
+                return;
+            case "percussion":
+                StartCoroutine(FadeIn(Track.percussion));
+                return;
+            default:
+                Debug.Log("No track associated with string " + trackString);
+                break;
+        }
+                
     }
 
-    public void StopTrack(Track track)
+    public void StopTrack(string trackString)
     {
-        StartCoroutine(FadeOut(track));
+        switch (trackString)
+        {
+            case "harp":
+                StartCoroutine(FadeOut(Track.harp));
+                return;
+            case "violin":
+                StartCoroutine(FadeOut(Track.violin));
+                return;
+            case "percussion":
+                StartCoroutine(FadeOut(Track.percussion));
+                return;
+            default:
+                Debug.Log("No track associated with string " + trackString);
+                break;
+        }
     }
 
     IEnumerator FadeIn(Track track)
@@ -53,7 +83,7 @@ public class CastleMusic : MonoBehaviour {
 
         if (audioSources[(int)track].volume < 1)
         {
-            StartTrack(track);
+            StartCoroutine(FadeIn(track));
         }
     }
 
@@ -65,7 +95,7 @@ public class CastleMusic : MonoBehaviour {
 
         if (audioSources[(int)track].volume > 0)
         {
-            StopTrack(track);
+            StartCoroutine(FadeOut(track));
         }
     }
 
@@ -80,6 +110,8 @@ public class CastleMusic : MonoBehaviour {
         audioSources[1].Play();
         audioSources[2].Play();
         audioSources[3].Play();
+
+        StartCoroutine(StartPartB(0));
     }
 
     IEnumerator StartPartB(float samplesPlayed)
@@ -90,5 +122,9 @@ public class CastleMusic : MonoBehaviour {
         audioSources[1].clip = audioClips[2];
         audioSources[2].clip = audioClips[3];
         audioSources[3].clip = audioClips[4];
+        audioSources[0].Play();
+        audioSources[1].Play();
+        audioSources[2].Play();
+        audioSources[3].Play();
     }
 }

@@ -79,6 +79,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Icon: {fileID: 21300004, guid: f70eccf8ecbda4e99ac97362a3b06ec2, type: 3}
+  instrument: percussion
 --- !u!212 &212138570291533582
 SpriteRenderer:
   m_ObjectHideFlags: 1
