@@ -4,18 +4,13 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class AreaOneExit : MonoBehaviour {
-    public string NextSceneName;
-    public float FadeTime = 2f;
-    public FadeInOut Shade;
+public class AreaOneExit : Exit {
 
-    private void Start()
+    new void Start()
     {
-        if (Shade == null)
-            Debug.LogError("Shade is null.  Create a Panel with an Image UI and a FadeInOut script and reference it here for fading effect");
-
+        
         GameEventSystem.Instance.AllFlowersDead.AddListener(LeaveByForce);
-        StartCoroutine(Shade.FadeIn(FadeTime));
+        base.Start();
     }
 
     // Cursed Heart
@@ -30,13 +25,6 @@ public class AreaOneExit : MonoBehaviour {
     {
         FindObjectOfType<HeartState>().CurrentState = HeartState.HeartStateValues.Broken;
         StartCoroutine(WaitForFade());
-    }
-
-    IEnumerator WaitForFade()
-    {
-        StartCoroutine(Shade.FadeOut(FadeTime));
-        yield return new WaitForSeconds(FadeTime);
-        SceneManager.LoadScene(NextSceneName);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
