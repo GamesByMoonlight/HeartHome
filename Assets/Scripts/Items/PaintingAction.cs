@@ -8,6 +8,7 @@ public class PaintingAction : MonoBehaviour
     public Item addableObject1;
     public Item addableObject2;
     public Item addableObject3;
+    public GameObject ObstacleToRemove;
 
     public CastleMusic castleMusic;
 
@@ -30,6 +31,7 @@ public class PaintingAction : MonoBehaviour
         }
         gameObject.tag = "Untagged";
         GameEventSystem.Instance.ToolsChanged.Invoke();
+        Destroy(ObstacleToRemove);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
