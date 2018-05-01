@@ -10,6 +10,12 @@ public class Fireplace : MonoBehaviour {
 
 	public bool stuffBurning {get; private set;}
 
+    HeartState heart;
+
+    private void Awake()
+    {
+        heart = FindObjectOfType<HeartState>();
+    }
 
 
     public void Burn(IItem itemToBurn)
@@ -25,7 +31,7 @@ public class Fireplace : MonoBehaviour {
         gameObject.tag = "Untagged";
         GameEventSystem.Instance.ToolsChanged.Invoke();
 	 	StartCoroutine(StopBurning());
-        Debug.Log("the fire is so delightful");
+        heart.CurrentState = HeartState.HeartStateValues.Happy;
     }
 
      IEnumerator StopBurning()
@@ -37,6 +43,7 @@ public class Fireplace : MonoBehaviour {
 		 this.stuffBurning = false;
         gameObject.tag = "Tool";
         GameEventSystem.Instance.ToolsChanged.Invoke();
+        heart.CurrentState = HeartState.HeartStateValues.Cold;
      }	 
 
 }

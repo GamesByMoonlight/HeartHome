@@ -14,9 +14,11 @@ public class PaintingAction : MonoBehaviour
 
     private bool collided = false;
     private bool fireplaceUsed = false;
+    HeartState heart;
 
     private void Start()
     {
+        heart = FindObjectOfType<HeartState>();
         castleMusic = FindObjectOfType<CastleMusic>();
         StartCoroutine(Running());
     }
@@ -32,6 +34,7 @@ public class PaintingAction : MonoBehaviour
         gameObject.tag = "Untagged";
         GameEventSystem.Instance.ToolsChanged.Invoke();
         Destroy(ObstacleToRemove);
+        heart.CurrentState = HeartState.HeartStateValues.Cold;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
