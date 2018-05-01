@@ -14,11 +14,17 @@ public class FireplaceAreaTrigger : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        if(!TheFireplace.stuffBurning)
+        {
+            heart.CurrentState = HeartState.HeartStateValues.Cold;
+        }
+        else{
+            heart.CurrentState = HeartState.HeartStateValues.Happy;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        
+        heart.CurrentState = HeartState.HeartStateValues.Cold;
     }
 }
