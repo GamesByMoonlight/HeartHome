@@ -32,7 +32,14 @@ public class HeartMovement_Follow : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
+        GameEventSystem.Instance.ToolsChanged.AddListener(GlobalUpdateToolListener);
         UpdateTools();
+    }
+
+    void GlobalUpdateToolListener()
+    {
+        UpdateTools();
+        TargetGameObject = null;
     }
 
     void UpdateTools()
@@ -143,5 +150,12 @@ public class HeartMovement_Follow : MonoBehaviour {
         transform.RotateAround(target, new Vector3(0f, 0f, 1f), RotateSpeed * boost);
         transform.rotation = Quaternion.Euler(0f, 0f, 0f);
         circlingTargetFlag = true;
+    }
+
+    private void OnDestroy()
+    {
+        // A good habit to get into
+        if(GameEventSystem.Instance != null)
+            GameEventSystem.Instance.ToolsChanged.RemoveListener(GlobalUpdateToolListener);
     }
 }

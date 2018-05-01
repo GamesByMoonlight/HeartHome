@@ -4,21 +4,19 @@ using UnityEngine;
 
 
 public class Fireplace : MonoBehaviour {
-
+    
 	public GameObject burningLog;
 	public int burnForSeconds = 5;
 
 	public bool stuffBurning {get; private set;}
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    HeartState heart;
+
+    private void Awake()
+    {
+        heart = FindObjectOfType<HeartState>();
+    }
+
 
     public void Burn(IItem itemToBurn)
     {
@@ -30,8 +28,10 @@ public class Fireplace : MonoBehaviour {
 
 		Inventory.Current.RemoveInventory(itemToBurn);
 		burningLog.SetActive(true);
+        gameObject.tag = "Untagged";
+        GameEventSystem.Instance.ToolsChanged.Invoke();
 	 	StartCoroutine(StopBurning());
-        Debug.Log("the fire is so delightful");
+        heart.CurrentState = HeartState.HeartStateValues.Happy;
     }
 
      IEnumerator StopBurning()
@@ -41,6 +41,9 @@ public class Fireplace : MonoBehaviour {
 		 //the item is all done burning
          burningLog.SetActive(false);
 		 this.stuffBurning = false;
+        gameObject.tag = "Tool";
+        GameEventSystem.Instance.ToolsChanged.Invoke();
+        heart.CurrentState = HeartState.HeartStateValues.Cold;
      }	 
 
 }
