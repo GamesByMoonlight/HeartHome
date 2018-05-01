@@ -18,7 +18,7 @@ public class PaintingAction : MonoBehaviour
 
     private void Start()
     {
-        heart = FindObjectOfType<HeartState>();
+        heart = DontDestroyPlayerOnLoad.playerObject.GetComponentInChildren<HeartState>();
         castleMusic = FindObjectOfType<CastleMusic>();
         StartCoroutine(Running());
     }
@@ -34,7 +34,7 @@ public class PaintingAction : MonoBehaviour
         gameObject.tag = "Untagged";
         GameEventSystem.Instance.ToolsChanged.Invoke();
         Destroy(ObstacleToRemove);
-        heart.CurrentState = HeartState.HeartStateValues.Cold;
+        heart.CurrentState = HeartState.HeartStateValues.Happy;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
