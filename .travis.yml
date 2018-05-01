@@ -3,7 +3,7 @@ os: osx
 osx_image: xcode6.4
 branches:
   only:
-  - develop
+  - bug/126
 notifications:
   slack: fortworthgamedev:lYi1l5Hfrm816dOgnIHhkbHa
 install:
@@ -21,4 +21,4 @@ deploy:
   local_dir: Build
   skip_cleanup: true
   on:
-    branch: develop
+    branch: bug/126
