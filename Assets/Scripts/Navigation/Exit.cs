@@ -30,7 +30,7 @@ public class Exit : MonoBehaviour {
     {
         StartCoroutine(Shade.FadeOut(FadeTime));
         yield return new WaitForSeconds(FadeTime);
-        player.transform.position = NextStartLocation;
+        player.transform.position = CharacterSpawn.StartPoint.position;
         SceneManager.LoadSceneAsync(NextSceneName);
     }
 }
