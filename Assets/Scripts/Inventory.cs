@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 public class Inventory : MonoBehaviour {
@@ -10,11 +11,12 @@ public class Inventory : MonoBehaviour {
     public IItem SelectedIventoryItem;  // Set by slots onClick
 
     List<InventorySlot> inventory;
+    bool cleanedArea2 = false;
 
     void Awake() {
         if (Current != null && Current.gameObject != gameObject)
         {
-            Debug.Log("There is more than one Inventory bar in the scene. Current is " + Current.gameObject.name + " and new is " + name + "Destroying this one.");
+            //Debug.Log("Another Inventory in scene.  Deleting this one.");
             Destroy(gameObject);
             return;
         }
@@ -24,6 +26,26 @@ public class Inventory : MonoBehaviour {
         inventory = new List<InventorySlot>();
     }
 
+    private void Start()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        // Clear inventory the first time we enter Area 2
+        if(scene.name == "Area 2" && !cleanedArea2)
+        {
+            cleanedArea2 = true;
+            ClearInventory();
+        }
+
+        if(scene.name == "Area 3")
+        {
+            ClearInventory();
+        }
+    }
 
     public void AddInventory(IItem item)
     {
@@ -61,6 +83,22 @@ public class Inventory : MonoBehaviour {
         {
             RemoveInventory(slot.Item);
         }
+    }
+
+    void ClearInventory()
+    {
+        // Destroy everything
+        foreach (InventorySlot s in inventory)
+        {
+            DestroyImmediate(s.gameObject.transform.parent.gameObject);  
+        }
+        inventory.Clear();
+    }
+
+    private void OnDisable()
+    {
+        // A good habit to get into.  Putting this on disable instead of ondestroy bc that's how the documentation shows it
+        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
 }

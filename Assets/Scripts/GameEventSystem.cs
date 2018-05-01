@@ -10,7 +10,7 @@ public class GameEventSystem : MonoBehaviour {
     {
         if(Instance != null && Instance.gameObject != gameObject)
         {
-            Debug.Log("Another instance of GameEventSystem was hanging around when this one was created");
+            //Debug.Log("Another GameEventSystem in scene.  Deleting this one.");
             Destroy(gameObject);
             return;
         }
