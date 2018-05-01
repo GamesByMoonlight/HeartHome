@@ -28,6 +28,8 @@ public class PaintingAction : MonoBehaviour
             ActionCheck();
             yield return null;
         }
+        gameObject.tag = "Untagged";
+        GameEventSystem.Instance.ToolsChanged.Invoke();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
