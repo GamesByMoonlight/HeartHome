@@ -203,10 +203,10 @@ TextureImporter:
       name: Mansion_6
       rect:
         serializedVersion: 2
-        x: 775
+        x: 781
         y: 529
-        width: 92
-        height: 61
+        width: 77
+        height: 60
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -301,10 +301,10 @@ TextureImporter:
       name: Mansion_13
       rect:
         serializedVersion: 2
-        x: 356
-        y: 0
-        width: 154
-        height: 134
+        x: 231
+        y: 169
+        width: 64
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -315,10 +315,10 @@ TextureImporter:
       name: Mansion_14
       rect:
         serializedVersion: 2
-        x: 525
-        y: 0
-        width: 243
-        height: 133
+        x: 132
+        y: 201
+        width: 46
+        height: 18
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
