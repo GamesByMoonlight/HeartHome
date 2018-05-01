@@ -12,7 +12,7 @@ public class Fireplace : MonoBehaviour {
 
     HeartState heart;
 
-    private void Awake()
+    private void Start()
     {
         heart = DontDestroyPlayerOnLoad.playerObject.GetComponentInChildren<HeartState>();
     }
