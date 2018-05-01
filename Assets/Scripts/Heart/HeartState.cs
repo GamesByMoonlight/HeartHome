@@ -33,12 +33,16 @@ public class HeartState : MonoBehaviour {
     // Called when changes in editor occur (allows us to debug and set Heart state manually in editor and observe behavior change)
     private void OnValidate()
     {
-        follow = GetComponent<HeartMovement_Follow>();
-        SetState(currentState);
+        if (!Application.isPlaying)
+        {
+            follow = GetComponent<HeartMovement_Follow>();
+            SetState(currentState);
+        }
     }
 
     void SetState(HeartStateValues state)
     {
+        Debug.Log("Heart state changed to: " + state);
         switch(state)
         {
             case HeartStateValues.Happy:

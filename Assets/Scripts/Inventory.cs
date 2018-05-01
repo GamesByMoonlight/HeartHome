@@ -40,7 +40,6 @@ public class Inventory : MonoBehaviour {
             cleanedArea2 = true;
             ClearInventory();
         }
-
         if(scene.name == "Area 3")
         {
             ClearInventory();
