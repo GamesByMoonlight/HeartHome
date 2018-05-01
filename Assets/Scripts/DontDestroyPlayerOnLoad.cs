@@ -24,5 +24,4 @@ public class DontDestroyPlayerOnLoad : MonoBehaviour {
             Debug.LogError("PlayerAction script not found on this prefab.  This script should only be added to the player prefab.");
         }
 	}
-	
 }

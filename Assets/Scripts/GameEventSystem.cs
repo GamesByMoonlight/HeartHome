@@ -8,9 +8,11 @@ public class GameEventSystem : MonoBehaviour {
 
     private void Awake()
     {
-        if(Instance != null)
+        if(Instance != null && Instance.gameObject != gameObject)
         {
             Debug.Log("Another instance of GameEventSystem was hanging around when this one was created");
+            Destroy(gameObject);
+            return;
         }
         Instance = this;
     }

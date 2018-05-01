@@ -12,10 +12,14 @@ public class Inventory : MonoBehaviour {
     List<InventorySlot> inventory;
 
     void Awake() {
-        if(Current != null)
+        if (Current != null && Current.gameObject != gameObject)
         {
-            Debug.LogError("There is more than one Inventory bar in the scene. Current is " + Current.gameObject.name + " and new is " + name);
+            Debug.Log("There is more than one Inventory bar in the scene. Current is " + Current.gameObject.name + " and new is " + name + "Destroying this one.");
+            Destroy(gameObject);
+            return;
         }
+        else if (Current != null)
+            return;
         Current = this;
         inventory = new List<InventorySlot>();
     }
