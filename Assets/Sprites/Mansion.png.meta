@@ -19,7 +19,7 @@ TextureImporter:
     21300024: Mansion_12
     21300026: Mansion_13
     21300028: Mansion_14
-    21300030: Mansion_15
+    21300030: Black strip
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -259,10 +259,10 @@ TextureImporter:
       name: Mansion_10
       rect:
         serializedVersion: 2
-        x: 364
-        y: 145
-        width: 297
-        height: 156
+        x: 185
+        y: 273
+        width: 95
+        height: 28
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -326,13 +326,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Mansion_15
+      name: Black strip
       rect:
         serializedVersion: 2
-        x: 768
-        y: 0
-        width: 256
-        height: 194
+        x: 390
+        y: 124
+        width: 257
+        height: 14
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
