@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EndingSequence : MonoBehaviour {
 
@@ -13,6 +14,7 @@ public class EndingSequence : MonoBehaviour {
     public float DegreesToPanUp = -12f;
     public float UnitsToRise = .6f;
     public float FadeOutTime = 1f;
+    public string StartSceneName = "Start";
 
     CharacterMovement player;
     FadeInOut Shade;
@@ -68,7 +70,13 @@ public class EndingSequence : MonoBehaviour {
             delta = Time.time - time;
         }
 
+        FindObjectOfType<Canvas>().transform.SetParent(transform);  // So that the shader still fades as I destroy the player
+        Camera.main.transform.SetParent(transform);          // So that the shader still fades as I destroy the player
         StartCoroutine(Shade.FadeOutWhite(FadeOutTime));
+        Destroy(player.gameObject);
+
+        yield return new WaitForSeconds(FadeOutTime);
+        SceneManager.LoadSceneAsync(StartSceneName);
     }
 
     private void WalkDirectlyToPoint(Vector3 direction)
