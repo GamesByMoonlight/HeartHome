@@ -7,6 +7,7 @@ public class EndingSequence : MonoBehaviour {
 
     public IsCollidingWithPlayer AvoidObstacle;
     public Transform PlayerEndingPosition;
+    public CircleCollider2D DeleteThisCollider;
     public float ReduceSpeedFactor = .2f;
 
     CharacterMovement player;
@@ -20,6 +21,7 @@ public class EndingSequence : MonoBehaviour {
     void GameEndedListener()
     {
         player.AutomatedMovement = true;
+        Destroy(DeleteThisCollider);
         StartCoroutine(MovePlayerToFinalPoint());
     }
 
@@ -51,24 +53,28 @@ public class EndingSequence : MonoBehaviour {
 
     private void WalkAroundObstacle(Vector3 direction)
     {
-        var obstacleDir = AvoidObstacle.transform.position - player.transform.position;
+        // --
+        // Whatever. I'm just going to delete the collider on the campfire.  A shameless hack.  But the below pretty much works.
+        // --
 
-        if (direction.magnitude < obstacleDir.magnitude)
-            WalkDirectlyToPoint(direction);
+        //var obstacleDir = AvoidObstacle.transform.position - player.transform.position;
+        //if (direction.magnitude < obstacleDir.magnitude)
+            //WalkDirectlyToPoint(direction);
 
-        // If the magnitude grows and obstacle closer than target (i.e if the obstacle is in front of the player relative to the final point)
-        if(Mathf.Abs(obstacleDir.x + direction.x) > Mathf.Abs(direction.x) && Mathf.Abs(direction.x) > Mathf.Abs(obstacleDir.x))
-        {
-            var angle = Vector2.Angle(Vector2.up, obstacleDir);
-            if (angle > 45 && angle < 135)
-            {
-                Debug.Log("In here");
-                direction = new Vector3(0f, 1f, 0f);
-                direction = direction.normalized * ReduceSpeedFactor;
-                player.AutoPilot(0f, direction.y);
-                return;
-            }
-        }
+
+        //// If the magnitude grows and obstacle closer than target (i.e if the obstacle is in front of the player relative to the final point)
+        //if(Mathf.Abs(obstacleDir.x + direction.x) > Mathf.Abs(direction.x) && Mathf.Abs(direction.x) > Mathf.Abs(obstacleDir.x))
+        //{
+        //    var angle = Vector2.SignedAngle(Vector2.up, obstacleDir);
+        //    if (Mathf.Abs(angle) > 45 && Mathf.Abs(angle) < 135)
+        //    {
+        //        Debug.Log("In here");
+        //        direction = new Vector3(0f, 1f, 0f);
+        //        direction = direction.normalized * ReduceSpeedFactor;
+        //        player.AutoPilot(0f, direction.y);
+        //        return;
+        //    }
+        //}
 
         direction = new Vector3(direction.x, 0f, 0f);
         direction = direction.normalized * ReduceSpeedFactor;
