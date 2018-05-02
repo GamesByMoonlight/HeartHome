@@ -31,6 +31,7 @@ public class Campfire : MonoBehaviour {
         {
             if (entered && Input.GetButtonDown("Action"))
             {
+                GetComponent<AudioSource>().Play();
                 CampfireAnim.SetTrigger("Burn");
                 started = true;
                 DontDestroyPlayerOnLoad.playerObject.GetComponentInChildren<HeartState>().CurrentState = HeartState.HeartStateValues.Happy;
