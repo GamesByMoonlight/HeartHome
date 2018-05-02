@@ -6,7 +6,8 @@ public class MyEditorScript
 {
 	public static void PerformBuild ()
 	{
-		string[] scenes = {"Assets/_Scenes/Area 1.unity", 
+        string[] scenes = {"Assets/_Scenes/Start.unity",
+        "Assets/_Scenes/Area 1.unity", 
 		"Assets/_Scenes/Area 2.unity", 
 		"Assets/_Scenes/Castle.unity", 
 		"Assets/_Scenes/Area 3.unity" };
@@ -20,7 +21,8 @@ public class MyEditorScript
 
 	public static void PerformOSXBuild ()
 	{
-		string[] scenes = {"Assets/_Scenes/Area 1.unity", 
+        string[] scenes = {"Assets/_Scenes/Start.unity", 
+        "Assets/_Scenes/Area 1.unity", 
 		"Assets/_Scenes/Area 2.unity", 
 		"Assets/_Scenes/Castle.unity", 
 		"Assets/_Scenes/Area 3.unity" };
