@@ -3196,11 +3196,6 @@ Prefab:
       propertyPath: m_Name
       value: CastleEntrance
       objectReference: {fileID: 0}
-    - target: {fileID: 114779763632000246, guid: e0843fe0b259c4d31890271b4c940d8d,
-        type: 2}
-      propertyPath: NextSceneName
-      value: Castle
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e0843fe0b259c4d31890271b4c940d8d, type: 2}
   m_IsPrefabParent: 0

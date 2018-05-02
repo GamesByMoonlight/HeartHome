@@ -22,10 +22,12 @@ public class HeartState : MonoBehaviour {
     public Shiver ShiveringController;
 
     float coldSoFarTime = 0f;
+    Coroutine coldCoroutine;
 
     private void Awake()
     {
         follow = GetComponent<HeartMovement_Follow>();
+        coldCoroutine = null;
     }
 
     private void Start()
@@ -46,6 +48,7 @@ public class HeartState : MonoBehaviour {
     void SetState(HeartStateValues state)
     {
         Debug.Log("Heart state changed to: " + state);
+        currentState = state;
         switch(state)
         {
             case HeartStateValues.Happy:
@@ -72,6 +75,8 @@ public class HeartState : MonoBehaviour {
                     floatAnimator.SetBool("Float", true);
                     floatAnimator.applyRootMotion = true;
                     floatAnimator.SetBool("Float", false);
+                    if(coldCoroutine == null)
+                        coldCoroutine = StartCoroutine(Freezing());
                 }
                 break;
             case HeartStateValues.Frozen:
@@ -128,13 +133,16 @@ public class HeartState : MonoBehaviour {
         var timeCheck = Time.time;
         while(CurrentState == HeartStateValues.Cold)
         {
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(1f);
             coldSoFarTime += Time.time - timeCheck;
+            timeCheck = Time.time;
+            Debug.Log("Cold so far: " + coldSoFarTime);
             if(coldSoFarTime > TimeBeforeFrozen)
             {
                 CurrentState = HeartStateValues.Frozen;
             }
         }
+        coldCoroutine = null;
     }
 	
 }

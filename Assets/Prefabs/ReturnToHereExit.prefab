@@ -106,6 +106,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a875fc180965549898c8de830c907242, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NextSceneName: 
+  NextSceneName: Castle
   FadeTime: 1
   ReturnHere: {fileID: 4580581881163062}
