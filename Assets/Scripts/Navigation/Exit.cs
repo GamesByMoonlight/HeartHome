@@ -7,7 +7,6 @@ public class Exit : MonoBehaviour {
 
     public string NextSceneName;
     public float FadeTime = 1f;
-    public Vector2 NextStartLocation;
 
     FadeInOut Shade;
     GameObject player;
@@ -30,7 +29,6 @@ public class Exit : MonoBehaviour {
     {
         StartCoroutine(Shade.FadeOut(FadeTime));
         yield return new WaitForSeconds(FadeTime);
-        player.transform.position = CharacterSpawn.StartPoint.position;
         SceneManager.LoadSceneAsync(NextSceneName);
     }
 }
