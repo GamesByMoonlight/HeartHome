@@ -4,32 +4,43 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Exit : MonoBehaviour {
+    protected static bool sceneLoadInProgress = false;
 
     public string NextSceneName;
     public float FadeTime = 1f;
-    public Vector2 NextStartLocation;
-    public FadeInOut Shade;
 
+    FadeInOut Shade;
     GameObject player;
 
     protected void Start()
     {
-        if (Shade == null)
-            Debug.LogError("Shade is null.  Create a Panel with an Image UI and a FadeInOut script and reference it here for fading effect");
+        sceneLoadInProgress = false;
         player = DontDestroyPlayerOnLoad.playerObject.gameObject;
+        Shade = player.GetComponentInChildren<FadeInOut>();
+        if (Shade == null)
+            Debug.LogError("Shade is null.  Create a Panel with an Image UI and add FadeInOut script.  Parent under Player's Canvas.");
         StartCoroutine(Shade.FadeIn(FadeTime));
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    protected void OnTriggerEnter2D(Collider2D collision)
     {
-        StartCoroutine(WaitForFade());
+        // In case another exit is triggered to transfer
+        if (sceneLoadInProgress)
+            return;
+
+        // Do not want to load scene twice.  For some reason, OnTriggerEnter is called twice (or many times at least) in succession 
+        var playerCollision = collision.gameObject.GetComponent<PlayerAction>();
+        if (playerCollision)
+        {
+            sceneLoadInProgress = true;
+            StartCoroutine(WaitForFade());
+        }
     }
 
     protected IEnumerator WaitForFade()
     {
         StartCoroutine(Shade.FadeOut(FadeTime));
         yield return new WaitForSeconds(FadeTime);
-        player.transform.position = NextStartLocation;
         SceneManager.LoadSceneAsync(NextSceneName);
     }
 }

@@ -8,9 +8,11 @@ public class GameEventSystem : MonoBehaviour {
 
     private void Awake()
     {
-        if(Instance != null)
+        if(Instance != null && Instance.gameObject != gameObject)
         {
-            Debug.Log("Another instance of GameEventSystem was hanging around when this one was created");
+            //Debug.Log("Another GameEventSystem in scene.  Deleting this one.");
+            Destroy(gameObject);
+            return;
         }
         Instance = this;
     }
@@ -25,4 +27,5 @@ public class GameEventSystem : MonoBehaviour {
     public GameEvent InventorySlotRemoved;
     public GameEvent AllFlowersDead;
     public GameEvent ToolsChanged;
+    public GameEvent HeartFrozen;
 }

@@ -16,13 +16,18 @@ public class HeartState : MonoBehaviour {
     public float DamagedToToolSpeed = 8f;
     public float HappyRotateSpeed = 4f;
     public float ColdRotateSpeed = 2f;
+    public float TimeBeforeFrozen = 60f;
     public Animator spriteAnimator;
     public Animator floatAnimator;
     public Shiver ShiveringController;
 
+    float coldSoFarTime = 0f;
+    Coroutine coldCoroutine;
+
     private void Awake()
     {
         follow = GetComponent<HeartMovement_Follow>();
+        coldCoroutine = null;
     }
 
     private void Start()
@@ -33,12 +38,16 @@ public class HeartState : MonoBehaviour {
     // Called when changes in editor occur (allows us to debug and set Heart state manually in editor and observe behavior change)
     private void OnValidate()
     {
-        follow = GetComponent<HeartMovement_Follow>();
-        SetState(currentState);
+        if (!Application.isPlaying)
+        {
+            follow = GetComponent<HeartMovement_Follow>();
+            SetState(currentState);
+        }
     }
 
     void SetState(HeartStateValues state)
     {
+        currentState = state;
         switch(state)
         {
             case HeartStateValues.Happy:
@@ -65,6 +74,8 @@ public class HeartState : MonoBehaviour {
                     floatAnimator.SetBool("Float", true);
                     floatAnimator.applyRootMotion = true;
                     floatAnimator.SetBool("Float", false);
+                    if(coldCoroutine == null)
+                        coldCoroutine = StartCoroutine(Freezing());
                 }
                 break;
             case HeartStateValues.Frozen:
@@ -78,6 +89,7 @@ public class HeartState : MonoBehaviour {
                     spriteAnimator.SetTrigger("Frozen");
                     floatAnimator.applyRootMotion = true;
                     floatAnimator.SetBool("Float", false);
+                    GameEventSystem.Instance.HeartFrozen.Invoke();
                 }
                 break;
             case HeartStateValues.Broken:
@@ -114,6 +126,22 @@ public class HeartState : MonoBehaviour {
                 ShiveringController.Shivering = false;
                 break;
         }
+    }
+
+    IEnumerator Freezing()
+    {
+        var timeCheck = Time.time;
+        while(CurrentState == HeartStateValues.Cold)
+        {
+            yield return new WaitForSeconds(1f);
+            coldSoFarTime += Time.time - timeCheck;
+            timeCheck = Time.time;
+            if(coldSoFarTime > TimeBeforeFrozen)
+            {
+                CurrentState = HeartStateValues.Frozen;
+            }
+        }
+        coldCoroutine = null;
     }
 	
 }

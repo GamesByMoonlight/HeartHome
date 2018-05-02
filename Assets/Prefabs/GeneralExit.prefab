@@ -9,18 +9,18 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1213494341971680}
+  m_RootGameObject: {fileID: 1264339034505208}
   m_IsPrefabParent: 1
---- !u!1 &1213494341971680
+--- !u!1 &1264339034505208
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4117091836636542}
-  - component: {fileID: 114122699969965294}
-  - component: {fileID: 61267629878453142}
+  - component: {fileID: 4475029079708738}
+  - component: {fileID: 61298385913298566}
+  - component: {fileID: 114755156935471312}
   m_Layer: 0
   m_Name: GeneralExit
   m_TagString: Untagged
@@ -28,25 +28,25 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4117091836636542
+--- !u!4 &4475029079708738
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1213494341971680}
+  m_GameObject: {fileID: 1264339034505208}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.43, y: 10, z: -0.20050289}
+  m_LocalPosition: {x: -0.1, y: -4.34, z: -0.20050289}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &61267629878453142
+--- !u!61 &61298385913298566
 BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1213494341971680}
+  m_GameObject: {fileID: 1264339034505208}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -66,18 +66,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.7383361, y: 1}
   m_EdgeRadius: 0
---- !u!114 &114122699969965294
+--- !u!114 &114755156935471312
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1213494341971680}
+  m_GameObject: {fileID: 1264339034505208}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 76087a8d9138048628c5cefb4f369f38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NextSceneName: Castle
+  NextSceneName: 
   FadeTime: 1
-  NextStartLocation: {x: -0.06, y: -3.15}
-  Shade: {fileID: 0}

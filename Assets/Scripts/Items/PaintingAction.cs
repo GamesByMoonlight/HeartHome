@@ -13,12 +13,20 @@ public class PaintingAction : MonoBehaviour
     public CastleMusic castleMusic;
 
     private bool collided = false;
-    private bool fireplaceUsed = false;
+    private bool paintingGamePlayed = false;
     HeartState heart;
+    GameManager gm;
 
     private void Start()
     {
-        heart = FindObjectOfType<HeartState>();
+        gm = DontDestroyPlayerOnLoad.playerObject.GetComponentInChildren<GameManager>();
+        if (gm.PaintingMiniGamePlayed)
+        {
+            FinishGameAndOpenRoom();
+            return;
+        }
+
+        heart = DontDestroyPlayerOnLoad.playerObject.GetComponentInChildren<HeartState>();
         castleMusic = FindObjectOfType<CastleMusic>();
         StartCoroutine(Running());
     }
@@ -26,16 +34,16 @@ public class PaintingAction : MonoBehaviour
     // Update is called once per frame
     IEnumerator Running()
     {
-        while (!fireplaceUsed)
+        while (!paintingGamePlayed)
         {
             ActionCheck();
             yield return null;
         }
-        gameObject.tag = "Untagged";
-        GameEventSystem.Instance.ToolsChanged.Invoke();
-        Destroy(ObstacleToRemove);
-        heart.CurrentState = HeartState.HeartStateValues.Cold;
+        FinishGameAndOpenRoom();
+        heart.CurrentState = HeartState.HeartStateValues.Happy;
     }
+
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -49,7 +57,7 @@ public class PaintingAction : MonoBehaviour
 
     void ActionCheck()
     {
-        if (Input.GetButtonDown("Action") && collided && !fireplaceUsed)
+        if (Input.GetButtonDown("Action") && collided && !paintingGamePlayed)
         {
             Inventory.Current.AddInventory(addableObject1);
             castleMusic.StartTrack("violin");
@@ -57,9 +65,16 @@ public class PaintingAction : MonoBehaviour
             castleMusic.StartTrack("harp");
             Inventory.Current.AddInventory(addableObject3);
             castleMusic.StartTrack("percussion");
-            fireplaceUsed = true;
+            paintingGamePlayed = true;
+            gm.PaintingMiniGamePlayed = true;
         }
 
     }
 
+    void FinishGameAndOpenRoom()
+    {
+        gameObject.tag = "Untagged";
+        GameEventSystem.Instance.ToolsChanged.Invoke();
+        Destroy(ObstacleToRemove);
+    }
 }

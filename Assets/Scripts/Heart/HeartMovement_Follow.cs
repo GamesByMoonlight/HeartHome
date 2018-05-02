@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class HeartMovement_Follow : MonoBehaviour {
     [Header("Use fields in HeartState to edit these values")]
@@ -13,7 +14,7 @@ public class HeartMovement_Follow : MonoBehaviour {
     public float CircleDistance = 1.0f;
     public float RotateSpeed = 2f;
 
-    public GameObject followTarget;
+    public GameObject player;
     public string ToolTag = "Tool";
 
     private Transform[] ToolLocations;
@@ -33,7 +34,13 @@ public class HeartMovement_Follow : MonoBehaviour {
     void Start ()
     {
         GameEventSystem.Instance.ToolsChanged.AddListener(GlobalUpdateToolListener);
+        SceneManager.sceneLoaded += OnSceneLoaded;
         UpdateTools();
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        GlobalUpdateToolListener();
     }
 
     void GlobalUpdateToolListener()
@@ -59,11 +66,14 @@ public class HeartMovement_Follow : MonoBehaviour {
     {
         float dist = 0.0f;
         bool needToUpdate = false;
+        float latchDistance = ToolLatchDistance;
 
-        if(TargetGameObject != null && TargetGameObject != followTarget)
+        if(TargetGameObject != null && TargetGameObject != player)
         {
-            dist = Vector3.Distance(TargetGameObject.transform.position, followTarget.transform.position);
-            if (dist < ToolLatchDistance)
+            dist = Vector3.Distance(TargetGameObject.transform.position, player.transform.position);
+            var info = TargetGameObject.GetComponent<CustomHeartLatchInfo>();
+            latchDistance = info != null ? info.Distance : ToolLatchDistance;
+            if (dist < latchDistance)
                 return;
         }
 
@@ -73,8 +83,10 @@ public class HeartMovement_Follow : MonoBehaviour {
         {
             if (tool != null)
             {
-                dist = Vector3.Distance(tool.position, followTarget.transform.position);
-                if (dist < ToolLatchDistance)
+                dist = Vector3.Distance(tool.position, player.transform.position);
+                var info = tool.GetComponent<CustomHeartLatchInfo>();
+                latchDistance = info != null ? info.Distance : ToolLatchDistance;
+                if (dist < latchDistance)
                 {
                     TargetGameObject = tool.gameObject;
                     MoveSpeed = MoveToToolSpeed;
@@ -102,11 +114,11 @@ public class HeartMovement_Follow : MonoBehaviour {
         // If no tool is found to latch to, move towards the player.
         if (TargetGameObject == null)
         {
-            var dist = Vector3.Distance(followTarget.transform.position, transform.position);
+            var dist = Vector3.Distance(player.transform.position, transform.position);
 
             if (dist > DistanceFollowed)
             {
-                TargetGameObject = followTarget;
+                TargetGameObject = player;
                 MoveSpeed = MoveToPlayerSpeed;
             }
         }
@@ -120,7 +132,7 @@ public class HeartMovement_Follow : MonoBehaviour {
                 //
                 // Figure out the current angle between the objects.
                 //
-                var playerDist = Vector3.Distance(TargetGameObject.transform.position, followTarget.transform.position);
+                var playerDist = Vector3.Distance(TargetGameObject.transform.position, player.transform.position);
                 if(playerDist <= CircleDistance)
                     HeartCircle(target, 2f);
                 else
@@ -137,7 +149,7 @@ public class HeartMovement_Follow : MonoBehaviour {
             {
                 // Just to give it a little kick when it's done circling so the heart doesn't look like such a goob after you pick up an item
                 circlingTargetFlag = false;
-                rb.velocity = Vector3.Cross(new Vector3(0f, 0f, -1f), (followTarget.transform.position - transform.position).normalized).normalized * RotateSpeed;
+                rb.velocity = Vector3.Cross(new Vector3(0f, 0f, -1f), (player.transform.position - transform.position).normalized).normalized * RotateSpeed;
             }
             rb.velocity = Vector2.Lerp(rb.velocity, Vector2.zero, LerpToPlayerDrag); 
         }
@@ -150,6 +162,12 @@ public class HeartMovement_Follow : MonoBehaviour {
         transform.RotateAround(target, new Vector3(0f, 0f, 1f), RotateSpeed * boost);
         transform.rotation = Quaternion.Euler(0f, 0f, 0f);
         circlingTargetFlag = true;
+    }
+
+    private void OnDisable()
+    {
+        // A good habit to get into.  Putting this on disable instead of ondestroy bc that's how the documentation shows it
+        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
     private void OnDestroy()
