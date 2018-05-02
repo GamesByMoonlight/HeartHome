@@ -27,4 +27,5 @@ public class GameEventSystem : MonoBehaviour {
     public GameEvent InventorySlotRemoved;
     public GameEvent AllFlowersDead;
     public GameEvent ToolsChanged;
+    public GameEvent HeartFrozen;
 }

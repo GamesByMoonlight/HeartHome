@@ -4,17 +4,17 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Exit : MonoBehaviour {
+    protected static bool sceneLoadInProgress = false;
 
     public string NextSceneName;
     public float FadeTime = 1f;
 
     FadeInOut Shade;
     GameObject player;
-    Coroutine waiting;
 
     protected void Start()
     {
-        waiting = null;
+        sceneLoadInProgress = false;
         player = DontDestroyPlayerOnLoad.playerObject.gameObject;
         Shade = player.GetComponentInChildren<FadeInOut>();
         if (Shade == null)
@@ -24,9 +24,17 @@ public class Exit : MonoBehaviour {
 
     protected void OnTriggerEnter2D(Collider2D collision)
     {
+        // In case another exit is triggered to transfer
+        if (sceneLoadInProgress)
+            return;
+
         // Do not want to load scene twice.  For some reason, OnTriggerEnter is called twice (or many times at least) in succession 
-        if(waiting == null)
-            waiting = StartCoroutine(WaitForFade());
+        var playerCollision = collision.gameObject.GetComponent<PlayerAction>();
+        if (playerCollision)
+        {
+            sceneLoadInProgress = true;
+            StartCoroutine(WaitForFade());
+        }
     }
 
     protected IEnumerator WaitForFade()

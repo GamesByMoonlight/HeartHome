@@ -47,7 +47,6 @@ public class HeartState : MonoBehaviour {
 
     void SetState(HeartStateValues state)
     {
-        Debug.Log("Heart state changed to: " + state);
         currentState = state;
         switch(state)
         {
@@ -90,6 +89,7 @@ public class HeartState : MonoBehaviour {
                     spriteAnimator.SetTrigger("Frozen");
                     floatAnimator.applyRootMotion = true;
                     floatAnimator.SetBool("Float", false);
+                    GameEventSystem.Instance.HeartFrozen.Invoke();
                 }
                 break;
             case HeartStateValues.Broken:
@@ -136,7 +136,6 @@ public class HeartState : MonoBehaviour {
             yield return new WaitForSeconds(1f);
             coldSoFarTime += Time.time - timeCheck;
             timeCheck = Time.time;
-            Debug.Log("Cold so far: " + coldSoFarTime);
             if(coldSoFarTime > TimeBeforeFrozen)
             {
                 CurrentState = HeartStateValues.Frozen;
