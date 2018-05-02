@@ -6,7 +6,10 @@ public class MyEditorScript
 {
 	public static void PerformBuild ()
 	{
-		string[] scenes = { "Assets/_Scenes/Area 1.unity" };
+		string[] scenes = {"Assets/_Scenes/Area 1.unity", 
+		"Assets/_Scenes/Area 2.unity", 
+		"Assets/_Scenes/Castle.unity", 
+		"Assets/_Scenes/Area 3.unity" };
 		BuildPlayerOptions buildPlayerOptions = new BuildPlayerOptions();
 		buildPlayerOptions.scenes = scenes;
 		buildPlayerOptions.locationPathName = "Build/windows/HeartHome.exe";
@@ -17,7 +20,10 @@ public class MyEditorScript
 
 	public static void PerformOSXBuild ()
 	{
-		string[] scenes = { "Assets/_Scenes/Area 1.unity" };
+		string[] scenes = {"Assets/_Scenes/Area 1.unity", 
+		"Assets/_Scenes/Area 2.unity", 
+		"Assets/_Scenes/Castle.unity", 
+		"Assets/_Scenes/Area 3.unity" };
 		BuildPlayerOptions buildPlayerOptions = new BuildPlayerOptions();
 		buildPlayerOptions.scenes = scenes;
 		buildPlayerOptions.locationPathName = "Build/osx/HeartHome.app";
