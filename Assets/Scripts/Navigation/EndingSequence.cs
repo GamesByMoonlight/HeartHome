@@ -37,6 +37,7 @@ public class EndingSequence : MonoBehaviour {
             direction = PlayerEndingPosition.position - player.transform.position;
         }
 
+        Debug.Log("Done");
         player.AutoPilot(0f, .01f);   // Face up
         yield return null;
         player.AutoPilot(0f, 0f);   // Stop
@@ -50,6 +51,25 @@ public class EndingSequence : MonoBehaviour {
 
     private void WalkAroundObstacle(Vector3 direction)
     {
+        var obstacleDir = AvoidObstacle.transform.position - player.transform.position;
+
+        if (direction.magnitude < obstacleDir.magnitude)
+            WalkDirectlyToPoint(direction);
+
+        // If the magnitude grows and obstacle closer than target (i.e if the obstacle is in front of the player relative to the final point)
+        if(Mathf.Abs(obstacleDir.x + direction.x) > Mathf.Abs(direction.x) && Mathf.Abs(direction.x) > Mathf.Abs(obstacleDir.x))
+        {
+            var angle = Vector2.Angle(Vector2.up, obstacleDir);
+            if (angle > 45 && angle < 135)
+            {
+                Debug.Log("In here");
+                direction = new Vector3(0f, 1f, 0f);
+                direction = direction.normalized * ReduceSpeedFactor;
+                player.AutoPilot(0f, direction.y);
+                return;
+            }
+        }
+
         direction = new Vector3(direction.x, 0f, 0f);
         direction = direction.normalized * ReduceSpeedFactor;
         player.AutoPilot(direction.x, 0f);
