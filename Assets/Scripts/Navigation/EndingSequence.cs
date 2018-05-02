@@ -12,12 +12,15 @@ public class EndingSequence : MonoBehaviour {
     public float SecondsToPanUp = 5f;
     public float DegreesToPanUp = -12f;
     public float UnitsToRise = .6f;
+    public float FadeOutTime = 1f;
 
     CharacterMovement player;
+    FadeInOut Shade;
 
     private void Start()
     {
         player = DontDestroyPlayerOnLoad.playerObject.GetComponent<CharacterMovement>();
+        Shade = player.GetComponentInChildren<FadeInOut>();
         GameEventSystem.Instance.GameEnded.AddListener(GameEndedListener);
     }
 
@@ -64,6 +67,8 @@ public class EndingSequence : MonoBehaviour {
             yield return null;
             delta = Time.time - time;
         }
+
+        StartCoroutine(Shade.FadeOutWhite(FadeOutTime));
     }
 
     private void WalkDirectlyToPoint(Vector3 direction)
