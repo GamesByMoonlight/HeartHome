@@ -7,6 +7,7 @@ public class EndingSequence : MonoBehaviour {
 
     public IsCollidingWithPlayer AvoidObstacle;
     public Transform PlayerEndingPosition;
+    public float ReduceSpeedFactor = .2f;
 
     CharacterMovement player;
 
@@ -27,12 +28,10 @@ public class EndingSequence : MonoBehaviour {
         var direction = PlayerEndingPosition.position - player.transform.position;
         while(Vector2.Distance(PlayerEndingPosition.position, player.transform.position) > .03f)
         {
-            //if (AvoidObstacle.Collided)
-            //    WalkAroundObstacle(direction);
-            //else
-                //WalkDirectlyToPoint(direction);
-
-            WalkDirectlyToPoint(direction);
+            if (AvoidObstacle.Collided)
+                WalkAroundObstacle(direction);
+            else
+                WalkDirectlyToPoint(direction);
             
             yield return new WaitForFixedUpdate();
             direction = PlayerEndingPosition.position - player.transform.position;
@@ -43,16 +42,16 @@ public class EndingSequence : MonoBehaviour {
         player.AutoPilot(0f, 0f);   // Stop
     }
 
-    private void WalkDirectlyToPoint(Vector2 direction)
+    private void WalkDirectlyToPoint(Vector3 direction)
     {
-        direction = direction.normalized;
+        direction = direction.normalized * ReduceSpeedFactor;
         player.AutoPilot(direction.x, direction.y);
     }
 
-    private void WalkAroundObstacle(Vector2 direction)
+    private void WalkAroundObstacle(Vector3 direction)
     {
-        direction = new Vector2(direction.x, 0f);
-        direction = direction.normalized;
-        player.AutoPilot(direction.x, direction.y);
+        direction = new Vector3(direction.x, 0f, 0f);
+        direction = direction.normalized * ReduceSpeedFactor;
+        player.AutoPilot(direction.x, 0f);
     }
 }
