@@ -115,7 +115,9 @@ public class CastleMusic : MonoBehaviour {
 
     IEnumerator StartPartB(float samplesPlayed)
     {
-        yield return new WaitForSeconds(58f - (samplesPlayed / 32000));
+        float partATime = audioSources[1].isPlaying ? (58f - (samplesPlayed / 32000)) : (66f - (samplesPlayed / 32000));
+
+        yield return new WaitForSeconds(partATime);
 
         audioSources[0].clip = audioClips[1];
         audioSources[1].clip = audioClips[2];
