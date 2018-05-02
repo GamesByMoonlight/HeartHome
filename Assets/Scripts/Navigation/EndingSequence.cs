@@ -9,6 +9,9 @@ public class EndingSequence : MonoBehaviour {
     public Transform PlayerEndingPosition;
     public CircleCollider2D DeleteThisCollider;
     public float ReduceSpeedFactor = .2f;
+    public float SecondsToPanUp = 5f;
+    public float DegreesToPanUp = -12f;
+    public float UnitsToRise = .6f;
 
     CharacterMovement player;
 
@@ -43,6 +46,24 @@ public class EndingSequence : MonoBehaviour {
         player.AutoPilot(0f, .01f);   // Face up
         yield return null;
         player.AutoPilot(0f, 0f);   // Stop
+
+        yield return new WaitForSeconds(.5f);
+        StartCoroutine(LookAtStars());
+    }
+
+    private IEnumerator LookAtStars()
+    {
+        var time = Time.time;
+        var delta = 0f;
+        Vector3 start = Camera.main.transform.position;
+        while(delta < SecondsToPanUp)
+        {
+            var percent = (delta / SecondsToPanUp);
+            Camera.main.transform.rotation = Quaternion.Euler(percent * DegreesToPanUp, 0f, 0f);//Rotate(new Vector3(Time.deltaTime * DegreesToPanUp, 0f, 0f));
+            Camera.main.transform.position = start + new Vector3(0f, percent * UnitsToRise, 0f);
+            yield return null;
+            delta = Time.time - time;
+        }
     }
 
     private void WalkDirectlyToPoint(Vector3 direction)
@@ -53,29 +74,6 @@ public class EndingSequence : MonoBehaviour {
 
     private void WalkAroundObstacle(Vector3 direction)
     {
-        // --
-        // Whatever. I'm just going to delete the collider on the campfire.  A shameless hack.  But the below pretty much works.
-        // --
-
-        //var obstacleDir = AvoidObstacle.transform.position - player.transform.position;
-        //if (direction.magnitude < obstacleDir.magnitude)
-            //WalkDirectlyToPoint(direction);
-
-
-        //// If the magnitude grows and obstacle closer than target (i.e if the obstacle is in front of the player relative to the final point)
-        //if(Mathf.Abs(obstacleDir.x + direction.x) > Mathf.Abs(direction.x) && Mathf.Abs(direction.x) > Mathf.Abs(obstacleDir.x))
-        //{
-        //    var angle = Vector2.SignedAngle(Vector2.up, obstacleDir);
-        //    if (Mathf.Abs(angle) > 45 && Mathf.Abs(angle) < 135)
-        //    {
-        //        Debug.Log("In here");
-        //        direction = new Vector3(0f, 1f, 0f);
-        //        direction = direction.normalized * ReduceSpeedFactor;
-        //        player.AutoPilot(0f, direction.y);
-        //        return;
-        //    }
-        //}
-
         direction = new Vector3(direction.x, 0f, 0f);
         direction = direction.normalized * ReduceSpeedFactor;
         player.AutoPilot(direction.x, 0f);
