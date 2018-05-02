@@ -58,6 +58,26 @@ public class CharacterMovement : MonoBehaviour {
         // Move Character
         playerRigidBody.velocity = movement * Speed;
     }
+
+    public void MoveLeft()
+    {
+        
+    }
+
+    public void MoveRight()
+    {
+
+    }
+
+    public void MoveUp()
+    {
+
+    }
+
+    public void MoveDown()
+    {
+
+    }
 }
 
 public enum FacingDirection
