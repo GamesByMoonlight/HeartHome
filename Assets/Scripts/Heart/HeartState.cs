@@ -16,9 +16,12 @@ public class HeartState : MonoBehaviour {
     public float DamagedToToolSpeed = 8f;
     public float HappyRotateSpeed = 4f;
     public float ColdRotateSpeed = 2f;
+    public float TimeBeforeFrozen = 60f;
     public Animator spriteAnimator;
     public Animator floatAnimator;
     public Shiver ShiveringController;
+
+    float coldSoFarTime = 0f;
 
     private void Awake()
     {
@@ -117,6 +120,20 @@ public class HeartState : MonoBehaviour {
                 floatAnimator.SetBool("Float", true);
                 ShiveringController.Shivering = false;
                 break;
+        }
+    }
+
+    IEnumerator Freezing()
+    {
+        var timeCheck = Time.time;
+        while(CurrentState == HeartStateValues.Cold)
+        {
+            yield return new WaitForSeconds(0.1f);
+            coldSoFarTime += Time.time - timeCheck;
+            if(coldSoFarTime > TimeBeforeFrozen)
+            {
+                CurrentState = HeartStateValues.Frozen;
+            }
         }
     }
 	
