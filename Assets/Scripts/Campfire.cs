@@ -38,5 +38,7 @@ public class Campfire : MonoBehaviour {
             yield return null;
         }
 
+        Debug.Log("Ending Game");
+        GameEventSystem.Instance.GameEnded.Invoke();
     }
 }
