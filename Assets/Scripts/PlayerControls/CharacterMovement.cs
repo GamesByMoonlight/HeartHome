@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,6 +7,12 @@ public class CharacterMovement : MonoBehaviour {
     // Speed modifier for character movement
     public float Speed = 4.0f;
     public FacingDirection Direction;
+
+    // public property
+    private bool automatedMovement = false;
+    public bool AutomatedMovement { get { return automatedMovement; } set { AutomatedToggle(value); } }
+
+
 
     private Rigidbody2D playerRigidBody;
     private Animator playerAnim;
@@ -27,8 +34,9 @@ public class CharacterMovement : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        movePlayerHorizontal = Input.GetAxis("Horizontal");
-        movePlayerVertical = Input.GetAxis("Vertical");
+        if(!AutomatedMovement)
+            GetPlayerInput();
+
         movement = new Vector2(movePlayerHorizontal, movePlayerVertical);
 
         // Set Animation paramaters
@@ -57,6 +65,28 @@ public class CharacterMovement : MonoBehaviour {
 
         // Move Character
         playerRigidBody.velocity = movement * Speed;
+    }
+
+    void GetPlayerInput()
+    {
+        movePlayerHorizontal = Input.GetAxis("Horizontal");
+        movePlayerVertical = Input.GetAxis("Vertical");
+    }
+
+    private void AutomatedToggle(bool value)
+    {
+        automatedMovement = value;
+        if(automatedMovement)
+        {
+            movePlayerHorizontal = 0f;
+            movePlayerVertical = 0f;
+        }
+    }
+
+    public void AutoPilot(float x, float y)
+    {
+        movePlayerHorizontal = x;
+        movePlayerVertical = y;
     }
 }
 
