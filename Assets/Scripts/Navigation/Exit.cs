@@ -10,9 +10,11 @@ public class Exit : MonoBehaviour {
 
     FadeInOut Shade;
     GameObject player;
+    Coroutine waiting;
 
     protected void Start()
     {
+        waiting = null;
         player = DontDestroyPlayerOnLoad.playerObject.gameObject;
         Shade = player.GetComponentInChildren<FadeInOut>();
         if (Shade == null)
@@ -20,9 +22,11 @@ public class Exit : MonoBehaviour {
         StartCoroutine(Shade.FadeIn(FadeTime));
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    protected void OnTriggerEnter2D(Collider2D collision)
     {
-        StartCoroutine(WaitForFade());
+        // Do not want to load scene twice.  For some reason, OnTriggerEnter is called twice (or many times at least) in succession 
+        if(waiting == null)
+            waiting = StartCoroutine(WaitForFade());
     }
 
     protected IEnumerator WaitForFade()

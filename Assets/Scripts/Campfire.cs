@@ -33,6 +33,7 @@ public class Campfire : MonoBehaviour {
             {
                 CampfireAnim.SetTrigger("Burn");
                 started = true;
+                DontDestroyPlayerOnLoad.playerObject.GetComponentInChildren<HeartState>().CurrentState = HeartState.HeartStateValues.Happy;
             }
             yield return null;
         }

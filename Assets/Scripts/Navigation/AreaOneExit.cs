@@ -27,7 +27,7 @@ public class AreaOneExit : Exit {
         StartCoroutine(WaitForFade());
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    new void OnTriggerEnter2D(Collider2D collision)
     {
         var heartState = collision.gameObject.GetComponentInChildren<HeartState>();
         if(heartState)
