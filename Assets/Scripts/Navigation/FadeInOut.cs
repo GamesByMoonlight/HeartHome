@@ -11,9 +11,12 @@ public class FadeInOut : MonoBehaviour {
         shade = GetComponent<Image>();
         bgm = GetComponent<BGMSwapper>();
 	}
-	
+
+    public static bool FadingIn = false;            // A shameless hack
     public IEnumerator FadeIn(float seconds)
     {
+        FadingIn = true;
+
         var start = Time.time;
         shade.color = new Color(0f, 0f, 0f, 1f);
         while((Time.time - start) / seconds < 1f)
@@ -22,6 +25,8 @@ public class FadeInOut : MonoBehaviour {
             yield return null;
         }
         shade.color = new Color(0f, 0f, 0f, 0f); // just in case
+
+        FadingIn = false;
     }
 
     public IEnumerator FadeOut(float seconds)
