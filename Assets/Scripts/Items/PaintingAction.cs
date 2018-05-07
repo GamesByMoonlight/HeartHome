@@ -13,16 +13,16 @@ public class PaintingAction : MonoBehaviour
     public CastleMusic castleMusic;
 
     private bool collided = false;
-    private bool paintingGamePlayed = false;
     HeartState heart;
     GameManager gm;
-    int counter = 0;
 
     private void Start()
     {
         gm = DontDestroyPlayerOnLoad.playerObject.GetComponentInChildren<GameManager>();
+        heart = DontDestroyPlayerOnLoad.playerObject.GetComponentInChildren<HeartState>();
+        castleMusic = FindObjectOfType<CastleMusic>();
 
-        PlayTheRightMusic(gm.PaintingItemsAdded);
+        PlayTheRightMusic();
 
         if (gm.PaintingItemsAdded >= 3)
         {
@@ -30,15 +30,13 @@ public class PaintingAction : MonoBehaviour
             return;
         }
 
-        heart = DontDestroyPlayerOnLoad.playerObject.GetComponentInChildren<HeartState>();
-        castleMusic = FindObjectOfType<CastleMusic>();
         StartCoroutine(Running());
     }
 
     // Update is called once per frame
     IEnumerator Running()
     {
-        while (!paintingGamePlayed)
+        while (gm.PaintingItemsAdded < 3)
         {
             ActionCheck();
             yield return null;
@@ -61,10 +59,9 @@ public class PaintingAction : MonoBehaviour
 
     void ActionCheck()
     {
-        if (Input.GetButtonDown("Action") && collided && !paintingGamePlayed)
+        if (Input.GetButtonDown("Action") && collided && gm.PaintingItemsAdded < 3)
         {
-            AddItem(counter++);
-            gm.PaintingItemsAdded = counter;
+            AddItem(gm.PaintingItemsAdded++);
         }
 
     }
@@ -84,7 +81,6 @@ public class PaintingAction : MonoBehaviour
             case 2:
                 Inventory.Current.AddInventory(addableObject3);
                 PlayTrack(item);
-                paintingGamePlayed = true;
                 break;
         }
     }
@@ -105,11 +101,13 @@ public class PaintingAction : MonoBehaviour
         }
     }
 
-    void PlayTheRightMusic(int numberOfItems)
+    void PlayTheRightMusic()
     {
-        for (int i = 0; i < numberOfItems; ++i)
+
+        var burnables = Inventory.Current.GetComponentsInChildren<BurnableItem>();
+        foreach (var b in burnables)
         {
-            PlayTrack(i);
+            castleMusic.StartTrack(b.instrument);
         }
     }
 

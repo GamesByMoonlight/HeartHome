@@ -1805,6 +1805,11 @@ Prefab:
       propertyPath: m_TagString
       value: Tool
       objectReference: {fileID: 0}
+    - target: {fileID: 114546561121636714, guid: 68d6f1b7fecbb4f8a9822184b1801ce9,
+        type: 2}
+      propertyPath: instrument
+      value: log
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 68d6f1b7fecbb4f8a9822184b1801ce9, type: 2}
   m_IsPrefabParent: 0

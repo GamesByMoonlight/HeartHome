@@ -55,6 +55,9 @@ public class Inventory : MonoBehaviour {
 
     public void RemoveInventory(IItem item)
     {
+        if (SelectedIventoryItem == item)
+            SelectedIventoryItem = null;
+
         // Destroy gameobject in scene
         foreach(InventorySlot s in inventory)
         {
