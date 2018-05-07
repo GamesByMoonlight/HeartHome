@@ -42,5 +42,6 @@ public class AreaOneExit : Exit {
         // A good habit to get into.  When you add a listener.. always remove it in OnDestroy()
         if (GameEventSystem.Instance != null)
             GameEventSystem.Instance.AllFlowersDead.RemoveListener(LeaveByForce);
+        Flower.ResetFlowers();
     }
 }

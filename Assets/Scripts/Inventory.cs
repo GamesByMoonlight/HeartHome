@@ -71,6 +71,7 @@ public class Inventory : MonoBehaviour {
 
     public void CleanFarmingInventory()
     {
+        Debug.Log("Cleaning farm inventory");
         RemoveInventory(inventory.Find(x => x.Item.gameObject.GetComponent<Hoe>() != null));
         RemoveInventory(inventory.Find(x => x.Item.gameObject.GetComponent<Seeds>() != null));
         RemoveInventory(inventory.Find(x => x.Item.gameObject.GetComponent<WateringCan>() != null));

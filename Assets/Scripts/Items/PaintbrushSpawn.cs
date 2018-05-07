@@ -10,7 +10,7 @@ public class PaintbrushSpawn : MonoBehaviour {
         var paintbrush = Instantiate(PaintbrushPrefab);
         Inventory.Current.CleanFarmingInventory();
         Inventory.Current.AddInventory(paintbrush.GetComponent<IItem>());
-
+        Debug.Log("Adding paintbrush");
     }
 
 }

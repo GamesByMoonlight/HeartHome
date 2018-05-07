@@ -6,10 +6,12 @@ using UnityEngine;
 
 public class Flower : MonoBehaviour {
     public static Flower OldestFlower;
-
     private static Flower YoungestFlower;
     private static int FlowersCreated = 0;
     private static bool GhostMade = false;  // Some extra reduntancy 
+
+    public static void ResetFlowers() { YoungestFlower = null; OldestFlower = null; FlowersCreated = 0; GhostMade = false; }
+
 
     Flower next;
     public Flower Next { get { return next; } }
