@@ -17,7 +17,7 @@ public class AreaOneExit : Exit {
     void LeaveByChoice(HeartState heart)
     {
         heart.CurrentState = HeartState.HeartStateValues.Cursed;
-        StartCoroutine(WaitForFade());
+        //StartCoroutine(WaitForFade());
     }
 
     // Broken Heart
@@ -33,6 +33,7 @@ public class AreaOneExit : Exit {
         if(heartState)
         {
             LeaveByChoice(heartState);
+            base.OnTriggerEnter2D(collision);
         }
     }
 
@@ -41,5 +42,6 @@ public class AreaOneExit : Exit {
         // A good habit to get into.  When you add a listener.. always remove it in OnDestroy()
         if (GameEventSystem.Instance != null)
             GameEventSystem.Instance.AllFlowersDead.RemoveListener(LeaveByForce);
+        Flower.ResetFlowers();
     }
 }

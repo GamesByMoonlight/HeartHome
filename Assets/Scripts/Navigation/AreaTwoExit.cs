@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class AreaTwoExit : Exit {
-    static bool SupposedToTransition = false;   // A flag in case another exit is already transitioned before Frozen event is raised
+    public static bool SupposedToTransition = false;   // A flag in case another exit is already transitioned before Frozen event is raised
 
     new void Start()
     {

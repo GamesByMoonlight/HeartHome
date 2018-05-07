@@ -19,7 +19,9 @@ public class Exit : MonoBehaviour {
         Shade = player.GetComponentInChildren<FadeInOut>();
         if (Shade == null)
             Debug.LogError("Shade is null.  Create a Panel with an Image UI and add FadeInOut script.  Parent under Player's Canvas.");
-        StartCoroutine(Shade.FadeIn(FadeTime));
+
+        if (!FadeInOut.FadingIn)
+            StartCoroutine(Shade.FadeIn(FadeTime));
     }
 
     protected void OnTriggerEnter2D(Collider2D collision)
@@ -27,7 +29,7 @@ public class Exit : MonoBehaviour {
         // In case another exit is triggered to transfer
         if (sceneLoadInProgress)
             return;
-
+        
         // Do not want to load scene twice.  For some reason, OnTriggerEnter is called twice (or many times at least) in succession 
         var playerCollision = collision.gameObject.GetComponent<PlayerAction>();
         if (playerCollision)
