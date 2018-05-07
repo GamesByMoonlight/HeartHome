@@ -74,6 +74,7 @@ public class Inventory : MonoBehaviour {
         RemoveInventory(inventory.Find(x => x.Item.gameObject.GetComponent<Hoe>() != null));
         RemoveInventory(inventory.Find(x => x.Item.gameObject.GetComponent<Seeds>() != null));
         RemoveInventory(inventory.Find(x => x.Item.gameObject.GetComponent<WateringCan>() != null));
+        SelectedIventoryItem = null;
     }
 
     void RemoveInventory(InventorySlot slot)
@@ -92,6 +93,7 @@ public class Inventory : MonoBehaviour {
             DestroyImmediate(s.gameObject.transform.parent.gameObject);  
         }
         inventory.Clear();
+        SelectedIventoryItem = null;
     }
 
     private void OnDisable()
