@@ -18,7 +18,7 @@ public class CastleMusic : MonoBehaviour {
             audioSources.Add(child.GetComponent<AudioSource>());
         }
 
-        StartCoroutine(StartPartA());
+        StartPartA();
 	}
 	
     public void StartTrack(string trackString)
@@ -76,8 +76,9 @@ public class CastleMusic : MonoBehaviour {
             }
         }
 
-        if (itemCounter == 3)
+        if (itemCounter == 2)
         {
+            Debug.Log("Doing this");
             StartCoroutine(StartPartB(audioSources[0].timeSamples));
         }
 
@@ -99,9 +100,9 @@ public class CastleMusic : MonoBehaviour {
         }
     }
 
-    IEnumerator StartPartA()
+    void StartPartA()
     {
-        yield return new WaitForSeconds(8f);
+        //yield return new WaitForSeconds(8f);
 
         audioSources[0].clip = audioClips[0];
         audioSources[0].loop = true;
