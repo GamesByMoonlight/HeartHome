@@ -10,6 +10,7 @@ public class CastleMusic : MonoBehaviour {
 
     private List<AudioSource> audioSources = new List<AudioSource>();
 
+    bool bStarted = false;
 
 	// Use this for initialization
 	void Start () {
@@ -18,7 +19,7 @@ public class CastleMusic : MonoBehaviour {
             audioSources.Add(child.GetComponent<AudioSource>());
         }
 
-        StartCoroutine(StartPartA());
+        StartPartA();
 	}
 	
     public void StartTrack(string trackString)
@@ -76,9 +77,11 @@ public class CastleMusic : MonoBehaviour {
             }
         }
 
-        if (itemCounter == 3)
+        if (itemCounter == 2 && !bStarted)
         {
-            StartCoroutine(StartPartB(audioSources[0].timeSamples));
+            bStarted = true;
+            StartCoroutine(FadeIn(0));
+            StartCoroutine(StartPartB(audioSources[1].timeSamples));
         }
 
         if (audioSources[(int)track].volume < 1)
@@ -99,11 +102,11 @@ public class CastleMusic : MonoBehaviour {
         }
     }
 
-    IEnumerator StartPartA()
+    void StartPartA()
     {
-        yield return new WaitForSeconds(8f);
+        //yield return new WaitForSeconds(8f);
 
-        audioSources[0].clip = audioClips[0];
+        //audioSources[0].clip = audioClips[0];
         audioSources[0].loop = true;
 
         audioSources[0].Play();
@@ -118,7 +121,7 @@ public class CastleMusic : MonoBehaviour {
         float partATime = audioSources[1].isPlaying ? (58f - (samplesPlayed / 32000)) : (66f - (samplesPlayed / 32000));
 
         yield return new WaitForSeconds(partATime);
-
+        Debug.Log("Part B music");
         audioSources[0].clip = audioClips[1];
         audioSources[1].clip = audioClips[2];
         audioSources[2].clip = audioClips[3];

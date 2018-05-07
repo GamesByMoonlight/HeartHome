@@ -13,28 +13,30 @@ public class PaintingAction : MonoBehaviour
     public CastleMusic castleMusic;
 
     private bool collided = false;
-    private bool paintingGamePlayed = false;
     HeartState heart;
     GameManager gm;
 
     private void Start()
     {
         gm = DontDestroyPlayerOnLoad.playerObject.GetComponentInChildren<GameManager>();
-        if (gm.PaintingMiniGamePlayed)
+        heart = DontDestroyPlayerOnLoad.playerObject.GetComponentInChildren<HeartState>();
+        castleMusic = FindObjectOfType<CastleMusic>();
+
+        PlayTheRightMusic();
+
+        if (gm.PaintingItemsAdded >= 3)
         {
             FinishGameAndOpenRoom();
             return;
         }
 
-        heart = DontDestroyPlayerOnLoad.playerObject.GetComponentInChildren<HeartState>();
-        castleMusic = FindObjectOfType<CastleMusic>();
         StartCoroutine(Running());
     }
 
     // Update is called once per frame
     IEnumerator Running()
     {
-        while (!paintingGamePlayed)
+        while (gm.PaintingItemsAdded < 3)
         {
             ActionCheck();
             yield return null;
@@ -57,18 +59,56 @@ public class PaintingAction : MonoBehaviour
 
     void ActionCheck()
     {
-        if (Input.GetButtonDown("Action") && collided && !paintingGamePlayed)
+        if (Input.GetButtonDown("Action") && collided && gm.PaintingItemsAdded < 3)
         {
-            Inventory.Current.AddInventory(addableObject1);
-            castleMusic.StartTrack("violin");
-            Inventory.Current.AddInventory(addableObject2);
-            castleMusic.StartTrack("harp");
-            Inventory.Current.AddInventory(addableObject3);
-            castleMusic.StartTrack("percussion");
-            paintingGamePlayed = true;
-            gm.PaintingMiniGamePlayed = true;
+            AddItem(gm.PaintingItemsAdded++);
         }
 
+    }
+
+    void AddItem(int item)
+    {
+        switch(item)
+        {
+            case 0:
+                Inventory.Current.AddInventory(addableObject1);
+                PlayTrack(item);
+                break;
+            case 1:
+                Inventory.Current.AddInventory(addableObject2);
+                PlayTrack(item);
+                break;
+            case 2:
+                Inventory.Current.AddInventory(addableObject3);
+                PlayTrack(item);
+                break;
+        }
+    }
+
+    void PlayTrack(int track)
+    {
+        switch (track)
+        {
+            case 0:
+                castleMusic.StartTrack("violin");
+                break;
+            case 1:
+                castleMusic.StartTrack("harp");
+                break;
+            case 2:
+                castleMusic.StartTrack("percussion");
+                break;
+        }
+    }
+
+    void PlayTheRightMusic()
+    {
+
+        var burnables = Inventory.Current.GetComponentsInChildren<BurnableItem>();
+        foreach (var b in burnables)
+        {
+            castleMusic.StartTrack(b.instrument);
+        }
     }
 
     void FinishGameAndOpenRoom()

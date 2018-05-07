@@ -34,6 +34,6 @@ public class AreaTwoExit : Exit {
     {
         // A good habit to get into.  When you add a listener.. always remove it in OnDestroy()
         if (GameEventSystem.Instance != null)
-            GameEventSystem.Instance.AllFlowersDead.RemoveListener(LeaveByForce);
+            GameEventSystem.Instance.HeartFrozen.RemoveListener(LeaveByForce);
     }
 }

@@ -1749,6 +1749,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 82524542689330964, guid: e6f04c1febf634c42bcdcb120a6cde2e,
+        type: 2}
+      propertyPath: m_Volume
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 82524542689330964, guid: e6f04c1febf634c42bcdcb120a6cde2e,
+        type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 555e57badab195446bc6b359219571fa, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e6f04c1febf634c42bcdcb120a6cde2e, type: 2}
   m_IsPrefabParent: 0
@@ -1794,6 +1804,11 @@ Prefab:
     - target: {fileID: 1885487737116386, guid: 68d6f1b7fecbb4f8a9822184b1801ce9, type: 2}
       propertyPath: m_TagString
       value: Tool
+      objectReference: {fileID: 0}
+    - target: {fileID: 114546561121636714, guid: 68d6f1b7fecbb4f8a9822184b1801ce9,
+        type: 2}
+      propertyPath: instrument
+      value: log
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 68d6f1b7fecbb4f8a9822184b1801ce9, type: 2}
