@@ -80,10 +80,8 @@ public class CastleMusic : MonoBehaviour {
         if (itemCounter == 2 && !bStarted)
         {
             bStarted = true;
-            audioSources[0].clip = audioClips[1];
-            audioSources[0].Play();
             StartCoroutine(FadeIn(0));
-            StartCoroutine(StartPartB(audioSources[0].timeSamples));
+            StartCoroutine(StartPartB(audioSources[1].timeSamples));
         }
 
         if (audioSources[(int)track].volume < 1)
@@ -108,7 +106,7 @@ public class CastleMusic : MonoBehaviour {
     {
         //yield return new WaitForSeconds(8f);
 
-        audioSources[0].clip = audioClips[0];
+        //audioSources[0].clip = audioClips[0];
         audioSources[0].loop = true;
 
         audioSources[0].Play();

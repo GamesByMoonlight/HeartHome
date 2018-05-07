@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour {
     Dictionary<string, Vector2> ReturnPoints = new Dictionary<string, Vector2>();
 
-    public bool PaintingMiniGamePlayed;
+    public int PaintingItemsAdded = 0;
 
     GameObject player;
 
@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour {
 
     private void Awake()
     {
-        PaintingMiniGamePlayed = false;
+        PaintingItemsAdded = 0;
     }
 
     private void Start()
