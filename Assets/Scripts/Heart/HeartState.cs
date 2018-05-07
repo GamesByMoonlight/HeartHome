@@ -32,6 +32,7 @@ public class HeartState : MonoBehaviour {
 
     private void Start()
     {
+        GameEventSystem.Instance.GameEnded.AddListener(GameEndedListener);
         SetState(currentState);
     }
 
@@ -144,4 +145,15 @@ public class HeartState : MonoBehaviour {
         coldCoroutine = null;
     }
 	
+    void GameEndedListener()
+    {
+        coldSoFarTime = 0f;
+        AreaTwoExit.SupposedToTransition = false;
+    }
+
+    private void OnDestroy()
+    {
+        if (GameEventSystem.Instance != null)
+            GameEventSystem.Instance.GameEnded.RemoveListener(GameEndedListener);
+    }
 }
