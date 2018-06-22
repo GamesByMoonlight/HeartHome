@@ -17,6 +17,21 @@ public class StartupFadeController : MonoBehaviour {
     {
         StartCoroutine(StartHelper());
     }
+    
+    public void StartGame()
+    {
+        StartCoroutine(FadeToGame());
+    }
+
+    public void OptionsScreen()
+    {
+        StartCoroutine(FadeToOptions());
+    }
+
+    public void EndGame()
+    {
+        Application.Quit();
+    }
 
     IEnumerator StartHelper()
     {
@@ -24,8 +39,6 @@ public class StartupFadeController : MonoBehaviour {
         StartCoroutine(Shade.FadeInWhite(FadeInTime));
         yield return new WaitForSeconds(FadeInTime);
         StartCoroutine(FadeInInstructions(FadeInTime));
-        StartCoroutine(WaitForAnyKey());
-
     }
 
     IEnumerator FadeInInstructions(float time)
@@ -40,20 +53,16 @@ public class StartupFadeController : MonoBehaviour {
         canvasGroup.alpha = 1f;
     }
 
-    IEnumerator WaitForAnyKey()
+    IEnumerator FadeToGame()
     {
-        while (!startGame)
-        {
-            if (Input.anyKey)
-            {
-                startGame = true;
-            }
-            yield return null;
-        }
-
         StartCoroutine(Shade.FadeOut(FadeOutTime));
         yield return new WaitForSeconds(FadeOutTime);
         SceneManager.LoadSceneAsync(NextSceneName);
     }
 
+    IEnumerator FadeToOptions()
+    {
+        StartCoroutine(Shade.FadeOut(FadeOutTime));
+        yield return new WaitForSeconds(FadeOutTime);
+    }
 }
