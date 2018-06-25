@@ -1993,6 +1993,14 @@ MonoBehaviour:
   canvasGroup: {fileID: 1081350395}
   StartScreenCanvas: {fileID: 686485469}
   OptionsScreenCanvas: {fileID: 787686715}
+  buttons:
+  - {fileID: 1882126577}
+  - {fileID: 1919453663}
+  - {fileID: 1712850389}
+  texts:
+  - {fileID: 1455311224}
+  - {fileID: 1250910448}
+  - {fileID: 655387740}
   FadeInTime: 1.7
   FadeOutTime: 1
   NextSceneName: Area 1

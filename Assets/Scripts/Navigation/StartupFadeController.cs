@@ -9,6 +9,8 @@ public class StartupFadeController : MonoBehaviour {
     public CanvasGroup canvasGroup;
     public Canvas StartScreenCanvas;
     public Canvas OptionsScreenCanvas;
+    public Button[] buttons;
+    public Text[] texts;
     public float FadeInTime = 1f;
     public float FadeOutTime = 1f;
     public string NextSceneName = "Area 1";
@@ -55,30 +57,36 @@ public class StartupFadeController : MonoBehaviour {
     {
         var startTime = Time.time;
 
-        List<Button> buttons = new List<Button>();
-        List<Text> texts = new List<Text>();
-
-        GetComponentsInParent(true, buttons);
-        GetComponentsInParent(true, texts);
-
+        /*
+        transform.parent.GetComponentsInChildren(true, buttons);
+        transform.parent.GetComponentsInChildren(true, texts);
+        */
+        
         while (Time.time - startTime < time)
-        {
+        { 
             canvasGroup.alpha = (Time.time - startTime) / time;
 
             foreach (Button eachButton in buttons)
             {
-                Color buttonColor = eachButton.colors.normalColor;
-                buttonColor.a = (Time.time - startTime)/time;
+                ColorBlock cb = eachButton.colors;
+                Color thisColor = cb.normalColor;
+                
+                thisColor.a = (Time.time - startTime) / time;
+                cb.normalColor = thisColor;
+
+                eachButton.colors = cb;
             }
 
             foreach (Text eachText in texts)
             {
                 Color textColor = eachText.color;
                 textColor.a = (Time.time - startTime) / time;
+                eachText.color = textColor;
             }
-
+            
             yield return null;
         }
+        
 
         canvasGroup.alpha = 1f;
         
