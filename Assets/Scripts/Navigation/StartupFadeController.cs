@@ -9,14 +9,13 @@ public class StartupFadeController : MonoBehaviour {
     public CanvasGroup canvasGroup;
     public Canvas StartScreenCanvas;
     public Canvas OptionsScreenCanvas;
-    public Button[] buttons;
-    public Text[] texts;
     public float FadeInTime = 1f;
     public float FadeOutTime = 1f;
     public string NextSceneName = "Area 1";
 
-    bool startGame = false;
-
+    readonly List<Button> buttons = new List<Button>();
+    readonly List<Text> texts = new List<Text>();
+    
     // Use this for initialization
     private void Start()
     {
@@ -30,8 +29,8 @@ public class StartupFadeController : MonoBehaviour {
 
     public void OptionsScreen()
     {
-        StartScreenCanvas.enabled = false;
         OptionsScreenCanvas.enabled = true;
+        StartScreenCanvas.enabled = false;
     }
 
     public void BackToStart()
@@ -47,7 +46,11 @@ public class StartupFadeController : MonoBehaviour {
 
     IEnumerator StartHelper()
     {
+        transform.parent.GetComponentsInChildren(true, buttons);
+        transform.parent.GetComponentsInChildren(true, texts);
+
         canvasGroup.alpha = 0f;
+
         StartCoroutine(Shade.FadeInWhite(FadeInTime));
         yield return new WaitForSeconds(FadeInTime);
         StartCoroutine(FadeInInstructions(FadeInTime));
@@ -56,11 +59,6 @@ public class StartupFadeController : MonoBehaviour {
     IEnumerator FadeInInstructions(float time)
     {
         var startTime = Time.time;
-
-        /*
-        transform.parent.GetComponentsInChildren(true, buttons);
-        transform.parent.GetComponentsInChildren(true, texts);
-        */
         
         while (Time.time - startTime < time)
         { 
@@ -87,9 +85,11 @@ public class StartupFadeController : MonoBehaviour {
             yield return null;
         }
         
-
         canvasGroup.alpha = 1f;
-        
+
+        Image thisImage = GetComponent<Image>();
+        thisImage.raycastTarget = false;
+
     }
 
     IEnumerator FadeToGame()
