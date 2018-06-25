@@ -453,7 +453,7 @@ Prefab:
     - target: {fileID: 114755156935471312, guid: c4063ef15a5f84a3db9f385188c3ed51,
         type: 2}
       propertyPath: NextSceneName
-      value: Area 2
+      value: Area 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c4063ef15a5f84a3db9f385188c3ed51, type: 2}
@@ -1892,7 +1892,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e1bb0052401247e288f05004750260f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NextSceneName: Area 3
+  NextSceneName: Area 4
   FadeTime: 1
 --- !u!4 &1406539282
 Transform:
