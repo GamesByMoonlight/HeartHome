@@ -9,6 +9,7 @@ public class BeginStarSearch : MonoBehaviour {
     public IsCollidingWithPlayer AvoidObstacle;
     public Transform PlayerEndingPosition;
     public CircleCollider2D DeleteThisCollider;
+    public GameObject ConstellationParent;
     public float ReduceSpeedFactor = .2f;
     public float SecondsToPanUp = 5f;
     public float DegreesToPanUp = -12f;
@@ -74,6 +75,7 @@ public class BeginStarSearch : MonoBehaviour {
         Camera.main.transform.SetParent(transform);          // So that the shader still fades as I destroy the player
         //StartCoroutine(Shade.FadeOutWhite(FadeOutTime));
         Destroy(player.gameObject);
+        ActivateStarSearch();
 
         yield return new WaitForSeconds(FadeOutTime);
         //SceneManager.LoadSceneAsync(StartSceneName);
@@ -90,5 +92,10 @@ public class BeginStarSearch : MonoBehaviour {
         direction = new Vector3(direction.x, 0f, 0f);
         direction = direction.normalized * ReduceSpeedFactor;
         player.AutoPilot(direction.x, 0f);
+    }
+
+    private void ActivateStarSearch()
+    {
+        ConstellationParent.SetActive(true);
     }
 }

@@ -59,7 +59,7 @@ public class StarSearchMinigame : MonoBehaviour {
 
         } else if (IsFirstStar() == true)
         {
-            
+            Debug.Log("IsFirstStar");
             starClicked.HasBeenFound = true;
             starClicked.UpdateStatus();
         }
@@ -83,11 +83,19 @@ public class StarSearchMinigame : MonoBehaviour {
     // Method to check the entire array of stars in this object and if no star has been activated, retur
     bool IsFirstStar()
     {
+        bool IsAnyStarInThisActive = false;
+
         foreach (ClickableStar star in stars)
         {
             if (star.HasBeenFound == true)
-                return false;
+                IsAnyStarInThisActive = true;
+
+            if (IsAnyStarInThisActive == true)
+                break;
         }
+
+        if (IsAnyStarInThisActive)
+            return false;
 
         return true;
     }
