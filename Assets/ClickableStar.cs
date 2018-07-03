@@ -7,6 +7,7 @@ public class ClickableStar : MonoBehaviour {
     
     public bool IveBeenClicked { get; set; }
     public bool HasBeenFound { get; set; }
+    public bool IsConnected { get; set; }
 
 
     public void UpdateStatus()

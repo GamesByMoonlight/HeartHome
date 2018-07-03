@@ -4,7 +4,22 @@ using UnityEngine;
 
 public class StarSearchMinigame : MonoBehaviour {
 
+    public GameObject MiniStar;
+    public float smallStarGap = 0.05f;
+
     ClickableStar[] stars;
+
+    class Neighborstars
+    {
+        public Neighborstars(ClickableStar previousNeighbor, ClickableStar nextNeighbor)
+        {
+            PreviousNeighbor = previousNeighbor;
+            NextNeighbor = nextNeighbor;
+        }
+
+        public ClickableStar PreviousNeighbor { get; set; }
+        public ClickableStar NextNeighbor { get; set; }
+    }
     
 	// Use this for initialization
 	void Start () {
@@ -32,49 +47,35 @@ public class StarSearchMinigame : MonoBehaviour {
             return;
 
         ClickableStar starClicked = objectClicked.collider.gameObject.GetComponent<ClickableStar>();
-
+        Neighborstars neighborStars = GetNeighborStars(starClicked);
                     
         //Debug.Log("Raycast has found object " + objectClicked.collider.gameObject.name);
 
-        if (IsValidNextStar(starClicked) == true)
+        if (IsValidNextStar(neighborStars) == true)
         {
-            Debug.Log("Available Next Star clicked");
-
             starClicked.HasBeenFound = true;
             starClicked.UpdateStatus();
+            ConnectStars();
 
         } else if (IsFirstStar() == true)
         {
+            
             starClicked.HasBeenFound = true;
             starClicked.UpdateStatus();
         }
 
     }
 
-    bool IsValidNextStar(ClickableStar clickedStar)
+    bool IsValidNextStar(Neighborstars myNeighbors)
     {
-        clickedStar.IveBeenClicked = true;
 
-        int index = 0;
-        
-        for (int i = 0; i < stars.Length; i++)
+
+        if (myNeighbors.PreviousNeighbor.HasBeenFound || myNeighbors.NextNeighbor.HasBeenFound)
         {
-            if (stars[i].IveBeenClicked == true)
-                index = i;
-        }
 
-        int previousNeighborIndex, nextNeighborIndex;
-
-        previousNeighborIndex = index - 1;
-        nextNeighborIndex = index + 1;
-
-        if (index == 0)
-            previousNeighborIndex = stars.Length - 1;
-        if (index == stars.Length)
-            nextNeighborIndex = 0;
-
-        if (stars[previousNeighborIndex].HasBeenFound || stars[nextNeighborIndex].HasBeenFound)
             return true;
+        }
+            
 
         return false;
     }
@@ -90,4 +91,68 @@ public class StarSearchMinigame : MonoBehaviour {
 
         return true;
     }
+
+    void ConnectStars()
+    {
+        foreach (ClickableStar star in stars)
+        {
+            Neighborstars myNeighbors = GetNeighborStars(star);
+            if (star.IsConnected == false && star.HasBeenFound == true && myNeighbors.NextNeighbor.HasBeenFound)
+            {
+                Vector3 startPoint = star.transform.position;
+                Vector3 endPoint = myNeighbors.NextNeighbor.transform.position;
+
+                Vector3 connectionLine = endPoint - startPoint;
+                float smallStarsNeeded = (connectionLine.magnitude / smallStarGap);
+
+                for (float i = 0; i <= smallStarsNeeded; i++)
+                {
+                    GameObject miniStar = Instantiate(MiniStar, startPoint + (connectionLine/smallStarsNeeded * i), Quaternion.identity);
+                    miniStar.transform.parent = star.transform;
+                }
+
+                star.IsConnected = true;
+            }
+        }
+
+        return;
+    }
+
+    Neighborstars GetNeighborStars(ClickableStar thisStar)
+    {
+        thisStar.IveBeenClicked = true;
+
+        int index = 0;
+
+        for (int i = 0; i < stars.Length; i++)
+        {
+            if (stars[i].IveBeenClicked == true)
+                index = i;
+        }
+
+        int previousNeighborIndex, nextNeighborIndex;
+
+        if (index == 0)
+        {
+            previousNeighborIndex = stars.Length - 1;
+            nextNeighborIndex = index + 1;
+        }
+        else if (index == stars.Length - 1)
+        {
+            previousNeighborIndex = index - 1;
+            nextNeighborIndex = 0;
+        }
+
+        else
+        {
+            previousNeighborIndex = index - 1;
+            nextNeighborIndex = index + 1;
+        }
+
+        thisStar.IveBeenClicked = false;
+
+        return (new Neighborstars(stars[previousNeighborIndex], stars[nextNeighborIndex]));
+    }
+
+       
 }
