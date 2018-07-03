@@ -48,7 +48,7 @@ public class BeginStarSearch : MonoBehaviour {
             direction = PlayerEndingPosition.position - player.transform.position;
         }
 
-        Debug.Log("Done");
+        //Debug.Log("Done");
         player.AutoPilot(0f, .01f);   // Face up
         yield return null;
         player.AutoPilot(0f, 0f);   // Stop

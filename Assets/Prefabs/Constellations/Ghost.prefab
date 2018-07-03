@@ -603,8 +603,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1221157056727538}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.27, y: 4.44, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -4.25, y: 0.5, z: 0}
+  m_LocalScale: {x: 1.1429688, y: 0.9923439, z: 1}
   m_Children:
   - {fileID: 4891618436456442}
   - {fileID: 4869924821466484}
@@ -1162,7 +1162,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MiniStar: {fileID: 1589996901234664, guid: 35c047f166bb8894f90e789e0e581e0f, type: 2}
-  smallStarGap: 0.05
+  smallStarGap: 0.08
 --- !u!114 &114974391646682480
 MonoBehaviour:
   m_ObjectHideFlags: 1
