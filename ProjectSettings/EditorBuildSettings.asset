@@ -10,13 +10,16 @@ EditorBuildSettings:
     guid: f6b87da3e6cbf421eaa4cc882654f98f
   - enabled: 1
     path: Assets/_Scenes/Area 1.unity
-    guid: c54da919ac538498b81f1db84b86981b
+    guid: fb38393a27b351b488ceb0acc1ca839b
   - enabled: 1
     path: Assets/_Scenes/Area 2.unity
+    guid: c54da919ac538498b81f1db84b86981b
+  - enabled: 1
+    path: Assets/_Scenes/Area 3.unity
     guid: 811aa3333ec1a4bb6af2cb29048570b5
   - enabled: 1
     path: Assets/_Scenes/Castle.unity
     guid: 5764d91f16e32488eba6ed1d88931e7e
   - enabled: 1
-    path: Assets/_Scenes/Area 3.unity
+    path: Assets/_Scenes/Area 4.unity
     guid: 7488326fc44cf49728215fd74f0fcc2a
