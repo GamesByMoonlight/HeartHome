@@ -28,7 +28,10 @@ public class StarSearchMinigame : MonoBehaviour
             return null;
 
         if (objectClicked.collider.gameObject.GetComponent<ClickableStar>() == null)
+        {
+            Debug.Log("Raycast found " + objectClicked.collider.gameObject);
             return null;
+        }
 
         return objectClicked.collider.gameObject.GetComponent<ClickableStar>();
     }

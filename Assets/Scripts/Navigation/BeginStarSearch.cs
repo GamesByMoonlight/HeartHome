@@ -71,10 +71,10 @@ public class BeginStarSearch : MonoBehaviour {
             delta = Time.time - time;
         }
 
-        FindObjectOfType<Canvas>().transform.SetParent(transform);  // So that the shader still fades as I destroy the player
-        Camera.main.transform.SetParent(transform);          // So that the shader still fades as I destroy the player
+        //FindObjectOfType<Canvas>().transform.SetParent(transform);  // So that the shader still fades as I destroy the player
+        //Camera.main.transform.SetParent(transform);          // So that the shader still fades as I destroy the player
         //StartCoroutine(Shade.FadeOutWhite(FadeOutTime));
-        Destroy(player.gameObject);
+        //Destroy(player.gameObject);
         ActivateStarSearch();
 
         yield return new WaitForSeconds(FadeOutTime);
